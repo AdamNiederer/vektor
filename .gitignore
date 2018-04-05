@@ -1,0 +1,15 @@
+/target/
+**/*.rs.bk
+#*
+*#
+*~
+~*
+*.bak
+*.sav
+kek.*
+kek-*
+Cargo.lock
+.idea
+*.rlib
+*.d
+*.s
