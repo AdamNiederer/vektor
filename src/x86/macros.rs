@@ -1,3 +1,4 @@
-use ::arch::x86::*;
-use ::simd::*;
+#![allow(unused_imports)]
+use crate::myarch::*;
+use crate::simd::*;
 
