@@ -646,7 +646,7 @@ pub unsafe fn _mm_cvtepi32_pd(a: __m128i) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cvtsi2sd))]
-pub unsafe fn _mm_cvtsi32_sd(a: __m128d, b: i32) -> f64x2 {
+pub unsafe fn _mm_cvtsi32_sd(a: f64x2, b: i32) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cvtsi32_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1017,7 +1017,7 @@ pub unsafe fn _mm_unpacklo_epi64(a: i64x2, b: i64x2) -> i64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(addsd))]
-pub unsafe fn _mm_add_sd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_add_sd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_add_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1026,7 +1026,7 @@ pub unsafe fn _mm_add_sd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(addpd))]
-pub unsafe fn _mm_add_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_add_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_add_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1035,7 +1035,7 @@ pub unsafe fn _mm_add_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(divsd))]
-pub unsafe fn _mm_div_sd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_div_sd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_div_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1044,7 +1044,7 @@ pub unsafe fn _mm_div_sd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(divpd))]
-pub unsafe fn _mm_div_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_div_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_div_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1053,7 +1053,7 @@ pub unsafe fn _mm_div_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(maxsd))]
-pub unsafe fn _mm_max_sd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_max_sd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_max_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1062,7 +1062,7 @@ pub unsafe fn _mm_max_sd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(maxpd))]
-pub unsafe fn _mm_max_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_max_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_max_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1071,7 +1071,7 @@ pub unsafe fn _mm_max_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(minsd))]
-pub unsafe fn _mm_min_sd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_min_sd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_min_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1080,7 +1080,7 @@ pub unsafe fn _mm_min_sd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(minpd))]
-pub unsafe fn _mm_min_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_min_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_min_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1089,7 +1089,7 @@ pub unsafe fn _mm_min_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(mulsd))]
-pub unsafe fn _mm_mul_sd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_mul_sd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_mul_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1098,7 +1098,7 @@ pub unsafe fn _mm_mul_sd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(mulpd))]
-pub unsafe fn _mm_mul_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_mul_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_mul_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1107,7 +1107,7 @@ pub unsafe fn _mm_mul_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(sqrtsd))]
-pub unsafe fn _mm_sqrt_sd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_sqrt_sd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_sqrt_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1115,7 +1115,7 @@ pub unsafe fn _mm_sqrt_sd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(sqrtpd))]
-pub unsafe fn _mm_sqrt_pd(a: __m128d) -> f64x2 {
+pub unsafe fn _mm_sqrt_pd(a: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_sqrt_pd(::mem::transmute(a)))
 }
 
@@ -1124,7 +1124,7 @@ pub unsafe fn _mm_sqrt_pd(a: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(subsd))]
-pub unsafe fn _mm_sub_sd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_sub_sd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_sub_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1133,7 +1133,7 @@ pub unsafe fn _mm_sub_sd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(subpd))]
-pub unsafe fn _mm_sub_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_sub_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_sub_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1142,7 +1142,7 @@ pub unsafe fn _mm_sub_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(andps))]
-pub unsafe fn _mm_and_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_and_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_and_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1150,7 +1150,7 @@ pub unsafe fn _mm_and_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(andnps))]
-pub unsafe fn _mm_andnot_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_andnot_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_andnot_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1158,7 +1158,7 @@ pub unsafe fn _mm_andnot_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(orps))]
-pub unsafe fn _mm_or_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_or_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_or_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1166,7 +1166,7 @@ pub unsafe fn _mm_or_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(xorps))]
-pub unsafe fn _mm_xor_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_xor_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_xor_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1175,7 +1175,7 @@ pub unsafe fn _mm_xor_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmpeqsd))]
-pub unsafe fn _mm_cmpeq_sd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmpeq_sd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmpeq_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1184,7 +1184,7 @@ pub unsafe fn _mm_cmpeq_sd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmpltsd))]
-pub unsafe fn _mm_cmplt_sd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmplt_sd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmplt_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1193,7 +1193,7 @@ pub unsafe fn _mm_cmplt_sd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmplesd))]
-pub unsafe fn _mm_cmple_sd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmple_sd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmple_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1202,7 +1202,7 @@ pub unsafe fn _mm_cmple_sd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmpltsd))]
-pub unsafe fn _mm_cmpgt_sd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmpgt_sd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmpgt_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1211,7 +1211,7 @@ pub unsafe fn _mm_cmpgt_sd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmplesd))]
-pub unsafe fn _mm_cmpge_sd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmpge_sd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmpge_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1222,7 +1222,7 @@ pub unsafe fn _mm_cmpge_sd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmpordsd))]
-pub unsafe fn _mm_cmpord_sd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmpord_sd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmpord_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1232,7 +1232,7 @@ pub unsafe fn _mm_cmpord_sd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmpunordsd))]
-pub unsafe fn _mm_cmpunord_sd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmpunord_sd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmpunord_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1241,7 +1241,7 @@ pub unsafe fn _mm_cmpunord_sd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmpneqsd))]
-pub unsafe fn _mm_cmpneq_sd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmpneq_sd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmpneq_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1250,7 +1250,7 @@ pub unsafe fn _mm_cmpneq_sd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmpnltsd))]
-pub unsafe fn _mm_cmpnlt_sd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmpnlt_sd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmpnlt_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1259,7 +1259,7 @@ pub unsafe fn _mm_cmpnlt_sd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmpnlesd))]
-pub unsafe fn _mm_cmpnle_sd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmpnle_sd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmpnle_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1268,7 +1268,7 @@ pub unsafe fn _mm_cmpnle_sd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmpnltsd))]
-pub unsafe fn _mm_cmpngt_sd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmpngt_sd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmpngt_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1277,7 +1277,7 @@ pub unsafe fn _mm_cmpngt_sd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmpnlesd))]
-pub unsafe fn _mm_cmpnge_sd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmpnge_sd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmpnge_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1285,7 +1285,7 @@ pub unsafe fn _mm_cmpnge_sd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmpeqpd))]
-pub unsafe fn _mm_cmpeq_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmpeq_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmpeq_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1293,7 +1293,7 @@ pub unsafe fn _mm_cmpeq_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmpltpd))]
-pub unsafe fn _mm_cmplt_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmplt_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmplt_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1301,7 +1301,7 @@ pub unsafe fn _mm_cmplt_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmplepd))]
-pub unsafe fn _mm_cmple_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmple_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmple_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1309,7 +1309,7 @@ pub unsafe fn _mm_cmple_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmpltpd))]
-pub unsafe fn _mm_cmpgt_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmpgt_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmpgt_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1317,7 +1317,7 @@ pub unsafe fn _mm_cmpgt_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmplepd))]
-pub unsafe fn _mm_cmpge_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmpge_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmpge_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1325,7 +1325,7 @@ pub unsafe fn _mm_cmpge_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmpordpd))]
-pub unsafe fn _mm_cmpord_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmpord_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmpord_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1333,7 +1333,7 @@ pub unsafe fn _mm_cmpord_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmpunordpd))]
-pub unsafe fn _mm_cmpunord_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmpunord_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmpunord_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1341,7 +1341,7 @@ pub unsafe fn _mm_cmpunord_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmpneqpd))]
-pub unsafe fn _mm_cmpneq_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmpneq_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmpneq_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1349,7 +1349,7 @@ pub unsafe fn _mm_cmpneq_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmpnltpd))]
-pub unsafe fn _mm_cmpnlt_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmpnlt_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmpnlt_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1357,7 +1357,7 @@ pub unsafe fn _mm_cmpnlt_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmpnlepd))]
-pub unsafe fn _mm_cmpnle_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmpnle_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmpnle_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1365,7 +1365,7 @@ pub unsafe fn _mm_cmpnle_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmpnltpd))]
-pub unsafe fn _mm_cmpngt_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmpngt_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmpngt_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1374,7 +1374,7 @@ pub unsafe fn _mm_cmpngt_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cmpnlepd))]
-pub unsafe fn _mm_cmpnge_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_cmpnge_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cmpnge_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1382,7 +1382,7 @@ pub unsafe fn _mm_cmpnge_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(comisd))]
-pub unsafe fn _mm_comieq_sd(a: __m128d, b: __m128d) -> i32 {
+pub unsafe fn _mm_comieq_sd(a: f64x2, b: f64x2) -> i32 {
     ::mem::transmute(::myarch::_mm_comieq_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1390,7 +1390,7 @@ pub unsafe fn _mm_comieq_sd(a: __m128d, b: __m128d) -> i32 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(comisd))]
-pub unsafe fn _mm_comilt_sd(a: __m128d, b: __m128d) -> i32 {
+pub unsafe fn _mm_comilt_sd(a: f64x2, b: f64x2) -> i32 {
     ::mem::transmute(::myarch::_mm_comilt_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1398,7 +1398,7 @@ pub unsafe fn _mm_comilt_sd(a: __m128d, b: __m128d) -> i32 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(comisd))]
-pub unsafe fn _mm_comile_sd(a: __m128d, b: __m128d) -> i32 {
+pub unsafe fn _mm_comile_sd(a: f64x2, b: f64x2) -> i32 {
     ::mem::transmute(::myarch::_mm_comile_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1406,7 +1406,7 @@ pub unsafe fn _mm_comile_sd(a: __m128d, b: __m128d) -> i32 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(comisd))]
-pub unsafe fn _mm_comigt_sd(a: __m128d, b: __m128d) -> i32 {
+pub unsafe fn _mm_comigt_sd(a: f64x2, b: f64x2) -> i32 {
     ::mem::transmute(::myarch::_mm_comigt_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1414,7 +1414,7 @@ pub unsafe fn _mm_comigt_sd(a: __m128d, b: __m128d) -> i32 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(comisd))]
-pub unsafe fn _mm_comige_sd(a: __m128d, b: __m128d) -> i32 {
+pub unsafe fn _mm_comige_sd(a: f64x2, b: f64x2) -> i32 {
     ::mem::transmute(::myarch::_mm_comige_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1422,7 +1422,7 @@ pub unsafe fn _mm_comige_sd(a: __m128d, b: __m128d) -> i32 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(comisd))]
-pub unsafe fn _mm_comineq_sd(a: __m128d, b: __m128d) -> i32 {
+pub unsafe fn _mm_comineq_sd(a: f64x2, b: f64x2) -> i32 {
     ::mem::transmute(::myarch::_mm_comineq_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1430,7 +1430,7 @@ pub unsafe fn _mm_comineq_sd(a: __m128d, b: __m128d) -> i32 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(ucomisd))]
-pub unsafe fn _mm_ucomieq_sd(a: __m128d, b: __m128d) -> i32 {
+pub unsafe fn _mm_ucomieq_sd(a: f64x2, b: f64x2) -> i32 {
     ::mem::transmute(::myarch::_mm_ucomieq_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1438,7 +1438,7 @@ pub unsafe fn _mm_ucomieq_sd(a: __m128d, b: __m128d) -> i32 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(ucomisd))]
-pub unsafe fn _mm_ucomilt_sd(a: __m128d, b: __m128d) -> i32 {
+pub unsafe fn _mm_ucomilt_sd(a: f64x2, b: f64x2) -> i32 {
     ::mem::transmute(::myarch::_mm_ucomilt_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1446,7 +1446,7 @@ pub unsafe fn _mm_ucomilt_sd(a: __m128d, b: __m128d) -> i32 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(ucomisd))]
-pub unsafe fn _mm_ucomile_sd(a: __m128d, b: __m128d) -> i32 {
+pub unsafe fn _mm_ucomile_sd(a: f64x2, b: f64x2) -> i32 {
     ::mem::transmute(::myarch::_mm_ucomile_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1454,7 +1454,7 @@ pub unsafe fn _mm_ucomile_sd(a: __m128d, b: __m128d) -> i32 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(ucomisd))]
-pub unsafe fn _mm_ucomigt_sd(a: __m128d, b: __m128d) -> i32 {
+pub unsafe fn _mm_ucomigt_sd(a: f64x2, b: f64x2) -> i32 {
     ::mem::transmute(::myarch::_mm_ucomigt_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1462,7 +1462,7 @@ pub unsafe fn _mm_ucomigt_sd(a: __m128d, b: __m128d) -> i32 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(ucomisd))]
-pub unsafe fn _mm_ucomige_sd(a: __m128d, b: __m128d) -> i32 {
+pub unsafe fn _mm_ucomige_sd(a: f64x2, b: f64x2) -> i32 {
     ::mem::transmute(::myarch::_mm_ucomige_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1470,7 +1470,7 @@ pub unsafe fn _mm_ucomige_sd(a: __m128d, b: __m128d) -> i32 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(ucomisd))]
-pub unsafe fn _mm_ucomineq_sd(a: __m128d, b: __m128d) -> i32 {
+pub unsafe fn _mm_ucomineq_sd(a: f64x2, b: f64x2) -> i32 {
     ::mem::transmute(::myarch::_mm_ucomineq_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1479,7 +1479,7 @@ pub unsafe fn _mm_ucomineq_sd(a: __m128d, b: __m128d) -> i32 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cvtpd2ps))]
-pub unsafe fn _mm_cvtpd_ps(a: __m128d) -> f32x4 {
+pub unsafe fn _mm_cvtpd_ps(a: f64x2) -> f32x4 {
     ::mem::transmute(::myarch::_mm_cvtpd_ps(::mem::transmute(a)))
 }
 
@@ -1498,7 +1498,7 @@ pub unsafe fn _mm_cvtps_pd(a: f32x4) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cvtpd2dq))]
-pub unsafe fn _mm_cvtpd_epi32(a: __m128d) -> i32x4 {
+pub unsafe fn _mm_cvtpd_epi32(a: f64x2) -> i32x4 {
     ::mem::transmute(::myarch::_mm_cvtpd_epi32(::mem::transmute(a)))
 }
 
@@ -1507,7 +1507,7 @@ pub unsafe fn _mm_cvtpd_epi32(a: __m128d) -> i32x4 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cvtsd2si))]
-pub unsafe fn _mm_cvtsd_si32(a: __m128d) -> i32 {
+pub unsafe fn _mm_cvtsd_si32(a: f64x2) -> i32 {
     ::mem::transmute(::myarch::_mm_cvtsd_si32(::mem::transmute(a)))
 }
 
@@ -1518,14 +1518,14 @@ pub unsafe fn _mm_cvtsd_si32(a: __m128d) -> i32 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cvtsd2ss))]
-pub unsafe fn _mm_cvtsd_ss(a: f32x4, b: __m128d) -> f32x4 {
+pub unsafe fn _mm_cvtsd_ss(a: f32x4, b: f64x2) -> f32x4 {
     ::mem::transmute(::myarch::_mm_cvtsd_ss(::mem::transmute(a), ::mem::transmute(b)))
 }
 
 /// Return the lower double-precision (64-bit) floating-point element of "a".
 #[inline]
 #[target_feature(enable = "sse2")]
-pub unsafe fn _mm_cvtsd_f64(a: __m128d) -> f64 {
+pub unsafe fn _mm_cvtsd_f64(a: f64x2) -> f64 {
     ::mem::transmute(::myarch::_mm_cvtsd_f64(::mem::transmute(a)))
 }
 
@@ -1536,7 +1536,7 @@ pub unsafe fn _mm_cvtsd_f64(a: __m128d) -> f64 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cvtss2sd))]
-pub unsafe fn _mm_cvtss_sd(a: __m128d, b: f32x4) -> f64x2 {
+pub unsafe fn _mm_cvtss_sd(a: f64x2, b: f32x4) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cvtss_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1545,7 +1545,7 @@ pub unsafe fn _mm_cvtss_sd(a: __m128d, b: f32x4) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cvttpd2dq))]
-pub unsafe fn _mm_cvttpd_epi32(a: __m128d) -> i32x4 {
+pub unsafe fn _mm_cvttpd_epi32(a: f64x2) -> i32x4 {
     ::mem::transmute(::myarch::_mm_cvttpd_epi32(::mem::transmute(a)))
 }
 
@@ -1554,7 +1554,7 @@ pub unsafe fn _mm_cvttpd_epi32(a: __m128d) -> i32x4 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cvttsd2si))]
-pub unsafe fn _mm_cvttsd_si32(a: __m128d) -> i32 {
+pub unsafe fn _mm_cvttsd_si32(a: f64x2) -> i32 {
     ::mem::transmute(::myarch::_mm_cvttsd_si32(::mem::transmute(a)))
 }
 
@@ -1619,7 +1619,7 @@ pub unsafe fn _mm_setzero_pd() -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(movmskpd))]
-pub unsafe fn _mm_movemask_pd(a: __m128d) -> i32 {
+pub unsafe fn _mm_movemask_pd(a: f64x2) -> i32 {
     ::mem::transmute(::myarch::_mm_movemask_pd(::mem::transmute(a)))
 }
 
@@ -1649,7 +1649,7 @@ pub unsafe fn _mm_load_sd(mem_addr: *const f64) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(movhpd))]
-pub unsafe fn _mm_loadh_pd(a: __m128d, mem_addr: *const f64) -> f64x2 {
+pub unsafe fn _mm_loadh_pd(a: f64x2, mem_addr: *const f64) -> f64x2 {
     ::mem::transmute(::myarch::_mm_loadh_pd(::mem::transmute(a), ::mem::transmute(mem_addr)))
 }
 
@@ -1659,7 +1659,7 @@ pub unsafe fn _mm_loadh_pd(a: __m128d, mem_addr: *const f64) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(movlpd))]
-pub unsafe fn _mm_loadl_pd(a: __m128d, mem_addr: *const f64) -> f64x2 {
+pub unsafe fn _mm_loadl_pd(a: f64x2, mem_addr: *const f64) -> f64x2 {
     ::mem::transmute(::myarch::_mm_loadl_pd(::mem::transmute(a), ::mem::transmute(mem_addr)))
 }
 
@@ -1708,7 +1708,7 @@ pub unsafe fn _mm_loadu_pd(mem_addr: *const f64) -> f64x2 {
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(shufpd, imm8 = 1))]
 #[rustc_args_required_const(2)]
-pub unsafe fn _mm_shuffle_pd(a: __m128d, b: __m128d, imm8: i32) -> f64x2 {
+pub unsafe fn _mm_shuffle_pd(a: f64x2, b: f64x2, imm8: i32) -> f64x2 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -1725,7 +1725,7 @@ pub unsafe fn _mm_shuffle_pd(a: __m128d, b: __m128d, imm8: i32) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(movsd))]
-pub unsafe fn _mm_move_sd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_move_sd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_move_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1733,7 +1733,7 @@ pub unsafe fn _mm_move_sd(a: __m128d, b: __m128d) -> f64x2 {
 /// floating-point vector of [4 x float].
 #[inline]
 #[target_feature(enable = "sse2")]
-pub unsafe fn _mm_castpd_ps(a: __m128d) -> f32x4 {
+pub unsafe fn _mm_castpd_ps(a: f64x2) -> f32x4 {
     ::mem::transmute(::myarch::_mm_castpd_ps(::mem::transmute(a)))
 }
 
@@ -1741,7 +1741,7 @@ pub unsafe fn _mm_castpd_ps(a: __m128d) -> f32x4 {
 /// integer vector.
 #[inline]
 #[target_feature(enable = "sse2")]
-pub unsafe fn _mm_castpd_si128(a: __m128d) -> __m128i {
+pub unsafe fn _mm_castpd_si128(a: f64x2) -> __m128i {
     ::mem::transmute(::myarch::_mm_castpd_si128(::mem::transmute(a)))
 }
 
@@ -1799,7 +1799,7 @@ pub unsafe fn _mm_undefined_si128() -> __m128i {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(unpckhpd))]
-pub unsafe fn _mm_unpackhi_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_unpackhi_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_unpackhi_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1811,7 +1811,7 @@ pub unsafe fn _mm_unpackhi_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(movlhps))]
-pub unsafe fn _mm_unpacklo_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_unpacklo_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_unpacklo_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1906,7 +1906,7 @@ pub unsafe fn _mm_movpi64_epi64(a: __m64) -> i64x2 {
 #[inline]
 #[target_feature(enable = "sse2,mmx")]
 #[cfg_attr(test, assert_instr(cvtpd2pi))]
-pub unsafe fn _mm_cvtpd_pi32(a: __m128d) -> __m64 {
+pub unsafe fn _mm_cvtpd_pi32(a: f64x2) -> __m64 {
     ::mem::transmute(::myarch::_mm_cvtpd_pi32(::mem::transmute(a)))
 }
 
@@ -1918,7 +1918,7 @@ pub unsafe fn _mm_cvtpd_pi32(a: __m128d) -> __m64 {
 #[inline]
 #[target_feature(enable = "sse2,mmx")]
 #[cfg_attr(test, assert_instr(cvttpd2pi))]
-pub unsafe fn _mm_cvttpd_pi32(a: __m128d) -> __m64 {
+pub unsafe fn _mm_cvttpd_pi32(a: f64x2) -> __m64 {
     ::mem::transmute(::myarch::_mm_cvttpd_pi32(::mem::transmute(a)))
 }
 

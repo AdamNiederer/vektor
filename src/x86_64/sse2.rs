@@ -7,7 +7,7 @@ use crate::simd::*;
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cvtsd2si))]
-pub unsafe fn _mm_cvtsd_si64(a: __m128d) -> i64 {
+pub unsafe fn _mm_cvtsd_si64(a: f64x2) -> i64 {
     ::mem::transmute(::myarch::_mm_cvtsd_si64(::mem::transmute(a)))
 }
 
@@ -15,7 +15,7 @@ pub unsafe fn _mm_cvtsd_si64(a: __m128d) -> i64 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cvtsd2si))]
-pub unsafe fn _mm_cvtsd_si64x(a: __m128d) -> i64 {
+pub unsafe fn _mm_cvtsd_si64x(a: f64x2) -> i64 {
     ::mem::transmute(::myarch::_mm_cvtsd_si64x(::mem::transmute(a)))
 }
 
@@ -24,7 +24,7 @@ pub unsafe fn _mm_cvtsd_si64x(a: __m128d) -> i64 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cvttsd2si))]
-pub unsafe fn _mm_cvttsd_si64(a: __m128d) -> i64 {
+pub unsafe fn _mm_cvttsd_si64(a: f64x2) -> i64 {
     ::mem::transmute(::myarch::_mm_cvttsd_si64(::mem::transmute(a)))
 }
 
@@ -32,7 +32,7 @@ pub unsafe fn _mm_cvttsd_si64(a: __m128d) -> i64 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cvttsd2si))]
-pub unsafe fn _mm_cvttsd_si64x(a: __m128d) -> i64 {
+pub unsafe fn _mm_cvttsd_si64x(a: f64x2) -> i64 {
     ::mem::transmute(::myarch::_mm_cvttsd_si64x(::mem::transmute(a)))
 }
 
@@ -75,7 +75,7 @@ pub unsafe fn _mm_cvtsi128_si64x(a: __m128i) -> i64 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cvtsi2sd))]
-pub unsafe fn _mm_cvtsi64_sd(a: __m128d, b: i64) -> f64x2 {
+pub unsafe fn _mm_cvtsi64_sd(a: f64x2, b: i64) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cvtsi64_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -84,7 +84,7 @@ pub unsafe fn _mm_cvtsi64_sd(a: __m128d, b: i64) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cvtsi2sd))]
-pub unsafe fn _mm_cvtsi64x_sd(a: __m128d, b: i64) -> f64x2 {
+pub unsafe fn _mm_cvtsi64x_sd(a: f64x2, b: i64) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cvtsi64x_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 

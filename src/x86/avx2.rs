@@ -262,7 +262,7 @@ pub unsafe fn _mm256_broadcastq_epi64(a: i64x2) -> i64x4 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vmovddup))]
-pub unsafe fn _mm_broadcastsd_pd(a: __m128d) -> f64x2 {
+pub unsafe fn _mm_broadcastsd_pd(a: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_broadcastsd_pd(::mem::transmute(a)))
 }
 
@@ -271,7 +271,7 @@ pub unsafe fn _mm_broadcastsd_pd(a: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vbroadcastsd))]
-pub unsafe fn _mm256_broadcastsd_pd(a: __m128d) -> f64x4 {
+pub unsafe fn _mm256_broadcastsd_pd(a: f64x2) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_broadcastsd_pd(::mem::transmute(a)))
 }
 
@@ -799,7 +799,7 @@ pub unsafe fn _mm_i32gather_pd(slice: *const f64, offsets: __m128i, scale: i32) 
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vgatherdpd, scale = 1))]
 #[rustc_args_required_const(4)]
-pub unsafe fn _mm_mask_i32gather_pd(src: __m128d, slice: *const f64, offsets: __m128i, mask: __m128d, scale: i32) -> f64x2 {
+pub unsafe fn _mm_mask_i32gather_pd(src: f64x2, slice: *const f64, offsets: __m128i, mask: f64x2, scale: i32) -> f64x2 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -836,7 +836,7 @@ pub unsafe fn _mm256_i32gather_pd(slice: *const f64, offsets: __m128i, scale: i3
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vgatherdpd, scale = 1))]
 #[rustc_args_required_const(4)]
-pub unsafe fn _mm256_mask_i32gather_pd(src: __m256d, slice: *const f64, offsets: __m128i, mask: __m256d, scale: i32) -> f64x4 {
+pub unsafe fn _mm256_mask_i32gather_pd(src: f64x4, slice: *const f64, offsets: __m128i, mask: f64x4, scale: i32) -> f64x4 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -1095,7 +1095,7 @@ pub unsafe fn _mm_i64gather_pd(slice: *const f64, offsets: __m128i, scale: i32) 
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vgatherqpd, scale = 1))]
 #[rustc_args_required_const(4)]
-pub unsafe fn _mm_mask_i64gather_pd(src: __m128d, slice: *const f64, offsets: __m128i, mask: __m128d, scale: i32) -> f64x2 {
+pub unsafe fn _mm_mask_i64gather_pd(src: f64x2, slice: *const f64, offsets: __m128i, mask: f64x2, scale: i32) -> f64x2 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -1132,7 +1132,7 @@ pub unsafe fn _mm256_i64gather_pd(slice: *const f64, offsets: __m256i, scale: i3
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vgatherqpd, scale = 1))]
 #[rustc_args_required_const(4)]
-pub unsafe fn _mm256_mask_i64gather_pd(src: __m256d, slice: *const f64, offsets: __m256i, mask: __m256d, scale: i32) -> f64x4 {
+pub unsafe fn _mm256_mask_i64gather_pd(src: f64x4, slice: *const f64, offsets: __m256i, mask: f64x4, scale: i32) -> f64x4 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -1527,7 +1527,7 @@ pub unsafe fn _mm256_permute2x128_si256(a: __m256i, b: __m256i, imm8: i32) -> __
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpermpd, imm8 = 1))]
 #[rustc_args_required_const(1)]
-pub unsafe fn _mm256_permute4x64_pd(a: __m256d, imm8: i32) -> f64x4 {
+pub unsafe fn _mm256_permute4x64_pd(a: f64x4, imm8: i32) -> f64x4 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -2488,7 +2488,7 @@ pub unsafe fn _mm256_extract_epi32(a: i32x8, imm8: i32) -> i32 {
 #[inline]
 #[target_feature(enable = "avx2")]
 //#[cfg_attr(test, assert_instr(movsd))] FIXME
-pub unsafe fn _mm256_cvtsd_f64(a: __m256d) -> f64 {
+pub unsafe fn _mm256_cvtsd_f64(a: f64x4) -> f64 {
     ::mem::transmute(::myarch::_mm256_cvtsd_f64(::mem::transmute(a)))
 }
 

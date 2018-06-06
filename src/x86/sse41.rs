@@ -39,7 +39,7 @@ pub unsafe fn _mm_blend_epi16(a: i16x8, b: i16x8, imm8: i32) -> i16x8 {
 #[inline]
 #[target_feature(enable = "sse4.1")]
 #[cfg_attr(test, assert_instr(blendvpd))]
-pub unsafe fn _mm_blendv_pd(a: __m128d, b: __m128d, mask: __m128d) -> f64x2 {
+pub unsafe fn _mm_blendv_pd(a: f64x2, b: f64x2, mask: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_blendv_pd(::mem::transmute(a), ::mem::transmute(b), ::mem::transmute(mask)))
 }
 
@@ -58,7 +58,7 @@ pub unsafe fn _mm_blendv_ps(a: f32x4, b: f32x4, mask: f32x4) -> f32x4 {
 #[target_feature(enable = "sse4.1")]
 #[cfg_attr(test, assert_instr(blendpd, imm2 = 0b10))]
 #[rustc_args_required_const(2)]
-pub unsafe fn _mm_blend_pd(a: __m128d, b: __m128d, imm2: i32) -> f64x2 {
+pub unsafe fn _mm_blend_pd(a: f64x2, b: f64x2, imm2: i32) -> f64x2 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -411,7 +411,7 @@ pub unsafe fn _mm_cvtepu32_epi64(a: i64x2) -> i64x2 {
 #[target_feature(enable = "sse4.1")]
 #[cfg_attr(test, assert_instr(dppd, imm8 = 0))]
 #[rustc_args_required_const(2)]
-pub unsafe fn _mm_dp_pd(a: __m128d, b: __m128d, imm8: i32) -> f64x2 {
+pub unsafe fn _mm_dp_pd(a: f64x2, b: f64x2, imm8: i32) -> f64x2 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -450,7 +450,7 @@ pub unsafe fn _mm_dp_ps(a: f32x4, b: f32x4, imm8: i32) -> f32x4 {
 #[inline]
 #[target_feature(enable = "sse4.1")]
 #[cfg_attr(test, assert_instr(roundpd))]
-pub unsafe fn _mm_floor_pd(a: __m128d) -> f64x2 {
+pub unsafe fn _mm_floor_pd(a: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_floor_pd(::mem::transmute(a)))
 }
 
@@ -472,7 +472,7 @@ pub unsafe fn _mm_floor_ps(a: f32x4) -> f32x4 {
 #[inline]
 #[target_feature(enable = "sse4.1")]
 #[cfg_attr(test, assert_instr(roundsd))]
-pub unsafe fn _mm_floor_sd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_floor_sd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_floor_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -494,7 +494,7 @@ pub unsafe fn _mm_floor_ss(a: f32x4, b: f32x4) -> f32x4 {
 #[inline]
 #[target_feature(enable = "sse4.1")]
 #[cfg_attr(test, assert_instr(roundpd))]
-pub unsafe fn _mm_ceil_pd(a: __m128d) -> f64x2 {
+pub unsafe fn _mm_ceil_pd(a: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_ceil_pd(::mem::transmute(a)))
 }
 
@@ -516,7 +516,7 @@ pub unsafe fn _mm_ceil_ps(a: f32x4) -> f32x4 {
 #[inline]
 #[target_feature(enable = "sse4.1")]
 #[cfg_attr(test, assert_instr(roundsd))]
-pub unsafe fn _mm_ceil_sd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_ceil_sd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_ceil_sd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -572,7 +572,7 @@ pub unsafe fn _mm_ceil_ss(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse4.1")]
 #[cfg_attr(test, assert_instr(roundpd, rounding = 0))]
 #[rustc_args_required_const(1)]
-pub unsafe fn _mm_round_pd(a: __m128d, rounding: i32) -> f64x2 {
+pub unsafe fn _mm_round_pd(a: f64x2, rounding: i32) -> f64x2 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -677,7 +677,7 @@ pub unsafe fn _mm_round_ps(a: f32x4, rounding: i32) -> f32x4 {
 #[target_feature(enable = "sse4.1")]
 #[cfg_attr(test, assert_instr(roundsd, rounding = 0))]
 #[rustc_args_required_const(2)]
-pub unsafe fn _mm_round_sd(a: __m128d, b: __m128d, rounding: i32) -> f64x2 {
+pub unsafe fn _mm_round_sd(a: f64x2, b: f64x2, rounding: i32) -> f64x2 {
 
     macro_rules! call {
         ($imm8:expr) => {

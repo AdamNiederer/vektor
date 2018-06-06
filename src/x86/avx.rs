@@ -7,7 +7,7 @@ use crate::simd::*;
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vaddpd))]
-pub unsafe fn _mm256_add_pd(a: __m256d, b: __m256d) -> f64x4 {
+pub unsafe fn _mm256_add_pd(a: f64x4, b: f64x4) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_add_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -28,7 +28,7 @@ pub unsafe fn _mm256_add_ps(a: f32x8, b: f32x8) -> f32x8 {
 // FIXME: Should be 'vandpd' instuction.
 // See https://github.com/rust-lang-nursery/stdsimd/issues/71
 #[cfg_attr(test, assert_instr(vandps))]
-pub unsafe fn _mm256_and_pd(a: __m256d, b: __m256d) -> f64x4 {
+pub unsafe fn _mm256_and_pd(a: f64x4, b: f64x4) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_and_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -48,7 +48,7 @@ pub unsafe fn _mm256_and_ps(a: f32x8, b: f32x8) -> f32x8 {
 // FIXME: Should be 'vorpd' instuction.
 // See https://github.com/rust-lang-nursery/stdsimd/issues/71
 #[cfg_attr(test, assert_instr(vorps))]
-pub unsafe fn _mm256_or_pd(a: __m256d, b: __m256d) -> f64x4 {
+pub unsafe fn _mm256_or_pd(a: f64x4, b: f64x4) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_or_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -67,7 +67,7 @@ pub unsafe fn _mm256_or_ps(a: f32x8, b: f32x8) -> f32x8 {
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vshufpd, imm8 = 0x1))]
 #[rustc_args_required_const(2)]
-pub unsafe fn _mm256_shuffle_pd(a: __m256d, b: __m256d, imm8: i32) -> f64x4 {
+pub unsafe fn _mm256_shuffle_pd(a: f64x4, b: f64x4, imm8: i32) -> f64x4 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -102,7 +102,7 @@ pub unsafe fn _mm256_shuffle_ps(a: f32x8, b: f32x8, imm8: i32) -> f32x8 {
 #[target_feature(enable = "avx")]
 // FIXME: Should be 'vandnpd' instruction.
 #[cfg_attr(test, assert_instr(vandnps))]
-pub unsafe fn _mm256_andnot_pd(a: __m256d, b: __m256d) -> f64x4 {
+pub unsafe fn _mm256_andnot_pd(a: f64x4, b: f64x4) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_andnot_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -121,7 +121,7 @@ pub unsafe fn _mm256_andnot_ps(a: f32x8, b: f32x8) -> f32x8 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vmaxpd))]
-pub unsafe fn _mm256_max_pd(a: __m256d, b: __m256d) -> f64x4 {
+pub unsafe fn _mm256_max_pd(a: f64x4, b: f64x4) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_max_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -139,7 +139,7 @@ pub unsafe fn _mm256_max_ps(a: f32x8, b: f32x8) -> f32x8 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vminpd))]
-pub unsafe fn _mm256_min_pd(a: __m256d, b: __m256d) -> f64x4 {
+pub unsafe fn _mm256_min_pd(a: f64x4, b: f64x4) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_min_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -157,7 +157,7 @@ pub unsafe fn _mm256_min_ps(a: f32x8, b: f32x8) -> f32x8 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vmulpd))]
-pub unsafe fn _mm256_mul_pd(a: __m256d, b: __m256d) -> f64x4 {
+pub unsafe fn _mm256_mul_pd(a: f64x4, b: f64x4) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_mul_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -175,7 +175,7 @@ pub unsafe fn _mm256_mul_ps(a: f32x8, b: f32x8) -> f32x8 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vaddsubpd))]
-pub unsafe fn _mm256_addsub_pd(a: __m256d, b: __m256d) -> f64x4 {
+pub unsafe fn _mm256_addsub_pd(a: f64x4, b: f64x4) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_addsub_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -193,7 +193,7 @@ pub unsafe fn _mm256_addsub_ps(a: f32x8, b: f32x8) -> f32x8 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vsubpd))]
-pub unsafe fn _mm256_sub_pd(a: __m256d, b: __m256d) -> f64x4 {
+pub unsafe fn _mm256_sub_pd(a: f64x4, b: f64x4) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_sub_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -220,7 +220,7 @@ pub unsafe fn _mm256_div_ps(a: f32x8, b: f32x8) -> f32x8 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vdivpd))]
-pub unsafe fn _mm256_div_pd(a: __m256d, b: __m256d) -> f64x4 {
+pub unsafe fn _mm256_div_pd(a: f64x4, b: f64x4) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_div_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -239,7 +239,7 @@ pub unsafe fn _mm256_div_pd(a: __m256d, b: __m256d) -> f64x4 {
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vroundpd, b = 0x3))]
 #[rustc_args_required_const(1)]
-pub unsafe fn _mm256_round_pd(a: __m256d, b: i32) -> f64x4 {
+pub unsafe fn _mm256_round_pd(a: f64x4, b: i32) -> f64x4 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -255,7 +255,7 @@ pub unsafe fn _mm256_round_pd(a: __m256d, b: i32) -> f64x4 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vroundpd))]
-pub unsafe fn _mm256_ceil_pd(a: __m256d) -> f64x4 {
+pub unsafe fn _mm256_ceil_pd(a: f64x4) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_ceil_pd(::mem::transmute(a)))
 }
 
@@ -264,7 +264,7 @@ pub unsafe fn _mm256_ceil_pd(a: __m256d) -> f64x4 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vroundpd))]
-pub unsafe fn _mm256_floor_pd(a: __m256d) -> f64x4 {
+pub unsafe fn _mm256_floor_pd(a: f64x4) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_floor_pd(::mem::transmute(a)))
 }
 
@@ -326,7 +326,7 @@ pub unsafe fn _mm256_sqrt_ps(a: f32x8) -> f32x8 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vsqrtpd))]
-pub unsafe fn _mm256_sqrt_pd(a: __m256d) -> f64x4 {
+pub unsafe fn _mm256_sqrt_pd(a: f64x4) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_sqrt_pd(::mem::transmute(a)))
 }
 
@@ -336,7 +336,7 @@ pub unsafe fn _mm256_sqrt_pd(a: __m256d) -> f64x4 {
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vblendpd, imm8 = 9))]
 #[rustc_args_required_const(2)]
-pub unsafe fn _mm256_blend_pd(a: __m256d, b: __m256d, imm8: i32) -> f64x4 {
+pub unsafe fn _mm256_blend_pd(a: f64x4, b: f64x4, imm8: i32) -> f64x4 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -369,7 +369,7 @@ pub unsafe fn _mm256_blend_ps(a: f32x8, b: f32x8, imm8: i32) -> f32x8 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vblendvpd))]
-pub unsafe fn _mm256_blendv_pd(a: __m256d, b: __m256d, c: __m256d) -> f64x4 {
+pub unsafe fn _mm256_blendv_pd(a: f64x4, b: f64x4, c: f64x4) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_blendv_pd(::mem::transmute(a), ::mem::transmute(b), ::mem::transmute(c)))
 }
 
@@ -408,7 +408,7 @@ pub unsafe fn _mm256_dp_ps(a: f32x8, b: f32x8, imm8: i32) -> f32x8 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vhaddpd))]
-pub unsafe fn _mm256_hadd_pd(a: __m256d, b: __m256d) -> f64x4 {
+pub unsafe fn _mm256_hadd_pd(a: f64x4, b: f64x4) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_hadd_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -431,7 +431,7 @@ pub unsafe fn _mm256_hadd_ps(a: f32x8, b: f32x8) -> f32x8 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vhsubpd))]
-pub unsafe fn _mm256_hsub_pd(a: __m256d, b: __m256d) -> f64x4 {
+pub unsafe fn _mm256_hsub_pd(a: f64x4, b: f64x4) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_hsub_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -453,7 +453,7 @@ pub unsafe fn _mm256_hsub_ps(a: f32x8, b: f32x8) -> f32x8 {
 #[target_feature(enable = "avx")]
 // FIXME Should be 'vxorpd' instruction.
 #[cfg_attr(test, assert_instr(vxorps))]
-pub unsafe fn _mm256_xor_pd(a: __m256d, b: __m256d) -> f64x4 {
+pub unsafe fn _mm256_xor_pd(a: f64x4, b: f64x4) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_xor_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -468,7 +468,7 @@ pub unsafe fn _mm256_xor_ps(a: f32x8, b: f32x8) -> f32x8 {
 
  // TODO Validate vcmppd
 #[rustc_args_required_const(2)]
-pub unsafe fn _mm_cmp_pd(a: __m128d, b: __m128d, imm8: i32) -> f64x2 {
+pub unsafe fn _mm_cmp_pd(a: f64x2, b: f64x2, imm8: i32) -> f64x2 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -481,7 +481,7 @@ pub unsafe fn _mm_cmp_pd(a: __m128d, b: __m128d, imm8: i32) -> f64x2 {
 
  // TODO Validate vcmppd
 #[rustc_args_required_const(2)]
-pub unsafe fn _mm256_cmp_pd(a: __m256d, b: __m256d, imm8: i32) -> f64x4 {
+pub unsafe fn _mm256_cmp_pd(a: f64x4, b: f64x4, imm8: i32) -> f64x4 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -520,7 +520,7 @@ pub unsafe fn _mm256_cmp_ps(a: f32x8, b: f32x8, imm8: i32) -> f32x8 {
 
  // TODO Validate vcmpsd
 #[rustc_args_required_const(2)]
-pub unsafe fn _mm_cmp_sd(a: __m128d, b: __m128d, imm8: i32) -> f64x2 {
+pub unsafe fn _mm_cmp_sd(a: f64x2, b: f64x2, imm8: i32) -> f64x2 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -567,7 +567,7 @@ pub unsafe fn _mm256_cvtepi32_ps(a: __m256i) -> f32x8 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vcvtpd2ps))]
-pub unsafe fn _mm256_cvtpd_ps(a: __m256d) -> f32x4 {
+pub unsafe fn _mm256_cvtpd_ps(a: f64x4) -> f32x4 {
     ::mem::transmute(::myarch::_mm256_cvtpd_ps(::mem::transmute(a)))
 }
 
@@ -594,7 +594,7 @@ pub unsafe fn _mm256_cvtps_pd(a: f32x4) -> f64x4 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vcvttpd2dq))]
-pub unsafe fn _mm256_cvttpd_epi32(a: __m256d) -> i32x4 {
+pub unsafe fn _mm256_cvttpd_epi32(a: f64x4) -> i32x4 {
     ::mem::transmute(::myarch::_mm256_cvttpd_epi32(::mem::transmute(a)))
 }
 
@@ -603,7 +603,7 @@ pub unsafe fn _mm256_cvttpd_epi32(a: __m256d) -> i32x4 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vcvtpd2dq))]
-pub unsafe fn _mm256_cvtpd_epi32(a: __m256d) -> i32x4 {
+pub unsafe fn _mm256_cvtpd_epi32(a: f64x4) -> i32x4 {
     ::mem::transmute(::myarch::_mm256_cvtpd_epi32(::mem::transmute(a)))
 }
 
@@ -639,7 +639,7 @@ pub unsafe fn _mm256_extractf128_ps(a: f32x8, imm8: i32) -> f32x4 {
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vextractf128, imm8 = 1))]
 #[rustc_args_required_const(1)]
-pub unsafe fn _mm256_extractf128_pd(a: __m256d, imm8: i32) -> f64x2 {
+pub unsafe fn _mm256_extractf128_pd(a: f64x4, imm8: i32) -> f64x2 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -723,7 +723,7 @@ pub unsafe fn _mm_permute_ps(a: f32x4, imm8: i32) -> f32x4 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vpermilpd))]
-pub unsafe fn _mm256_permutevar_pd(a: __m256d, b: __m256i) -> f64x4 {
+pub unsafe fn _mm256_permutevar_pd(a: f64x4, b: __m256i) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_permutevar_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -732,7 +732,7 @@ pub unsafe fn _mm256_permutevar_pd(a: __m256d, b: __m256i) -> f64x4 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vpermilpd))]
-pub unsafe fn _mm_permutevar_pd(a: __m128d, b: __m128i) -> f64x2 {
+pub unsafe fn _mm_permutevar_pd(a: f64x2, b: __m128i) -> f64x2 {
     ::mem::transmute(::myarch::_mm_permutevar_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -742,7 +742,7 @@ pub unsafe fn _mm_permutevar_pd(a: __m128d, b: __m128i) -> f64x2 {
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vpermilpd, imm8 = 0x1))]
 #[rustc_args_required_const(1)]
-pub unsafe fn _mm256_permute_pd(a: __m256d, imm8: i32) -> f64x4 {
+pub unsafe fn _mm256_permute_pd(a: f64x4, imm8: i32) -> f64x4 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -759,7 +759,7 @@ pub unsafe fn _mm256_permute_pd(a: __m256d, imm8: i32) -> f64x4 {
 #[target_feature(enable = "avx,sse2")]
 #[cfg_attr(test, assert_instr(vpermilpd, imm8 = 0x1))]
 #[rustc_args_required_const(1)]
-pub unsafe fn _mm_permute_pd(a: __m128d, imm8: i32) -> f64x2 {
+pub unsafe fn _mm_permute_pd(a: f64x2, imm8: i32) -> f64x2 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -793,7 +793,7 @@ pub unsafe fn _mm256_permute2f128_ps(a: f32x8, b: f32x8, imm8: i32) -> f32x8 {
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vperm2f128, imm8 = 0x31))]
 #[rustc_args_required_const(2)]
-pub unsafe fn _mm256_permute2f128_pd(a: __m256d, b: __m256d, imm8: i32) -> f64x4 {
+pub unsafe fn _mm256_permute2f128_pd(a: f64x4, b: f64x4, imm8: i32) -> f64x4 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -862,7 +862,7 @@ pub unsafe fn _mm256_broadcast_ps(a: &f32x4) -> f32x8 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vbroadcastf128))]
-pub unsafe fn _mm256_broadcast_pd(a: &__m128d) -> f64x4 {
+pub unsafe fn _mm256_broadcast_pd(a: &f64x2) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_broadcast_pd(::mem::transmute(a)))
 }
 
@@ -891,7 +891,7 @@ pub unsafe fn _mm256_insertf128_ps(a: f32x8, b: f32x4, imm8: i32) -> f32x8 {
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vinsertf128, imm8 = 1))]
 #[rustc_args_required_const(2)]
-pub unsafe fn _mm256_insertf128_pd(a: __m256d, b: __m128d, imm8: i32) -> f64x4 {
+pub unsafe fn _mm256_insertf128_pd(a: f64x4, b: f64x2, imm8: i32) -> f64x4 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -1074,7 +1074,7 @@ pub unsafe fn _mm256_moveldup_ps(a: f32x8) -> f32x8 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vmovddup))]
-pub unsafe fn _mm256_movedup_pd(a: __m256d) -> f64x4 {
+pub unsafe fn _mm256_movedup_pd(a: f64x4) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_movedup_pd(::mem::transmute(a)))
 }
 
@@ -1113,7 +1113,7 @@ pub unsafe fn _mm256_rsqrt_ps(a: f32x8) -> f32x8 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vunpckhpd))]
-pub unsafe fn _mm256_unpackhi_pd(a: __m256d, b: __m256d) -> f64x4 {
+pub unsafe fn _mm256_unpackhi_pd(a: f64x4, b: f64x4) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_unpackhi_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1131,7 +1131,7 @@ pub unsafe fn _mm256_unpackhi_ps(a: f32x8, b: f32x8) -> f32x8 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vunpcklpd))]
-pub unsafe fn _mm256_unpacklo_pd(a: __m256d, b: __m256d) -> f64x4 {
+pub unsafe fn _mm256_unpacklo_pd(a: f64x4, b: f64x4) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_unpacklo_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1188,7 +1188,7 @@ pub unsafe fn _mm256_testnzc_si256(a: __m256i, b: __m256i) -> i32 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vtestpd))]
-pub unsafe fn _mm256_testz_pd(a: __m256d, b: __m256d) -> i32 {
+pub unsafe fn _mm256_testz_pd(a: f64x4, b: f64x4) -> i32 {
     ::mem::transmute(::myarch::_mm256_testz_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1202,7 +1202,7 @@ pub unsafe fn _mm256_testz_pd(a: __m256d, b: __m256d) -> i32 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vtestpd))]
-pub unsafe fn _mm256_testc_pd(a: __m256d, b: __m256d) -> i32 {
+pub unsafe fn _mm256_testc_pd(a: f64x4, b: f64x4) -> i32 {
     ::mem::transmute(::myarch::_mm256_testc_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1217,7 +1217,7 @@ pub unsafe fn _mm256_testc_pd(a: __m256d, b: __m256d) -> i32 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vtestpd))]
-pub unsafe fn _mm256_testnzc_pd(a: __m256d, b: __m256d) -> i32 {
+pub unsafe fn _mm256_testnzc_pd(a: f64x4, b: f64x4) -> i32 {
     ::mem::transmute(::myarch::_mm256_testnzc_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1231,7 +1231,7 @@ pub unsafe fn _mm256_testnzc_pd(a: __m256d, b: __m256d) -> i32 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vtestpd))]
-pub unsafe fn _mm_testz_pd(a: __m128d, b: __m128d) -> i32 {
+pub unsafe fn _mm_testz_pd(a: f64x2, b: f64x2) -> i32 {
     ::mem::transmute(::myarch::_mm_testz_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1245,7 +1245,7 @@ pub unsafe fn _mm_testz_pd(a: __m128d, b: __m128d) -> i32 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vtestpd))]
-pub unsafe fn _mm_testc_pd(a: __m128d, b: __m128d) -> i32 {
+pub unsafe fn _mm_testc_pd(a: f64x2, b: f64x2) -> i32 {
     ::mem::transmute(::myarch::_mm_testc_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1260,7 +1260,7 @@ pub unsafe fn _mm_testc_pd(a: __m128d, b: __m128d) -> i32 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vtestpd))]
-pub unsafe fn _mm_testnzc_pd(a: __m128d, b: __m128d) -> i32 {
+pub unsafe fn _mm_testnzc_pd(a: f64x2, b: f64x2) -> i32 {
     ::mem::transmute(::myarch::_mm_testnzc_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1356,7 +1356,7 @@ pub unsafe fn _mm_testnzc_ps(a: f32x4, b: f32x4) -> i32 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vmovmskpd))]
-pub unsafe fn _mm256_movemask_pd(a: __m256d) -> i32 {
+pub unsafe fn _mm256_movemask_pd(a: f64x4) -> i32 {
     ::mem::transmute(::myarch::_mm256_movemask_pd(::mem::transmute(a)))
 }
 
@@ -1562,7 +1562,7 @@ pub unsafe fn _mm256_set1_epi64x(a: i64) -> __m256i {
 #[target_feature(enable = "avx")]
 // This intrinsic is only used for compilation and does not generate any
 // instructions, thus it has zero latency.
-pub unsafe fn _mm256_castpd_ps(a: __m256d) -> f32x8 {
+pub unsafe fn _mm256_castpd_ps(a: f64x4) -> f32x8 {
     ::mem::transmute(::myarch::_mm256_castpd_ps(::mem::transmute(a)))
 }
 
@@ -1598,7 +1598,7 @@ pub unsafe fn _mm256_castsi256_ps(a: __m256i) -> f32x8 {
 #[target_feature(enable = "avx")]
 // This intrinsic is only used for compilation and does not generate any
 // instructions, thus it has zero latency.
-pub unsafe fn _mm256_castpd_si256(a: __m256d) -> __m256i {
+pub unsafe fn _mm256_castpd_si256(a: f64x4) -> __m256i {
     ::mem::transmute(::myarch::_mm256_castpd_si256(::mem::transmute(a)))
 }
 
@@ -1625,7 +1625,7 @@ pub unsafe fn _mm256_castps256_ps128(a: f32x8) -> f32x4 {
 #[target_feature(enable = "avx")]
 // This intrinsic is only used for compilation and does not generate any
 // instructions, thus it has zero latency.
-pub unsafe fn _mm256_castpd256_pd128(a: __m256d) -> f64x2 {
+pub unsafe fn _mm256_castpd256_pd128(a: f64x4) -> f64x2 {
     ::mem::transmute(::myarch::_mm256_castpd256_pd128(::mem::transmute(a)))
 }
 
@@ -1654,7 +1654,7 @@ pub unsafe fn _mm256_castps128_ps256(a: f32x4) -> f32x8 {
 #[target_feature(enable = "avx")]
 // This intrinsic is only used for compilation and does not generate any
 // instructions, thus it has zero latency.
-pub unsafe fn _mm256_castpd128_pd256(a: __m128d) -> f64x4 {
+pub unsafe fn _mm256_castpd128_pd256(a: f64x2) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_castpd128_pd256(::mem::transmute(a)))
 }
 
@@ -1698,7 +1698,7 @@ pub unsafe fn _mm256_zextsi128_si256(a: __m128i) -> __m256i {
 #[target_feature(enable = "avx,sse2")]
 // This intrinsic is only used for compilation and does not generate any
 // instructions, thus it has zero latency.
-pub unsafe fn _mm256_zextpd128_pd256(a: __m128d) -> f64x4 {
+pub unsafe fn _mm256_zextpd128_pd256(a: f64x2) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_zextpd128_pd256(::mem::transmute(a)))
 }
 
@@ -1738,7 +1738,7 @@ pub unsafe fn _mm256_set_m128(hi: f32x4, lo: f32x4) -> f32x8 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vinsertf128))]
-pub unsafe fn _mm256_set_m128d(hi: __m128d, lo: __m128d) -> f64x4 {
+pub unsafe fn _mm256_set_m128d(hi: f64x2, lo: f64x2) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_set_m128d(::mem::transmute(hi), ::mem::transmute(lo)))
 }
 
@@ -1762,7 +1762,7 @@ pub unsafe fn _mm256_setr_m128(lo: f32x4, hi: f32x4) -> f32x8 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vinsertf128))]
-pub unsafe fn _mm256_setr_m128d(lo: __m128d, hi: __m128d) -> f64x4 {
+pub unsafe fn _mm256_setr_m128d(lo: f64x2, hi: f64x2) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_setr_m128d(::mem::transmute(lo), ::mem::transmute(hi)))
 }
 

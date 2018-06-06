@@ -16,7 +16,7 @@ pub unsafe fn _mm_addsub_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[inline]
 #[target_feature(enable = "sse3")]
 #[cfg_attr(test, assert_instr(addsubpd))]
-pub unsafe fn _mm_addsub_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_addsub_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_addsub_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -25,7 +25,7 @@ pub unsafe fn _mm_addsub_pd(a: __m128d, b: __m128d) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse3")]
 #[cfg_attr(test, assert_instr(haddpd))]
-pub unsafe fn _mm_hadd_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_hadd_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_hadd_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -43,7 +43,7 @@ pub unsafe fn _mm_hadd_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[inline]
 #[target_feature(enable = "sse3")]
 #[cfg_attr(test, assert_instr(hsubpd))]
-pub unsafe fn _mm_hsub_pd(a: __m128d, b: __m128d) -> f64x2 {
+pub unsafe fn _mm_hsub_pd(a: f64x2, b: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_hsub_pd(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -71,7 +71,7 @@ pub unsafe fn _mm_lddqu_si128(mem_addr: *const __m128i) -> __m128i {
 #[inline]
 #[target_feature(enable = "sse3")]
 #[cfg_attr(test, assert_instr(movddup))]
-pub unsafe fn _mm_movedup_pd(a: __m128d) -> f64x2 {
+pub unsafe fn _mm_movedup_pd(a: f64x2) -> f64x2 {
     ::mem::transmute(::myarch::_mm_movedup_pd(::mem::transmute(a)))
 }
 
