@@ -7,7 +7,7 @@ use crate::simd::*;
 #[inline]
 #[target_feature(enable = "ssse3")]
 #[cfg_attr(test, assert_instr(pabsb))]
-pub unsafe fn _mm_abs_epi8(a: u8x16) -> u8x16 {
+pub unsafe fn _mm_abs_epi8(a: i8x16) -> u8x16 {
     ::mem::transmute(::myarch::_mm_abs_epi8(::mem::transmute(a)))
 }
 
@@ -17,7 +17,7 @@ pub unsafe fn _mm_abs_epi8(a: u8x16) -> u8x16 {
 #[inline]
 #[target_feature(enable = "ssse3")]
 #[cfg_attr(test, assert_instr(pabsw))]
-pub unsafe fn _mm_abs_epi16(a: i16x8) -> i16x8 {
+pub unsafe fn _mm_abs_epi16(a: i16x8) -> u16x8 {
     ::mem::transmute(::myarch::_mm_abs_epi16(::mem::transmute(a)))
 }
 
@@ -27,7 +27,7 @@ pub unsafe fn _mm_abs_epi16(a: i16x8) -> i16x8 {
 #[inline]
 #[target_feature(enable = "ssse3")]
 #[cfg_attr(test, assert_instr(pabsd))]
-pub unsafe fn _mm_abs_epi32(a: i32x4) -> i32x4 {
+pub unsafe fn _mm_abs_epi32(a: i32x4) -> u32x4 {
     ::mem::transmute(::myarch::_mm_abs_epi32(::mem::transmute(a)))
 }
 
@@ -58,7 +58,7 @@ pub unsafe fn _mm_abs_epi32(a: i32x4) -> i32x4 {
 #[inline]
 #[target_feature(enable = "ssse3")]
 #[cfg_attr(test, assert_instr(pshufb))]
-pub unsafe fn _mm_shuffle_epi8(a: u8x16, b: u8x16) -> u8x16 {
+pub unsafe fn _mm_shuffle_epi8(a: i8x16, b: i8x16) -> i8x16 {
     ::mem::transmute(::myarch::_mm_shuffle_epi8(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -68,7 +68,7 @@ pub unsafe fn _mm_shuffle_epi8(a: u8x16, b: u8x16) -> u8x16 {
 #[target_feature(enable = "ssse3")]
 #[cfg_attr(test, assert_instr(palignr, n = 15))]
 #[rustc_args_required_const(2)]
-pub unsafe fn _mm_alignr_epi8(a: u8x16, b: u8x16, n: i32) -> u8x16 {
+pub unsafe fn _mm_alignr_epi8(a: i8x16, b: i8x16, n: i32) -> i8x16 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -165,7 +165,7 @@ pub unsafe fn _mm_mulhrs_epi16(a: i16x8, b: i16x8) -> i16x8 {
 #[inline]
 #[target_feature(enable = "ssse3")]
 #[cfg_attr(test, assert_instr(psignb))]
-pub unsafe fn _mm_sign_epi8(a: u8x16, b: u8x16) -> u8x16 {
+pub unsafe fn _mm_sign_epi8(a: i8x16, b: i8x16) -> i8x16 {
     ::mem::transmute(::myarch::_mm_sign_epi8(::mem::transmute(a), ::mem::transmute(b)))
 }
 

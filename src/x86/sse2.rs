@@ -6,7 +6,7 @@ use crate::simd::*;
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(paddb))]
-pub unsafe fn _mm_add_epi8(a: u8x16, b: u8x16) -> u8x16 {
+pub unsafe fn _mm_add_epi8(a: i8x16, b: i8x16) -> i8x16 {
     ::mem::transmute(::myarch::_mm_add_epi8(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -38,7 +38,7 @@ pub unsafe fn _mm_add_epi64(a: i64x2, b: i64x2) -> i64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(paddsb))]
-pub unsafe fn _mm_adds_epi8(a: u8x16, b: u8x16) -> u8x16 {
+pub unsafe fn _mm_adds_epi8(a: i8x16, b: i8x16) -> i8x16 {
     ::mem::transmute(::myarch::_mm_adds_epi8(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -191,7 +191,7 @@ pub unsafe fn _mm_sad_epu8(a: u8x16, b: u8x16) -> u8x16 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(psubb))]
-pub unsafe fn _mm_sub_epi8(a: u8x16, b: u8x16) -> u8x16 {
+pub unsafe fn _mm_sub_epi8(a: i8x16, b: i8x16) -> i8x16 {
     ::mem::transmute(::myarch::_mm_sub_epi8(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -224,7 +224,7 @@ pub unsafe fn _mm_sub_epi64(a: i64x2, b: i64x2) -> i64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(psubsb))]
-pub unsafe fn _mm_subs_epi8(a: u8x16, b: u8x16) -> u8x16 {
+pub unsafe fn _mm_subs_epi8(a: i8x16, b: i8x16) -> i8x16 {
     ::mem::transmute(::myarch::_mm_subs_epi8(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -564,7 +564,7 @@ pub unsafe fn _mm_xor_si128(a: __m128i, b: __m128i) -> __m128i {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(pcmpeqb))]
-pub unsafe fn _mm_cmpeq_epi8(a: u8x16, b: u8x16) -> u8x16 {
+pub unsafe fn _mm_cmpeq_epi8(a: i8x16, b: i8x16) -> i8x16 {
     ::mem::transmute(::myarch::_mm_cmpeq_epi8(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -588,7 +588,7 @@ pub unsafe fn _mm_cmpeq_epi32(a: i32x4, b: i32x4) -> i32x4 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(pcmpgtb))]
-pub unsafe fn _mm_cmpgt_epi8(a: u8x16, b: u8x16) -> u8x16 {
+pub unsafe fn _mm_cmpgt_epi8(a: i8x16, b: i8x16) -> i8x16 {
     ::mem::transmute(::myarch::_mm_cmpgt_epi8(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -612,7 +612,7 @@ pub unsafe fn _mm_cmpgt_epi32(a: i32x4, b: i32x4) -> i32x4 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(pcmpgtb))]
-pub unsafe fn _mm_cmplt_epi8(a: u8x16, b: u8x16) -> u8x16 {
+pub unsafe fn _mm_cmplt_epi8(a: i8x16, b: i8x16) -> i8x16 {
     ::mem::transmute(::myarch::_mm_cmplt_epi8(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -714,7 +714,7 @@ pub unsafe fn _mm_set_epi16(e7: i16, e6: i16, e5: i16, e4: i16, e3: i16, e2: i16
 #[inline]
 #[target_feature(enable = "sse2")]
 // no particular instruction to test
-pub unsafe fn _mm_set_epi8(e15: i8, e14: i8, e13: i8, e12: i8, e11: i8, e10: i8, e9: i8, e8: i8, e7: i8, e6: i8, e5: i8, e4: i8, e3: i8, e2: i8, e1: i8, e0: i8) -> u8x16 {
+pub unsafe fn _mm_set_epi8(e15: i8, e14: i8, e13: i8, e12: i8, e11: i8, e10: i8, e9: i8, e8: i8, e7: i8, e6: i8, e5: i8, e4: i8, e3: i8, e2: i8, e1: i8, e0: i8) -> i8x16 {
     ::mem::transmute(::myarch::_mm_set_epi8(::mem::transmute(e15), ::mem::transmute(e14), ::mem::transmute(e13), ::mem::transmute(e12), ::mem::transmute(e11), ::mem::transmute(e10), ::mem::transmute(e9), ::mem::transmute(e8), ::mem::transmute(e7), ::mem::transmute(e6), ::mem::transmute(e5), ::mem::transmute(e4), ::mem::transmute(e3), ::mem::transmute(e2), ::mem::transmute(e1), ::mem::transmute(e0)))
 }
 
@@ -746,7 +746,7 @@ pub unsafe fn _mm_set1_epi16(a: i16) -> i16x8 {
 #[inline]
 #[target_feature(enable = "sse2")]
 // no particular instruction to test
-pub unsafe fn _mm_set1_epi8(a: i8) -> u8x16 {
+pub unsafe fn _mm_set1_epi8(a: i8) -> i8x16 {
     ::mem::transmute(::myarch::_mm_set1_epi8(::mem::transmute(a)))
 }
 
@@ -770,7 +770,7 @@ pub unsafe fn _mm_setr_epi16(e7: i16, e6: i16, e5: i16, e4: i16, e3: i16, e2: i1
 #[inline]
 #[target_feature(enable = "sse2")]
 // no particular instruction to test
-pub unsafe fn _mm_setr_epi8(e15: i8, e14: i8, e13: i8, e12: i8, e11: i8, e10: i8, e9: i8, e8: i8, e7: i8, e6: i8, e5: i8, e4: i8, e3: i8, e2: i8, e1: i8, e0: i8) -> u8x16 {
+pub unsafe fn _mm_setr_epi8(e15: i8, e14: i8, e13: i8, e12: i8, e11: i8, e10: i8, e9: i8, e8: i8, e7: i8, e6: i8, e5: i8, e4: i8, e3: i8, e2: i8, e1: i8, e0: i8) -> i8x16 {
     ::mem::transmute(::myarch::_mm_setr_epi8(::mem::transmute(e15), ::mem::transmute(e14), ::mem::transmute(e13), ::mem::transmute(e12), ::mem::transmute(e11), ::mem::transmute(e10), ::mem::transmute(e9), ::mem::transmute(e8), ::mem::transmute(e7), ::mem::transmute(e6), ::mem::transmute(e5), ::mem::transmute(e4), ::mem::transmute(e3), ::mem::transmute(e2), ::mem::transmute(e1), ::mem::transmute(e0)))
 }
 
@@ -888,7 +888,7 @@ pub unsafe fn _mm_insert_epi16(a: i16x8, i: i32, imm8: i32) -> i16x8 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(pmovmskb))]
-pub unsafe fn _mm_movemask_epi8(a: u8x16) -> i32 {
+pub unsafe fn _mm_movemask_epi8(a: i8x16) -> i32 {
     ::mem::transmute(::myarch::_mm_movemask_epi8(::mem::transmute(a)))
 }
 
@@ -952,7 +952,7 @@ pub unsafe fn _mm_shufflelo_epi16(a: i16x8, imm8: i32) -> i16x8 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(punpckhbw))]
-pub unsafe fn _mm_unpackhi_epi8(a: u8x16, b: u8x16) -> u8x16 {
+pub unsafe fn _mm_unpackhi_epi8(a: i8x16, b: i8x16) -> i8x16 {
     ::mem::transmute(::myarch::_mm_unpackhi_epi8(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -984,7 +984,7 @@ pub unsafe fn _mm_unpackhi_epi64(a: i64x2, b: i64x2) -> i64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(punpcklbw))]
-pub unsafe fn _mm_unpacklo_epi8(a: u8x16, b: u8x16) -> u8x16 {
+pub unsafe fn _mm_unpacklo_epi8(a: i8x16, b: i8x16) -> i8x16 {
     ::mem::transmute(::myarch::_mm_unpacklo_epi8(::mem::transmute(a), ::mem::transmute(b)))
 }
 

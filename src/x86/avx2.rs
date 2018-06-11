@@ -6,7 +6,7 @@ use crate::simd::*;
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpabsd))]
-pub unsafe fn _mm256_abs_epi32(a: i32x8) -> i32x8 {
+pub unsafe fn _mm256_abs_epi32(a: i32x8) -> u32x8 {
     ::mem::transmute(::myarch::_mm256_abs_epi32(::mem::transmute(a)))
 }
 
@@ -14,7 +14,7 @@ pub unsafe fn _mm256_abs_epi32(a: i32x8) -> i32x8 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpabsw))]
-pub unsafe fn _mm256_abs_epi16(a: i16x16) -> i16x16 {
+pub unsafe fn _mm256_abs_epi16(a: i16x16) -> u16x16 {
     ::mem::transmute(::myarch::_mm256_abs_epi16(::mem::transmute(a)))
 }
 
@@ -22,7 +22,7 @@ pub unsafe fn _mm256_abs_epi16(a: i16x16) -> i16x16 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpabsb))]
-pub unsafe fn _mm256_abs_epi8(a: i8x32) -> i8x32 {
+pub unsafe fn _mm256_abs_epi8(a: i8x32) -> u8x32 {
     ::mem::transmute(::myarch::_mm256_abs_epi8(::mem::transmute(a)))
 }
 
@@ -202,7 +202,7 @@ pub unsafe fn _mm256_blendv_epi8(a: i8x32, b: i8x32, mask: i8x32) -> i8x32 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpbroadcastb))]
-pub unsafe fn _mm_broadcastb_epi8(a: u8x16) -> u8x16 {
+pub unsafe fn _mm_broadcastb_epi8(a: i8x16) -> i8x16 {
     ::mem::transmute(::myarch::_mm_broadcastb_epi8(::mem::transmute(a)))
 }
 
@@ -211,7 +211,7 @@ pub unsafe fn _mm_broadcastb_epi8(a: u8x16) -> u8x16 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpbroadcastb))]
-pub unsafe fn _mm256_broadcastb_epi8(a: u8x16) -> i8x32 {
+pub unsafe fn _mm256_broadcastb_epi8(a: i8x16) -> i8x32 {
     ::mem::transmute(::myarch::_mm256_broadcastb_epi8(::mem::transmute(a)))
 }
 
@@ -389,7 +389,7 @@ pub unsafe fn _mm256_cmpgt_epi8(a: i8x32, b: i8x32) -> i8x32 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovsxwd))]
-pub unsafe fn _mm256_cvtepi16_epi32(a: i32x4) -> i32x8 {
+pub unsafe fn _mm256_cvtepi16_epi32(a: i16) -> i32 {
     ::mem::transmute(::myarch::_mm256_cvtepi16_epi32(::mem::transmute(a)))
 }
 
@@ -397,7 +397,7 @@ pub unsafe fn _mm256_cvtepi16_epi32(a: i32x4) -> i32x8 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovsxwq))]
-pub unsafe fn _mm256_cvtepi16_epi64(a: i64x2) -> i64x4 {
+pub unsafe fn _mm256_cvtepi16_epi64(a: i16) -> i64 {
     ::mem::transmute(::myarch::_mm256_cvtepi16_epi64(::mem::transmute(a)))
 }
 
@@ -405,7 +405,7 @@ pub unsafe fn _mm256_cvtepi16_epi64(a: i64x2) -> i64x4 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovsxdq))]
-pub unsafe fn _mm256_cvtepi32_epi64(a: i64x2) -> i64x4 {
+pub unsafe fn _mm256_cvtepi32_epi64(a: i32) -> i64 {
     ::mem::transmute(::myarch::_mm256_cvtepi32_epi64(::mem::transmute(a)))
 }
 
@@ -413,7 +413,7 @@ pub unsafe fn _mm256_cvtepi32_epi64(a: i64x2) -> i64x4 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovsxbw))]
-pub unsafe fn _mm256_cvtepi8_epi16(a: i16x8) -> i16x16 {
+pub unsafe fn _mm256_cvtepi8_epi16(a: i8) -> i16 {
     ::mem::transmute(::myarch::_mm256_cvtepi8_epi16(::mem::transmute(a)))
 }
 
@@ -421,7 +421,7 @@ pub unsafe fn _mm256_cvtepi8_epi16(a: i16x8) -> i16x16 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovsxbd))]
-pub unsafe fn _mm256_cvtepi8_epi32(a: i32x4) -> i32x8 {
+pub unsafe fn _mm256_cvtepi8_epi32(a: i8) -> i32 {
     ::mem::transmute(::myarch::_mm256_cvtepi8_epi32(::mem::transmute(a)))
 }
 
@@ -429,7 +429,7 @@ pub unsafe fn _mm256_cvtepi8_epi32(a: i32x4) -> i32x8 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovsxbq))]
-pub unsafe fn _mm256_cvtepi8_epi64(a: i64x2) -> i64x4 {
+pub unsafe fn _mm256_cvtepi8_epi64(a: i8) -> i64 {
     ::mem::transmute(::myarch::_mm256_cvtepi8_epi64(::mem::transmute(a)))
 }
 
@@ -438,7 +438,7 @@ pub unsafe fn _mm256_cvtepi8_epi64(a: i64x2) -> i64x4 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovzxwd))]
-pub unsafe fn _mm256_cvtepu16_epi32(a: i32x4) -> i32x8 {
+pub unsafe fn _mm256_cvtepu16_epi32(a: u16) -> i32 {
     ::mem::transmute(::myarch::_mm256_cvtepu16_epi32(::mem::transmute(a)))
 }
 
@@ -447,7 +447,7 @@ pub unsafe fn _mm256_cvtepu16_epi32(a: i32x4) -> i32x8 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovzxwq))]
-pub unsafe fn _mm256_cvtepu16_epi64(a: i64x2) -> i64x4 {
+pub unsafe fn _mm256_cvtepu16_epi64(a: u16) -> i64 {
     ::mem::transmute(::myarch::_mm256_cvtepu16_epi64(::mem::transmute(a)))
 }
 
@@ -455,7 +455,7 @@ pub unsafe fn _mm256_cvtepu16_epi64(a: i64x2) -> i64x4 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovzxdq))]
-pub unsafe fn _mm256_cvtepu32_epi64(a: i64x2) -> i64x4 {
+pub unsafe fn _mm256_cvtepu32_epi64(a: u32) -> i64 {
     ::mem::transmute(::myarch::_mm256_cvtepu32_epi64(::mem::transmute(a)))
 }
 
@@ -463,7 +463,7 @@ pub unsafe fn _mm256_cvtepu32_epi64(a: i64x2) -> i64x4 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovzxbw))]
-pub unsafe fn _mm256_cvtepu8_epi16(a: i16x8) -> i16x16 {
+pub unsafe fn _mm256_cvtepu8_epi16(a: u8) -> i16 {
     ::mem::transmute(::myarch::_mm256_cvtepu8_epi16(::mem::transmute(a)))
 }
 
@@ -472,7 +472,7 @@ pub unsafe fn _mm256_cvtepu8_epi16(a: i16x8) -> i16x16 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovzxbd))]
-pub unsafe fn _mm256_cvtepu8_epi32(a: i32x4) -> i32x8 {
+pub unsafe fn _mm256_cvtepu8_epi32(a: u8) -> i32 {
     ::mem::transmute(::myarch::_mm256_cvtepu8_epi32(::mem::transmute(a)))
 }
 
@@ -481,7 +481,7 @@ pub unsafe fn _mm256_cvtepu8_epi32(a: i32x4) -> i32x8 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovzxbq))]
-pub unsafe fn _mm256_cvtepu8_epi64(a: i64x2) -> i64x4 {
+pub unsafe fn _mm256_cvtepu8_epi64(a: u8) -> i64 {
     ::mem::transmute(::myarch::_mm256_cvtepu8_epi64(::mem::transmute(a)))
 }
 
