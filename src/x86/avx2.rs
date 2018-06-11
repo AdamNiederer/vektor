@@ -389,7 +389,7 @@ pub unsafe fn _mm256_cmpgt_epi8(a: i8x32, b: i8x32) -> i8x32 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovsxwd))]
-pub unsafe fn _mm256_cvtepi16_epi32(a: i16) -> i32 {
+pub unsafe fn _mm256_cvtepi16_epi32(a: i16x8) -> i32x8 {
     ::mem::transmute(::myarch::_mm256_cvtepi16_epi32(::mem::transmute(a)))
 }
 
@@ -397,7 +397,7 @@ pub unsafe fn _mm256_cvtepi16_epi32(a: i16) -> i32 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovsxwq))]
-pub unsafe fn _mm256_cvtepi16_epi64(a: i16) -> i64 {
+pub unsafe fn _mm256_cvtepi16_epi64(a: i16x8) -> i64x4 {
     ::mem::transmute(::myarch::_mm256_cvtepi16_epi64(::mem::transmute(a)))
 }
 
@@ -405,7 +405,7 @@ pub unsafe fn _mm256_cvtepi16_epi64(a: i16) -> i64 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovsxdq))]
-pub unsafe fn _mm256_cvtepi32_epi64(a: i32) -> i64 {
+pub unsafe fn _mm256_cvtepi32_epi64(a: i32x4) -> i64x4 {
     ::mem::transmute(::myarch::_mm256_cvtepi32_epi64(::mem::transmute(a)))
 }
 
@@ -413,7 +413,7 @@ pub unsafe fn _mm256_cvtepi32_epi64(a: i32) -> i64 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovsxbw))]
-pub unsafe fn _mm256_cvtepi8_epi16(a: i8) -> i16 {
+pub unsafe fn _mm256_cvtepi8_epi16(a: i8x16) -> i16x16 {
     ::mem::transmute(::myarch::_mm256_cvtepi8_epi16(::mem::transmute(a)))
 }
 
@@ -421,7 +421,7 @@ pub unsafe fn _mm256_cvtepi8_epi16(a: i8) -> i16 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovsxbd))]
-pub unsafe fn _mm256_cvtepi8_epi32(a: i8) -> i32 {
+pub unsafe fn _mm256_cvtepi8_epi32(a: i8x16) -> i32x8 {
     ::mem::transmute(::myarch::_mm256_cvtepi8_epi32(::mem::transmute(a)))
 }
 
@@ -429,7 +429,7 @@ pub unsafe fn _mm256_cvtepi8_epi32(a: i8) -> i32 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovsxbq))]
-pub unsafe fn _mm256_cvtepi8_epi64(a: i8) -> i64 {
+pub unsafe fn _mm256_cvtepi8_epi64(a: i8x16) -> i64x4 {
     ::mem::transmute(::myarch::_mm256_cvtepi8_epi64(::mem::transmute(a)))
 }
 
@@ -438,7 +438,7 @@ pub unsafe fn _mm256_cvtepi8_epi64(a: i8) -> i64 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovzxwd))]
-pub unsafe fn _mm256_cvtepu16_epi32(a: u16) -> i32 {
+pub unsafe fn _mm256_cvtepu16_epi32(a: u16x8) -> i32x8 {
     ::mem::transmute(::myarch::_mm256_cvtepu16_epi32(::mem::transmute(a)))
 }
 
@@ -447,7 +447,7 @@ pub unsafe fn _mm256_cvtepu16_epi32(a: u16) -> i32 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovzxwq))]
-pub unsafe fn _mm256_cvtepu16_epi64(a: u16) -> i64 {
+pub unsafe fn _mm256_cvtepu16_epi64(a: u16x8) -> i64x4 {
     ::mem::transmute(::myarch::_mm256_cvtepu16_epi64(::mem::transmute(a)))
 }
 
@@ -455,7 +455,7 @@ pub unsafe fn _mm256_cvtepu16_epi64(a: u16) -> i64 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovzxdq))]
-pub unsafe fn _mm256_cvtepu32_epi64(a: u32) -> i64 {
+pub unsafe fn _mm256_cvtepu32_epi64(a: u32x4) -> i64x4 {
     ::mem::transmute(::myarch::_mm256_cvtepu32_epi64(::mem::transmute(a)))
 }
 
@@ -463,7 +463,7 @@ pub unsafe fn _mm256_cvtepu32_epi64(a: u32) -> i64 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovzxbw))]
-pub unsafe fn _mm256_cvtepu8_epi16(a: u8) -> i16 {
+pub unsafe fn _mm256_cvtepu8_epi16(a: u8x16) -> i16x16 {
     ::mem::transmute(::myarch::_mm256_cvtepu8_epi16(::mem::transmute(a)))
 }
 
@@ -472,7 +472,7 @@ pub unsafe fn _mm256_cvtepu8_epi16(a: u8) -> i16 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovzxbd))]
-pub unsafe fn _mm256_cvtepu8_epi32(a: u8) -> i32 {
+pub unsafe fn _mm256_cvtepu8_epi32(a: u8x16) -> i32x8 {
     ::mem::transmute(::myarch::_mm256_cvtepu8_epi32(::mem::transmute(a)))
 }
 
@@ -481,7 +481,7 @@ pub unsafe fn _mm256_cvtepu8_epi32(a: u8) -> i32 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpmovzxbq))]
-pub unsafe fn _mm256_cvtepu8_epi64(a: u8) -> i64 {
+pub unsafe fn _mm256_cvtepu8_epi64(a: u8x16) -> i64x4 {
     ::mem::transmute(::myarch::_mm256_cvtepu8_epi64(::mem::transmute(a)))
 }
 

@@ -304,7 +304,7 @@ pub unsafe fn _mm_cmpeq_epi64(a: i64x2, b: i64x2) -> i64x2 {
 #[inline]
 #[target_feature(enable = "sse4.1")]
 #[cfg_attr(test, assert_instr(pmovsxbw))]
-pub unsafe fn _mm_cvtepi8_epi16(a: i8) -> i16 {
+pub unsafe fn _mm_cvtepi8_epi16(a: i8x16) -> i16x8 {
     ::mem::transmute(::myarch::_mm_cvtepi8_epi16(::mem::transmute(a)))
 }
 
@@ -312,7 +312,7 @@ pub unsafe fn _mm_cvtepi8_epi16(a: i8) -> i16 {
 #[inline]
 #[target_feature(enable = "sse4.1")]
 #[cfg_attr(test, assert_instr(pmovsxbd))]
-pub unsafe fn _mm_cvtepi8_epi32(a: i8) -> i32 {
+pub unsafe fn _mm_cvtepi8_epi32(a: i8x16) -> i32x4 {
     ::mem::transmute(::myarch::_mm_cvtepi8_epi32(::mem::transmute(a)))
 }
 
@@ -321,7 +321,7 @@ pub unsafe fn _mm_cvtepi8_epi32(a: i8) -> i32 {
 #[inline]
 #[target_feature(enable = "sse4.1")]
 #[cfg_attr(test, assert_instr(pmovsxbq))]
-pub unsafe fn _mm_cvtepi8_epi64(a: i8) -> i64 {
+pub unsafe fn _mm_cvtepi8_epi64(a: i8x16) -> i64x2 {
     ::mem::transmute(::myarch::_mm_cvtepi8_epi64(::mem::transmute(a)))
 }
 
@@ -329,7 +329,7 @@ pub unsafe fn _mm_cvtepi8_epi64(a: i8) -> i64 {
 #[inline]
 #[target_feature(enable = "sse4.1")]
 #[cfg_attr(test, assert_instr(pmovsxwd))]
-pub unsafe fn _mm_cvtepi16_epi32(a: i16) -> i32 {
+pub unsafe fn _mm_cvtepi16_epi32(a: i16x8) -> i32x4 {
     ::mem::transmute(::myarch::_mm_cvtepi16_epi32(::mem::transmute(a)))
 }
 
@@ -337,7 +337,7 @@ pub unsafe fn _mm_cvtepi16_epi32(a: i16) -> i32 {
 #[inline]
 #[target_feature(enable = "sse4.1")]
 #[cfg_attr(test, assert_instr(pmovsxwq))]
-pub unsafe fn _mm_cvtepi16_epi64(a: i16) -> i64 {
+pub unsafe fn _mm_cvtepi16_epi64(a: i16x8) -> i64x2 {
     ::mem::transmute(::myarch::_mm_cvtepi16_epi64(::mem::transmute(a)))
 }
 
@@ -345,7 +345,7 @@ pub unsafe fn _mm_cvtepi16_epi64(a: i16) -> i64 {
 #[inline]
 #[target_feature(enable = "sse4.1")]
 #[cfg_attr(test, assert_instr(pmovsxdq))]
-pub unsafe fn _mm_cvtepi32_epi64(a: i32) -> i64 {
+pub unsafe fn _mm_cvtepi32_epi64(a: i32x4) -> i64x2 {
     ::mem::transmute(::myarch::_mm_cvtepi32_epi64(::mem::transmute(a)))
 }
 
@@ -353,7 +353,7 @@ pub unsafe fn _mm_cvtepi32_epi64(a: i32) -> i64 {
 #[inline]
 #[target_feature(enable = "sse4.1")]
 #[cfg_attr(test, assert_instr(pmovzxbw))]
-pub unsafe fn _mm_cvtepu8_epi16(a: u8) -> i16 {
+pub unsafe fn _mm_cvtepu8_epi16(a: u8x16) -> i16x8 {
     ::mem::transmute(::myarch::_mm_cvtepu8_epi16(::mem::transmute(a)))
 }
 
@@ -361,7 +361,7 @@ pub unsafe fn _mm_cvtepu8_epi16(a: u8) -> i16 {
 #[inline]
 #[target_feature(enable = "sse4.1")]
 #[cfg_attr(test, assert_instr(pmovzxbd))]
-pub unsafe fn _mm_cvtepu8_epi32(a: u8) -> i32 {
+pub unsafe fn _mm_cvtepu8_epi32(a: u8x16) -> i32x4 {
     ::mem::transmute(::myarch::_mm_cvtepu8_epi32(::mem::transmute(a)))
 }
 
@@ -369,7 +369,7 @@ pub unsafe fn _mm_cvtepu8_epi32(a: u8) -> i32 {
 #[inline]
 #[target_feature(enable = "sse4.1")]
 #[cfg_attr(test, assert_instr(pmovzxbq))]
-pub unsafe fn _mm_cvtepu8_epi64(a: u8) -> i64 {
+pub unsafe fn _mm_cvtepu8_epi64(a: u8x16) -> i64x2 {
     ::mem::transmute(::myarch::_mm_cvtepu8_epi64(::mem::transmute(a)))
 }
 
@@ -378,7 +378,7 @@ pub unsafe fn _mm_cvtepu8_epi64(a: u8) -> i64 {
 #[inline]
 #[target_feature(enable = "sse4.1")]
 #[cfg_attr(test, assert_instr(pmovzxwd))]
-pub unsafe fn _mm_cvtepu16_epi32(a: u16) -> i32 {
+pub unsafe fn _mm_cvtepu16_epi32(a: u16x8) -> i32x4 {
     ::mem::transmute(::myarch::_mm_cvtepu16_epi32(::mem::transmute(a)))
 }
 
@@ -387,7 +387,7 @@ pub unsafe fn _mm_cvtepu16_epi32(a: u16) -> i32 {
 #[inline]
 #[target_feature(enable = "sse4.1")]
 #[cfg_attr(test, assert_instr(pmovzxwq))]
-pub unsafe fn _mm_cvtepu16_epi64(a: u16) -> i64 {
+pub unsafe fn _mm_cvtepu16_epi64(a: u16x8) -> i64x2 {
     ::mem::transmute(::myarch::_mm_cvtepu16_epi64(::mem::transmute(a)))
 }
 
@@ -396,7 +396,7 @@ pub unsafe fn _mm_cvtepu16_epi64(a: u16) -> i64 {
 #[inline]
 #[target_feature(enable = "sse4.1")]
 #[cfg_attr(test, assert_instr(pmovzxdq))]
-pub unsafe fn _mm_cvtepu32_epi64(a: u32) -> i64 {
+pub unsafe fn _mm_cvtepu32_epi64(a: u32x4) -> i64x2 {
     ::mem::transmute(::myarch::_mm_cvtepu32_epi64(::mem::transmute(a)))
 }
 
