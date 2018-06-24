@@ -1447,7 +1447,7 @@ pub unsafe fn _mm256_or_si256(a: __m256i, b: __m256i) -> __m256i {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpacksswb))]
-pub unsafe fn _mm256_packs_epi16(a: i16x16, b: i16x16) -> u8x32 {
+pub unsafe fn _mm256_packs_epi16(a: i16x16, b: i16x16) -> i8x32 {
     ::mem::transmute(::myarch::_mm256_packs_epi16(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1456,7 +1456,7 @@ pub unsafe fn _mm256_packs_epi16(a: i16x16, b: i16x16) -> u8x32 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpackssdw))]
-pub unsafe fn _mm256_packs_epi32(a: i32x8, b: i32x8) -> u16x16 {
+pub unsafe fn _mm256_packs_epi32(a: i32x8, b: i32x8) -> i16x16 {
     ::mem::transmute(::myarch::_mm256_packs_epi32(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1465,7 +1465,7 @@ pub unsafe fn _mm256_packs_epi32(a: i32x8, b: i32x8) -> u16x16 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpackuswb))]
-pub unsafe fn _mm256_packus_epi16(a: i16x16, b: i16x16) -> u8x32 {
+pub unsafe fn _mm256_packus_epi16(a: i16x16, b: i16x16) -> i8x32 {
     ::mem::transmute(::myarch::_mm256_packus_epi16(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1474,7 +1474,7 @@ pub unsafe fn _mm256_packus_epi16(a: i16x16, b: i16x16) -> u8x32 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpackusdw))]
-pub unsafe fn _mm256_packus_epi32(a: i32x8, b: i32x8) -> u16x16 {
+pub unsafe fn _mm256_packus_epi32(a: i32x8, b: i32x8) -> i16x16 {
     ::mem::transmute(::myarch::_mm256_packus_epi32(::mem::transmute(a), ::mem::transmute(b)))
 }
 
