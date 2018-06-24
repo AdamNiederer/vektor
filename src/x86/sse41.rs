@@ -31,7 +31,7 @@ pub unsafe fn _mm_blend_epi16(a: i16x8, b: i16x8, imm8: i32) -> i16x8 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Blend packed double-precision (64-bit) floating-point elements from `a`
@@ -66,7 +66,7 @@ pub unsafe fn _mm_blend_pd(a: f64x2, b: f64x2, imm2: i32) -> f64x2 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm2, call))
+    ::mem::transmute(constify_imm8!(imm2, call))
 }
 
 /// Blend packed single-precision (32-bit) floating-point elements from `a`
@@ -83,7 +83,7 @@ pub unsafe fn _mm_blend_ps(a: f32x4, b: f32x4, imm4: i32) -> f32x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm4, call))
+    ::mem::transmute(constify_imm8!(imm4, call))
 }
 
 /// Extract a single-precision (32-bit) floating-point element from `a`,
@@ -101,7 +101,7 @@ pub unsafe fn _mm_extract_ps(a: f32x4, imm8: i32) -> i32 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Extract an 8-bit integer from `a`, selected with `imm8`. Returns a 32-bit
@@ -120,7 +120,7 @@ pub unsafe fn _mm_extract_epi8(a: i8x16, imm8: i32) -> i32 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Extract an 32-bit integer from `a` selected with `imm8`
@@ -137,7 +137,7 @@ pub unsafe fn _mm_extract_epi32(a: i32x4, imm8: i32) -> i32 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Select a single value in `a` to store at some position in `b`,
@@ -174,7 +174,7 @@ pub unsafe fn _mm_insert_ps(a: f32x4, b: f32x4, imm8: i32) -> f32x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Return a copy of `a` with the 8-bit integer from `i` inserted at a
@@ -191,7 +191,7 @@ pub unsafe fn _mm_insert_epi8(a: i8x16, i: i32, imm8: i32) -> i8x16 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Return a copy of `a` with the 32-bit integer from `i` inserted at a
@@ -208,7 +208,7 @@ pub unsafe fn _mm_insert_epi32(a: i32x4, i: i32, imm8: i32) -> i32x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Compare packed 8-bit integers in `a` and `b` and return packed maximum
@@ -288,7 +288,7 @@ pub unsafe fn _mm_min_epu32(a: u32x4, b: u32x4) -> u32x4 {
 #[inline]
 #[target_feature(enable = "sse4.1")]
 #[cfg_attr(test, assert_instr(packusdw))]
-pub unsafe fn _mm_packus_epi32(a: i32x4, b: i32x4) -> i32x4 {
+pub unsafe fn _mm_packus_epi32(a: i32x4, b: i32x4) -> u16x8 {
     ::mem::transmute(::myarch::_mm_packus_epi32(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -419,7 +419,7 @@ pub unsafe fn _mm_dp_pd(a: f64x2, b: f64x2, imm8: i32) -> f64x2 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Returns the dot product of two __m128 vectors.
@@ -441,7 +441,7 @@ pub unsafe fn _mm_dp_ps(a: f32x4, b: f32x4, imm8: i32) -> f32x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Round the packed double-precision (64-bit) floating-point elements in `a`
@@ -580,7 +580,7 @@ pub unsafe fn _mm_round_pd(a: f64x2, rounding: i32) -> f64x2 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(rounding, call))
+    ::mem::transmute(constify_imm8!(rounding, call))
 }
 
 /// Round the packed single-precision (32-bit) floating-point elements in `a`
@@ -632,7 +632,7 @@ pub unsafe fn _mm_round_ps(a: f32x4, rounding: i32) -> f32x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(rounding, call))
+    ::mem::transmute(constify_imm8!(rounding, call))
 }
 
 /// Round the lower double-precision (64-bit) floating-point element in `b`
@@ -685,7 +685,7 @@ pub unsafe fn _mm_round_sd(a: f64x2, b: f64x2, rounding: i32) -> f64x2 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(rounding, call))
+    ::mem::transmute(constify_imm8!(rounding, call))
 }
 
 /// Round the lower single-precision (32-bit) floating-point element in `b`
@@ -738,7 +738,7 @@ pub unsafe fn _mm_round_ss(a: f32x4, b: f32x4, rounding: i32) -> f32x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(rounding, call))
+    ::mem::transmute(constify_imm8!(rounding, call))
 }
 
 /// Finds the minimum unsigned 16-bit element in the 128-bit __m128i vector,
@@ -832,7 +832,7 @@ pub unsafe fn _mm_mpsadbw_epu8(a: u8x16, b: u8x16, imm8: i32) -> u8x16 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Tests whether the specified bits in a 128-bit integer vector are all

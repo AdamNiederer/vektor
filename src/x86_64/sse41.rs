@@ -16,7 +16,7 @@ pub unsafe fn _mm_extract_epi64(a: i64x2, imm8: i32) -> i64 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Return a copy of `a` with the 64-bit integer from `i` inserted at a
@@ -33,6 +33,6 @@ pub unsafe fn _mm_insert_epi64(a: i64x2, i: i64, imm8: i32) -> i64x2 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 

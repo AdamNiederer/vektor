@@ -16,6 +16,6 @@ pub unsafe fn _mm256_insert_epi64(a: i64x4, i: i64, index: i32) -> i64x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(index, call))
+    ::mem::transmute(constify_imm8!(index, call))
 }
 

@@ -59,6 +59,6 @@ pub unsafe fn _mm_aeskeygenassist_si128(a: __m128i, imm8: i32) -> __m128i {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 

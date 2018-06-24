@@ -268,7 +268,7 @@ pub unsafe fn _mm_slli_si128(a: __m128i, imm8: i32) -> __m128i {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shift `a` left by `imm8` bytes while shifting in zeros.
@@ -284,7 +284,7 @@ pub unsafe fn _mm_bslli_si128(a: __m128i, imm8: i32) -> __m128i {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shift `a` right by `imm8` bytes while shifting in zeros.
@@ -300,7 +300,7 @@ pub unsafe fn _mm_bsrli_si128(a: __m128i, imm8: i32) -> __m128i {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shift packed 16-bit integers in `a` left by `imm8` while shifting in zeros.
@@ -316,7 +316,7 @@ pub unsafe fn _mm_slli_epi16(a: i16x8, imm8: i32) -> i16x8 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shift packed 16-bit integers in `a` left by `count` while shifting in
@@ -324,7 +324,7 @@ pub unsafe fn _mm_slli_epi16(a: i16x8, imm8: i32) -> i16x8 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(psllw))]
-pub unsafe fn _mm_sll_epi16(a: i16x8, count: __m128i) -> i16x8 {
+pub unsafe fn _mm_sll_epi16(a: i16x8, count: i16x8) -> i16x8 {
     ::mem::transmute(::myarch::_mm_sll_epi16(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -341,7 +341,7 @@ pub unsafe fn _mm_slli_epi32(a: i32x4, imm8: i32) -> i32x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shift packed 32-bit integers in `a` left by `count` while shifting in
@@ -349,7 +349,7 @@ pub unsafe fn _mm_slli_epi32(a: i32x4, imm8: i32) -> i32x4 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(pslld))]
-pub unsafe fn _mm_sll_epi32(a: i32x4, count: __m128i) -> i32x4 {
+pub unsafe fn _mm_sll_epi32(a: i32x4, count: i32x4) -> i32x4 {
     ::mem::transmute(::myarch::_mm_sll_epi32(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -366,7 +366,7 @@ pub unsafe fn _mm_slli_epi64(a: i64x2, imm8: i32) -> i64x2 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shift packed 64-bit integers in `a` left by `count` while shifting in
@@ -374,7 +374,7 @@ pub unsafe fn _mm_slli_epi64(a: i64x2, imm8: i32) -> i64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(psllq))]
-pub unsafe fn _mm_sll_epi64(a: i64x2, count: __m128i) -> i64x2 {
+pub unsafe fn _mm_sll_epi64(a: i64x2, count: i64x2) -> i64x2 {
     ::mem::transmute(::myarch::_mm_sll_epi64(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -392,7 +392,7 @@ pub unsafe fn _mm_srai_epi16(a: i16x8, imm8: i32) -> i16x8 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shift packed 16-bit integers in `a` right by `count` while shifting in sign
@@ -400,7 +400,7 @@ pub unsafe fn _mm_srai_epi16(a: i16x8, imm8: i32) -> i16x8 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(psraw))]
-pub unsafe fn _mm_sra_epi16(a: i16x8, count: __m128i) -> i16x8 {
+pub unsafe fn _mm_sra_epi16(a: i16x8, count: i16x8) -> i16x8 {
     ::mem::transmute(::myarch::_mm_sra_epi16(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -418,7 +418,7 @@ pub unsafe fn _mm_srai_epi32(a: i32x4, imm8: i32) -> i32x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shift packed 32-bit integers in `a` right by `count` while shifting in sign
@@ -426,7 +426,7 @@ pub unsafe fn _mm_srai_epi32(a: i32x4, imm8: i32) -> i32x4 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(psrad))]
-pub unsafe fn _mm_sra_epi32(a: i32x4, count: __m128i) -> i32x4 {
+pub unsafe fn _mm_sra_epi32(a: i32x4, count: i32x4) -> i32x4 {
     ::mem::transmute(::myarch::_mm_sra_epi32(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -443,7 +443,7 @@ pub unsafe fn _mm_srli_si128(a: __m128i, imm8: i32) -> __m128i {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shift packed 16-bit integers in `a` right by `imm8` while shifting in
@@ -460,7 +460,7 @@ pub unsafe fn _mm_srli_epi16(a: i16x8, imm8: i32) -> i16x8 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shift packed 16-bit integers in `a` right by `count` while shifting in
@@ -468,7 +468,7 @@ pub unsafe fn _mm_srli_epi16(a: i16x8, imm8: i32) -> i16x8 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(psrlw))]
-pub unsafe fn _mm_srl_epi16(a: i16x8, count: __m128i) -> i16x8 {
+pub unsafe fn _mm_srl_epi16(a: i16x8, count: i16x8) -> i16x8 {
     ::mem::transmute(::myarch::_mm_srl_epi16(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -486,7 +486,7 @@ pub unsafe fn _mm_srli_epi32(a: i32x4, imm8: i32) -> i32x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shift packed 32-bit integers in `a` right by `count` while shifting in
@@ -494,7 +494,7 @@ pub unsafe fn _mm_srli_epi32(a: i32x4, imm8: i32) -> i32x4 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(psrld))]
-pub unsafe fn _mm_srl_epi32(a: i32x4, count: __m128i) -> i32x4 {
+pub unsafe fn _mm_srl_epi32(a: i32x4, count: i32x4) -> i32x4 {
     ::mem::transmute(::myarch::_mm_srl_epi32(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -512,7 +512,7 @@ pub unsafe fn _mm_srli_epi64(a: i64x2, imm8: i32) -> i64x2 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shift packed 64-bit integers in `a` right by `count` while shifting in
@@ -520,7 +520,7 @@ pub unsafe fn _mm_srli_epi64(a: i64x2, imm8: i32) -> i64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(psrlq))]
-pub unsafe fn _mm_srl_epi64(a: i64x2, count: __m128i) -> i64x2 {
+pub unsafe fn _mm_srl_epi64(a: i64x2, count: i64x2) -> i64x2 {
     ::mem::transmute(::myarch::_mm_srl_epi64(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -637,7 +637,7 @@ pub unsafe fn _mm_cmplt_epi32(a: i32x4, b: i32x4) -> i32x4 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cvtdq2pd))]
-pub unsafe fn _mm_cvtepi32_pd(a: __m128i) -> f64x2 {
+pub unsafe fn _mm_cvtepi32_pd(a: i32x4) -> f64x2 {
     ::mem::transmute(::myarch::_mm_cvtepi32_pd(::mem::transmute(a)))
 }
 
@@ -655,7 +655,7 @@ pub unsafe fn _mm_cvtsi32_sd(a: f64x2, b: i32) -> f64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cvtdq2ps))]
-pub unsafe fn _mm_cvtepi32_ps(a: __m128i) -> f32x4 {
+pub unsafe fn _mm_cvtepi32_ps(a: i32x4) -> f32x4 {
     ::mem::transmute(::myarch::_mm_cvtepi32_ps(::mem::transmute(a)))
 }
 
@@ -690,7 +690,7 @@ pub unsafe fn _mm_cvtsi128_si32(a: __m128i) -> i32 {
 #[inline]
 #[target_feature(enable = "sse2")]
 // no particular instruction to test
-pub unsafe fn _mm_set_epi64x(e1: i64, e0: i64) -> __m128i {
+pub unsafe fn _mm_set_epi64x(e1: i64, e0: i64) -> i64x2 {
     ::mem::transmute(::myarch::_mm_set_epi64x(::mem::transmute(e1), ::mem::transmute(e0)))
 }
 
@@ -722,7 +722,7 @@ pub unsafe fn _mm_set_epi8(e15: i8, e14: i8, e13: i8, e12: i8, e11: i8, e10: i8,
 #[inline]
 #[target_feature(enable = "sse2")]
 // no particular instruction to test
-pub unsafe fn _mm_set1_epi64x(a: i64) -> __m128i {
+pub unsafe fn _mm_set1_epi64x(a: i64) -> i64x2 {
     ::mem::transmute(::myarch::_mm_set1_epi64x(::mem::transmute(a)))
 }
 
@@ -790,7 +790,7 @@ pub unsafe fn _mm_setzero_si128() -> __m128i {
                not(all(target_os = "linux", target_arch = "x86_64")),
                target_arch = "x86_64"),
            assert_instr(movq))]
-pub unsafe fn _mm_loadl_epi64(mem_addr: *const __m128i) -> i64x2 {
+pub unsafe fn _mm_loadl_epi64(mem_addr: *const i64x2) -> i64x2 {
     ::mem::transmute(::myarch::_mm_loadl_epi64(::mem::transmute(mem_addr)))
 }
 
@@ -830,7 +830,7 @@ pub unsafe fn _mm_move_epi64(a: i64x2) -> i64x2 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(packsswb))]
-pub unsafe fn _mm_packs_epi16(a: i16x8, b: i16x8) -> i16x8 {
+pub unsafe fn _mm_packs_epi16(a: i16x8, b: i16x8) -> u8x16 {
     ::mem::transmute(::myarch::_mm_packs_epi16(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -839,7 +839,7 @@ pub unsafe fn _mm_packs_epi16(a: i16x8, b: i16x8) -> i16x8 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(packssdw))]
-pub unsafe fn _mm_packs_epi32(a: i32x4, b: i32x4) -> i32x4 {
+pub unsafe fn _mm_packs_epi32(a: i32x4, b: i32x4) -> u16x8 {
     ::mem::transmute(::myarch::_mm_packs_epi32(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -848,7 +848,7 @@ pub unsafe fn _mm_packs_epi32(a: i32x4, b: i32x4) -> i32x4 {
 #[inline]
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(packuswb))]
-pub unsafe fn _mm_packus_epi16(a: i16x8, b: i16x8) -> i16x8 {
+pub unsafe fn _mm_packus_epi16(a: i16x8, b: i16x8) -> u8x16 {
     ::mem::transmute(::myarch::_mm_packus_epi16(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -865,7 +865,7 @@ pub unsafe fn _mm_extract_epi16(a: i16x8, imm8: i32) -> i32 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Return a new vector where the `imm8` element of `a` is replaced with `i`.
@@ -881,7 +881,7 @@ pub unsafe fn _mm_insert_epi16(a: i16x8, i: i32, imm8: i32) -> i16x8 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Return a mask of the most significant bit of each element in `a`.
@@ -905,7 +905,7 @@ pub unsafe fn _mm_shuffle_epi32(a: i32x4, imm8: i32) -> i32x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shuffle 16-bit integers in the high 64 bits of `a` using the control in
@@ -925,7 +925,7 @@ pub unsafe fn _mm_shufflehi_epi16(a: i16x8, imm8: i32) -> i16x8 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shuffle 16-bit integers in the low 64 bits of `a` using the control in
@@ -945,7 +945,7 @@ pub unsafe fn _mm_shufflelo_epi16(a: i16x8, imm8: i32) -> i16x8 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Unpack and interleave 8-bit integers from the high half of `a` and `b`.
@@ -1716,7 +1716,7 @@ pub unsafe fn _mm_shuffle_pd(a: f64x2, b: f64x2, imm8: i32) -> f64x2 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Constructs a 128-bit floating-point vector of [2 x double]. The lower
@@ -1886,7 +1886,7 @@ pub unsafe fn _mm_setr_epi64(e1: __m64, e0: __m64) -> i64x2 {
 #[target_feature(enable = "sse2,mmx")]
 // #[cfg_attr(test, assert_instr(movdq2q))] // FIXME: llvm codegens wrong
 // instr?
-pub unsafe fn _mm_movepi64_pi64(a: __m128i) -> __m64 {
+pub unsafe fn _mm_movepi64_pi64(a: i64x2) -> __m64 {
     ::mem::transmute(::myarch::_mm_movepi64_pi64(::mem::transmute(a)))
 }
 
@@ -1896,7 +1896,7 @@ pub unsafe fn _mm_movepi64_pi64(a: __m128i) -> __m64 {
 #[target_feature(enable = "sse2,mmx")]
 // #[cfg_attr(test, assert_instr(movq2dq))] // FIXME: llvm codegens wrong
 // instr?
-pub unsafe fn _mm_movpi64_epi64(a: __m64) -> i64x2 {
+pub unsafe fn _mm_movpi64_epi64(a: __m64) -> __m128i {
     ::mem::transmute(::myarch::_mm_movpi64_epi64(::mem::transmute(a)))
 }
 

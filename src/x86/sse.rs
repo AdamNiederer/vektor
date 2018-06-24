@@ -755,7 +755,7 @@ pub unsafe fn _mm_shuffle_ps(a: f32x4, b: f32x4, mask: u32) -> f32x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(mask, call))
+    ::mem::transmute(constify_imm8!(mask, call))
 }
 
 /// Unpack and interleave single-precision (32-bit) floating-point elements
@@ -1290,7 +1290,7 @@ pub unsafe fn _mm_extract_pi16(a: __m64, imm2: i32) -> i32 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm2, call))
+    ::mem::transmute(constify_imm8!(imm2, call))
 }
 
 /// Extracts 16-bit element from a 64-bit vector of [4 x i16] and
@@ -1307,7 +1307,7 @@ pub unsafe fn _m_pextrw(a: __m64, imm2: i32) -> i32 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm2, call))
+    ::mem::transmute(constify_imm8!(imm2, call))
 }
 
 /// Copies data from the 64-bit vector of [4 x i16] to the destination,
@@ -1325,7 +1325,7 @@ pub unsafe fn _mm_insert_pi16(a: __m64, d: i32, imm2: i32) -> __m64 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm2, call))
+    ::mem::transmute(constify_imm8!(imm2, call))
 }
 
 /// Copies data from the 64-bit vector of [4 x i16] to the destination,
@@ -1343,7 +1343,7 @@ pub unsafe fn _m_pinsrw(a: __m64, d: i32, imm2: i32) -> __m64 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm2, call))
+    ::mem::transmute(constify_imm8!(imm2, call))
 }
 
 /// Takes the most significant bit from each 8-bit element in a 64-bit
@@ -1380,7 +1380,7 @@ pub unsafe fn _mm_shuffle_pi16(a: __m64, imm8: i32) -> __m64 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shuffles the 4 16-bit integers from a 64-bit integer vector to the
@@ -1397,7 +1397,7 @@ pub unsafe fn _m_pshufw(a: __m64, imm8: i32) -> __m64 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Convert the two lower packed single-precision (32-bit) floating-point

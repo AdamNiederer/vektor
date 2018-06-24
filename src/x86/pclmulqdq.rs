@@ -20,7 +20,7 @@ use crate::simd::*;
 #[cfg_attr(all(test, target_os = "linux"),
            assert_instr(pclmulhqhqdq, imm8 = 17))]
 #[rustc_args_required_const(2)]
-pub unsafe fn _mm_clmulepi64_si128(a: __m128i, b: __m128i, imm8: i32) -> __m128i {
+pub unsafe fn _mm_clmulepi64_si128(a: i64x2, b: i64x2, imm8: i32) -> i64x2 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -28,6 +28,6 @@ pub unsafe fn _mm_clmulepi64_si128(a: __m128i, b: __m128i, imm8: i32) -> __m128i
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 

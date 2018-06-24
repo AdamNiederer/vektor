@@ -75,7 +75,7 @@ pub unsafe fn _mm256_shuffle_pd(a: f64x4, b: f64x4, imm8: i32) -> f64x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shuffle single-precision (32-bit) floating-point elements in `a` within
@@ -92,7 +92,7 @@ pub unsafe fn _mm256_shuffle_ps(a: f32x8, b: f32x8, imm8: i32) -> f32x8 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Compute the bitwise NOT of packed double-precision (64-bit) floating-point
@@ -247,7 +247,7 @@ pub unsafe fn _mm256_round_pd(a: f64x4, b: i32) -> f64x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(b, call))
+    ::mem::transmute(constify_imm8!(b, call))
 }
 
 /// Round packed double-precision (64-bit) floating point elements in `a`
@@ -291,7 +291,7 @@ pub unsafe fn _mm256_round_ps(a: f32x8, b: i32) -> f32x8 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(b, call))
+    ::mem::transmute(constify_imm8!(b, call))
 }
 
 /// Round packed single-precision (32-bit) floating point elements in `a`
@@ -344,7 +344,7 @@ pub unsafe fn _mm256_blend_pd(a: f64x4, b: f64x4, imm8: i32) -> f64x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Blend packed single-precision (32-bit) floating-point elements from
@@ -361,7 +361,7 @@ pub unsafe fn _mm256_blend_ps(a: f32x8, b: f32x8, imm8: i32) -> f32x8 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Blend packed double-precision (64-bit) floating-point elements from
@@ -398,7 +398,7 @@ pub unsafe fn _mm256_dp_ps(a: f32x8, b: f32x8, imm8: i32) -> f32x8 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Horizontal addition of adjacent pairs in the two packed vectors
@@ -476,7 +476,7 @@ pub unsafe fn _mm_cmp_pd(a: f64x2, b: f64x2, imm8: i32) -> f64x2 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
  // TODO Validate vcmppd
@@ -489,7 +489,7 @@ pub unsafe fn _mm256_cmp_pd(a: f64x4, b: f64x4, imm8: i32) -> f64x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
  // TODO Validate vcmpps
@@ -502,7 +502,7 @@ pub unsafe fn _mm_cmp_ps(a: f32x4, b: f32x4, imm8: i32) -> f32x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
  // TODO Validate vcmpps
@@ -515,7 +515,7 @@ pub unsafe fn _mm256_cmp_ps(a: f32x8, b: f32x8, imm8: i32) -> f32x8 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
  // TODO Validate vcmpsd
@@ -528,7 +528,7 @@ pub unsafe fn _mm_cmp_sd(a: f64x2, b: f64x2, imm8: i32) -> f64x2 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
  // TODO Validate vcmpss
@@ -541,7 +541,7 @@ pub unsafe fn _mm_cmp_ss(a: f32x4, b: f32x4, imm8: i32) -> f32x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Convert packed 32-bit integers in `a` to packed double-precision (64-bit)
@@ -549,7 +549,7 @@ pub unsafe fn _mm_cmp_ss(a: f32x4, b: f32x4, imm8: i32) -> f32x4 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vcvtdq2pd))]
-pub unsafe fn _mm256_cvtepi32_pd(a: __m128i) -> f64x4 {
+pub unsafe fn _mm256_cvtepi32_pd(a: i32x4) -> f64x4 {
     ::mem::transmute(::myarch::_mm256_cvtepi32_pd(::mem::transmute(a)))
 }
 
@@ -558,7 +558,7 @@ pub unsafe fn _mm256_cvtepi32_pd(a: __m128i) -> f64x4 {
 #[inline]
 #[target_feature(enable = "avx")]
 #[cfg_attr(test, assert_instr(vcvtdq2ps))]
-pub unsafe fn _mm256_cvtepi32_ps(a: __m256i) -> f32x8 {
+pub unsafe fn _mm256_cvtepi32_ps(a: i32x8) -> f32x8 {
     ::mem::transmute(::myarch::_mm256_cvtepi32_ps(::mem::transmute(a)))
 }
 
@@ -630,7 +630,7 @@ pub unsafe fn _mm256_extractf128_ps(a: f32x8, imm8: i32) -> f32x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Extract 128 bits (composed of 2 packed double-precision (64-bit)
@@ -647,7 +647,7 @@ pub unsafe fn _mm256_extractf128_pd(a: f64x4, imm8: i32) -> f64x2 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Extract 128 bits (composed of integer data) from `a`, selected with `imm8`.
@@ -663,7 +663,7 @@ pub unsafe fn _mm256_extractf128_si256(a: __m256i, imm8: i32) -> __m128i {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shuffle single-precision (32-bit) floating-point elements in `a`
@@ -698,7 +698,7 @@ pub unsafe fn _mm256_permute_ps(a: f32x8, imm8: i32) -> f32x8 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shuffle single-precision (32-bit) floating-point elements in `a`
@@ -715,7 +715,7 @@ pub unsafe fn _mm_permute_ps(a: f32x4, imm8: i32) -> f32x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shuffle double-precision (64-bit) floating-point elements in `a`
@@ -750,7 +750,7 @@ pub unsafe fn _mm256_permute_pd(a: f64x4, imm8: i32) -> f64x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shuffle double-precision (64-bit) floating-point elements in `a`
@@ -767,7 +767,7 @@ pub unsafe fn _mm_permute_pd(a: f64x2, imm8: i32) -> f64x2 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shuffle 256-bits (composed of 8 packed single-precision (32-bit)
@@ -784,7 +784,7 @@ pub unsafe fn _mm256_permute2f128_ps(a: f32x8, b: f32x8, imm8: i32) -> f32x8 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shuffle 256-bits (composed of 4 packed double-precision (64-bit)
@@ -801,7 +801,7 @@ pub unsafe fn _mm256_permute2f128_pd(a: f64x4, b: f64x4, imm8: i32) -> f64x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shuffle 258-bits (composed of integer data) selected by `imm8`
@@ -818,7 +818,7 @@ pub unsafe fn _mm256_permute2f128_si256(a: __m256i, b: __m256i, imm8: i32) -> __
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Broadcast a single-precision (32-bit) floating-point element from memory
@@ -881,7 +881,7 @@ pub unsafe fn _mm256_insertf128_ps(a: f32x8, b: f32x4, imm8: i32) -> f32x8 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Copy `a` to result, then insert 128 bits (composed of 2 packed
@@ -899,7 +899,7 @@ pub unsafe fn _mm256_insertf128_pd(a: f64x4, b: f64x2, imm8: i32) -> f64x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Copy `a` to result, then insert 128 bits from `b` into result
@@ -916,7 +916,7 @@ pub unsafe fn _mm256_insertf128_si256(a: __m256i, b: __m128i, imm8: i32) -> __m2
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Copy `a` to result, and insert the 8-bit integer `i` into result
@@ -933,7 +933,7 @@ pub unsafe fn _mm256_insert_epi8(a: i8x32, i: i8, index: i32) -> i8x32 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(index, call))
+    ::mem::transmute(constify_imm8!(index, call))
 }
 
 /// Copy `a` to result, and insert the 16-bit integer `i` into result
@@ -950,7 +950,7 @@ pub unsafe fn _mm256_insert_epi16(a: i16x16, i: i16, index: i32) -> i16x16 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(index, call))
+    ::mem::transmute(constify_imm8!(index, call))
 }
 
 /// Copy `a` to result, and insert the 32-bit integer `i` into result
@@ -967,7 +967,7 @@ pub unsafe fn _mm256_insert_epi32(a: i32x8, i: i32, index: i32) -> i32x8 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(index, call))
+    ::mem::transmute(constify_imm8!(index, call))
 }
 
  // FIXME vmovapd expected
@@ -1439,7 +1439,7 @@ pub unsafe fn _mm256_set_epi32(e0: i32, e1: i32, e2: i32, e3: i32, e4: i32, e5: 
 #[inline]
 #[target_feature(enable = "avx")]
 // This intrinsic has no corresponding instruction.
-pub unsafe fn _mm256_set_epi64x(a: i64, b: i64, c: i64, d: i64) -> __m256i {
+pub unsafe fn _mm256_set_epi64x(a: i64, b: i64, c: i64, d: i64) -> i64x4 {
     ::mem::transmute(::myarch::_mm256_set_epi64x(::mem::transmute(a), ::mem::transmute(b), ::mem::transmute(c), ::mem::transmute(d)))
 }
 
@@ -1493,7 +1493,7 @@ pub unsafe fn _mm256_setr_epi32(e0: i32, e1: i32, e2: i32, e3: i32, e4: i32, e5:
 #[inline]
 #[target_feature(enable = "avx")]
 // This intrinsic has no corresponding instruction.
-pub unsafe fn _mm256_setr_epi64x(a: i64, b: i64, c: i64, d: i64) -> __m256i {
+pub unsafe fn _mm256_setr_epi64x(a: i64, b: i64, c: i64, d: i64) -> i64x4 {
     ::mem::transmute(::myarch::_mm256_setr_epi64x(::mem::transmute(a), ::mem::transmute(b), ::mem::transmute(c), ::mem::transmute(d)))
 }
 
@@ -1553,7 +1553,7 @@ pub unsafe fn _mm256_set1_epi32(a: i32) -> i32x8 {
 //#[cfg_attr(test, assert_instr(vmovddup))]
 #[cfg_attr(test, assert_instr(vinsertf128))]
 // This intrinsic has no corresponding instruction.
-pub unsafe fn _mm256_set1_epi64x(a: i64) -> __m256i {
+pub unsafe fn _mm256_set1_epi64x(a: i64) -> i64x4 {
     ::mem::transmute(::myarch::_mm256_set1_epi64x(::mem::transmute(a)))
 }
 

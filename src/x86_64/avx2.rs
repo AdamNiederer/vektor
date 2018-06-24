@@ -15,6 +15,6 @@ pub unsafe fn _mm256_extract_epi64(a: i64x4, imm8: i32) -> i64 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 

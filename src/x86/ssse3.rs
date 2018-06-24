@@ -76,7 +76,7 @@ pub unsafe fn _mm_alignr_epi8(a: i8x16, b: i8x16, n: i32) -> i8x16 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(n, call))
+    ::mem::transmute(constify_imm8!(n, call))
 }
 
 /// Horizontally add the adjacent pairs of values contained in 2 packed
@@ -241,7 +241,7 @@ pub unsafe fn _mm_alignr_pi8(a: __m64, b: __m64, n: i32) -> __m64 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(n, call))
+    ::mem::transmute(constify_imm8!(n, call))
 }
 
 /// Horizontally add the adjacent pairs of values contained in 2 packed

@@ -104,7 +104,7 @@ pub unsafe fn _mm256_alignr_epi8(a: i8x32, b: i8x32, n: i32) -> i8x32 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(n, call))
+    ::mem::transmute(constify_imm8!(n, call))
 }
 
 /// Compute the bitwise AND of 256 bits (representing integer data)
@@ -154,7 +154,7 @@ pub unsafe fn _mm_blend_epi32(a: i32x4, b: i32x4, imm8: i32) -> i32x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Blend packed 32-bit integers from `a` and `b` using control mask `imm8`.
@@ -170,7 +170,7 @@ pub unsafe fn _mm256_blend_epi32(a: i32x8, b: i32x8, imm8: i32) -> i32x8 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Blend packed 16-bit integers from `a` and `b` using control mask `imm8`.
@@ -186,7 +186,7 @@ pub unsafe fn _mm256_blend_epi16(a: i16x16, b: i16x16, imm8: i32) -> i16x16 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Blend packed 8-bit integers from `a` and `b` using `mask`.
@@ -498,7 +498,7 @@ pub unsafe fn _mm256_extracti128_si256(a: __m256i, imm8: i32) -> __m128i {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Horizontally add adjacent pairs of 16-bit integers in `a` and `b`.
@@ -558,7 +558,7 @@ pub unsafe fn _mm256_hsubs_epi16(a: i16x16, b: i16x16) -> i16x16 {
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpgatherdd, scale = 1))]
 #[rustc_args_required_const(2)]
-pub unsafe fn _mm_i32gather_epi32(slice: *const i32, offsets: __m128i, scale: i32) -> i32x4 {
+pub unsafe fn _mm_i32gather_epi32(slice: *const i32, offsets: i32x4, scale: i32) -> i32x4 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -566,7 +566,7 @@ pub unsafe fn _mm_i32gather_epi32(slice: *const i32, offsets: __m128i, scale: i3
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -577,7 +577,7 @@ pub unsafe fn _mm_i32gather_epi32(slice: *const i32, offsets: __m128i, scale: i3
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpgatherdd, scale = 1))]
 #[rustc_args_required_const(4)]
-pub unsafe fn _mm_mask_i32gather_epi32(src: __m128i, slice: *const i32, offsets: __m128i, mask: __m128i, scale: i32) -> i32x4 {
+pub unsafe fn _mm_mask_i32gather_epi32(src: i32x4, slice: *const i32, offsets: i32x4, mask: i32x4, scale: i32) -> i32x4 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -585,7 +585,7 @@ pub unsafe fn _mm_mask_i32gather_epi32(src: __m128i, slice: *const i32, offsets:
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -595,7 +595,7 @@ pub unsafe fn _mm_mask_i32gather_epi32(src: __m128i, slice: *const i32, offsets:
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpgatherdd, scale = 1))]
 #[rustc_args_required_const(2)]
-pub unsafe fn _mm256_i32gather_epi32(slice: *const i32, offsets: __m256i, scale: i32) -> i32x8 {
+pub unsafe fn _mm256_i32gather_epi32(slice: *const i32, offsets: i32x8, scale: i32) -> i32x8 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -603,7 +603,7 @@ pub unsafe fn _mm256_i32gather_epi32(slice: *const i32, offsets: __m256i, scale:
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -614,7 +614,7 @@ pub unsafe fn _mm256_i32gather_epi32(slice: *const i32, offsets: __m256i, scale:
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpgatherdd, scale = 1))]
 #[rustc_args_required_const(4)]
-pub unsafe fn _mm256_mask_i32gather_epi32(src: __m256i, slice: *const i32, offsets: __m256i, mask: __m256i, scale: i32) -> i32x8 {
+pub unsafe fn _mm256_mask_i32gather_epi32(src: i32x8, slice: *const i32, offsets: i32x8, mask: i32x8, scale: i32) -> i32x8 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -622,7 +622,7 @@ pub unsafe fn _mm256_mask_i32gather_epi32(src: __m256i, slice: *const i32, offse
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -640,7 +640,7 @@ pub unsafe fn _mm_i32gather_ps(slice: *const f32, offsets: __m128i, scale: i32) 
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -659,7 +659,7 @@ pub unsafe fn _mm_mask_i32gather_ps(src: f32x4, slice: *const f32, offsets: __m1
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -677,7 +677,7 @@ pub unsafe fn _mm256_i32gather_ps(slice: *const f32, offsets: __m256i, scale: i3
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -696,7 +696,7 @@ pub unsafe fn _mm256_mask_i32gather_ps(src: f32x8, slice: *const f32, offsets: _
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -706,7 +706,7 @@ pub unsafe fn _mm256_mask_i32gather_ps(src: f32x8, slice: *const f32, offsets: _
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpgatherdq, scale = 1))]
 #[rustc_args_required_const(2)]
-pub unsafe fn _mm_i32gather_epi64(slice: *const i64, offsets: __m128i, scale: i32) -> i64x2 {
+pub unsafe fn _mm_i32gather_epi64(slice: *const i64, offsets: i64x2, scale: i32) -> i64x2 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -714,7 +714,7 @@ pub unsafe fn _mm_i32gather_epi64(slice: *const i64, offsets: __m128i, scale: i3
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -725,7 +725,7 @@ pub unsafe fn _mm_i32gather_epi64(slice: *const i64, offsets: __m128i, scale: i3
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpgatherdq, scale = 1))]
 #[rustc_args_required_const(4)]
-pub unsafe fn _mm_mask_i32gather_epi64(src: __m128i, slice: *const i64, offsets: __m128i, mask: __m128i, scale: i32) -> i64x2 {
+pub unsafe fn _mm_mask_i32gather_epi64(src: i64x2, slice: *const i64, offsets: i64x2, mask: i64x2, scale: i32) -> i64x2 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -733,7 +733,7 @@ pub unsafe fn _mm_mask_i32gather_epi64(src: __m128i, slice: *const i64, offsets:
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -743,7 +743,7 @@ pub unsafe fn _mm_mask_i32gather_epi64(src: __m128i, slice: *const i64, offsets:
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpgatherdq, scale = 1))]
 #[rustc_args_required_const(2)]
-pub unsafe fn _mm256_i32gather_epi64(slice: *const i64, offsets: __m128i, scale: i32) -> i64x4 {
+pub unsafe fn _mm256_i32gather_epi64(slice: *const i64, offsets: i64x2, scale: i32) -> i64x4 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -751,7 +751,7 @@ pub unsafe fn _mm256_i32gather_epi64(slice: *const i64, offsets: __m128i, scale:
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -762,7 +762,7 @@ pub unsafe fn _mm256_i32gather_epi64(slice: *const i64, offsets: __m128i, scale:
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpgatherdq, scale = 1))]
 #[rustc_args_required_const(4)]
-pub unsafe fn _mm256_mask_i32gather_epi64(src: __m256i, slice: *const i64, offsets: __m128i, mask: __m256i, scale: i32) -> i64x4 {
+pub unsafe fn _mm256_mask_i32gather_epi64(src: i64x4, slice: *const i64, offsets: i64x2, mask: i64x4, scale: i32) -> i64x4 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -770,7 +770,7 @@ pub unsafe fn _mm256_mask_i32gather_epi64(src: __m256i, slice: *const i64, offse
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -788,7 +788,7 @@ pub unsafe fn _mm_i32gather_pd(slice: *const f64, offsets: __m128i, scale: i32) 
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -807,7 +807,7 @@ pub unsafe fn _mm_mask_i32gather_pd(src: f64x2, slice: *const f64, offsets: __m1
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -825,7 +825,7 @@ pub unsafe fn _mm256_i32gather_pd(slice: *const f64, offsets: __m128i, scale: i3
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -844,7 +844,7 @@ pub unsafe fn _mm256_mask_i32gather_pd(src: f64x4, slice: *const f64, offsets: _
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -854,7 +854,7 @@ pub unsafe fn _mm256_mask_i32gather_pd(src: f64x4, slice: *const f64, offsets: _
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpgatherqd, scale = 1))]
 #[rustc_args_required_const(2)]
-pub unsafe fn _mm_i64gather_epi32(slice: *const i32, offsets: __m128i, scale: i32) -> i32x4 {
+pub unsafe fn _mm_i64gather_epi32(slice: *const i32, offsets: i32x4, scale: i32) -> i32x4 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -862,7 +862,7 @@ pub unsafe fn _mm_i64gather_epi32(slice: *const i32, offsets: __m128i, scale: i3
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -873,7 +873,7 @@ pub unsafe fn _mm_i64gather_epi32(slice: *const i32, offsets: __m128i, scale: i3
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpgatherqd, scale = 1))]
 #[rustc_args_required_const(4)]
-pub unsafe fn _mm_mask_i64gather_epi32(src: __m128i, slice: *const i32, offsets: __m128i, mask: __m128i, scale: i32) -> i32x4 {
+pub unsafe fn _mm_mask_i64gather_epi32(src: i32x4, slice: *const i32, offsets: i32x4, mask: i32x4, scale: i32) -> i32x4 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -881,7 +881,7 @@ pub unsafe fn _mm_mask_i64gather_epi32(src: __m128i, slice: *const i32, offsets:
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -891,7 +891,7 @@ pub unsafe fn _mm_mask_i64gather_epi32(src: __m128i, slice: *const i32, offsets:
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpgatherqd, scale = 1))]
 #[rustc_args_required_const(2)]
-pub unsafe fn _mm256_i64gather_epi32(slice: *const i32, offsets: __m256i, scale: i32) -> i32x4 {
+pub unsafe fn _mm256_i64gather_epi32(slice: *const i32, offsets: i32x8, scale: i32) -> i32x4 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -899,7 +899,7 @@ pub unsafe fn _mm256_i64gather_epi32(slice: *const i32, offsets: __m256i, scale:
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -910,7 +910,7 @@ pub unsafe fn _mm256_i64gather_epi32(slice: *const i32, offsets: __m256i, scale:
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpgatherqd, scale = 1))]
 #[rustc_args_required_const(4)]
-pub unsafe fn _mm256_mask_i64gather_epi32(src: __m128i, slice: *const i32, offsets: __m256i, mask: __m128i, scale: i32) -> i32x4 {
+pub unsafe fn _mm256_mask_i64gather_epi32(src: i32x4, slice: *const i32, offsets: i32x8, mask: i32x4, scale: i32) -> i32x4 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -918,7 +918,7 @@ pub unsafe fn _mm256_mask_i64gather_epi32(src: __m128i, slice: *const i32, offse
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -936,7 +936,7 @@ pub unsafe fn _mm_i64gather_ps(slice: *const f32, offsets: __m128i, scale: i32) 
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -955,7 +955,7 @@ pub unsafe fn _mm_mask_i64gather_ps(src: f32x4, slice: *const f32, offsets: __m1
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -973,7 +973,7 @@ pub unsafe fn _mm256_i64gather_ps(slice: *const f32, offsets: __m256i, scale: i3
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -992,7 +992,7 @@ pub unsafe fn _mm256_mask_i64gather_ps(src: f32x4, slice: *const f32, offsets: _
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -1002,7 +1002,7 @@ pub unsafe fn _mm256_mask_i64gather_ps(src: f32x4, slice: *const f32, offsets: _
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpgatherqq, scale = 1))]
 #[rustc_args_required_const(2)]
-pub unsafe fn _mm_i64gather_epi64(slice: *const i64, offsets: __m128i, scale: i32) -> i64x2 {
+pub unsafe fn _mm_i64gather_epi64(slice: *const i64, offsets: i64x2, scale: i32) -> i64x2 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -1010,7 +1010,7 @@ pub unsafe fn _mm_i64gather_epi64(slice: *const i64, offsets: __m128i, scale: i3
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -1021,7 +1021,7 @@ pub unsafe fn _mm_i64gather_epi64(slice: *const i64, offsets: __m128i, scale: i3
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpgatherqq, scale = 1))]
 #[rustc_args_required_const(4)]
-pub unsafe fn _mm_mask_i64gather_epi64(src: __m128i, slice: *const i64, offsets: __m128i, mask: __m128i, scale: i32) -> i64x2 {
+pub unsafe fn _mm_mask_i64gather_epi64(src: i64x2, slice: *const i64, offsets: i64x2, mask: i64x2, scale: i32) -> i64x2 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -1029,7 +1029,7 @@ pub unsafe fn _mm_mask_i64gather_epi64(src: __m128i, slice: *const i64, offsets:
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -1039,7 +1039,7 @@ pub unsafe fn _mm_mask_i64gather_epi64(src: __m128i, slice: *const i64, offsets:
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpgatherqq, scale = 1))]
 #[rustc_args_required_const(2)]
-pub unsafe fn _mm256_i64gather_epi64(slice: *const i64, offsets: __m256i, scale: i32) -> i64x4 {
+pub unsafe fn _mm256_i64gather_epi64(slice: *const i64, offsets: i64x4, scale: i32) -> i64x4 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -1047,7 +1047,7 @@ pub unsafe fn _mm256_i64gather_epi64(slice: *const i64, offsets: __m256i, scale:
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -1058,7 +1058,7 @@ pub unsafe fn _mm256_i64gather_epi64(slice: *const i64, offsets: __m256i, scale:
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpgatherqq, scale = 1))]
 #[rustc_args_required_const(4)]
-pub unsafe fn _mm256_mask_i64gather_epi64(src: __m256i, slice: *const i64, offsets: __m256i, mask: __m256i, scale: i32) -> i64x4 {
+pub unsafe fn _mm256_mask_i64gather_epi64(src: i64x4, slice: *const i64, offsets: i64x4, mask: i64x4, scale: i32) -> i64x4 {
 
     macro_rules! call {
         ($imm8:expr) => {
@@ -1066,7 +1066,7 @@ pub unsafe fn _mm256_mask_i64gather_epi64(src: __m256i, slice: *const i64, offse
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -1084,7 +1084,7 @@ pub unsafe fn _mm_i64gather_pd(slice: *const f64, offsets: __m128i, scale: i32) 
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -1103,7 +1103,7 @@ pub unsafe fn _mm_mask_i64gather_pd(src: f64x2, slice: *const f64, offsets: __m1
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -1121,7 +1121,7 @@ pub unsafe fn _mm256_i64gather_pd(slice: *const f64, offsets: __m256i, scale: i3
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Return values from `slice` at offsets determined by `offsets * scale`,
@@ -1140,7 +1140,7 @@ pub unsafe fn _mm256_mask_i64gather_pd(src: f64x4, slice: *const f64, offsets: _
         };
     }
 
-   ::mem::transmute(constify_imm8!(scale, call))
+    ::mem::transmute(constify_imm8!(scale, call))
 }
 
 /// Copy `a` to `dst`, then insert 128 bits (of integer data) from `b` at the
@@ -1157,7 +1157,7 @@ pub unsafe fn _mm256_inserti128_si256(a: __m256i, b: __m128i, imm8: i32) -> __m2
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Multiply packed signed 16-bit integers in `a` and `b`, producing
@@ -1357,7 +1357,7 @@ pub unsafe fn _mm256_mpsadbw_epu8(a: u8x32, b: u8x32, imm8: i32) -> u8x32 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Multiply the low 32-bit integers from each packed 64-bit element in
@@ -1447,7 +1447,7 @@ pub unsafe fn _mm256_or_si256(a: __m256i, b: __m256i) -> __m256i {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpacksswb))]
-pub unsafe fn _mm256_packs_epi16(a: i16x16, b: i16x16) -> i16x16 {
+pub unsafe fn _mm256_packs_epi16(a: i16x16, b: i16x16) -> u8x32 {
     ::mem::transmute(::myarch::_mm256_packs_epi16(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1456,7 +1456,7 @@ pub unsafe fn _mm256_packs_epi16(a: i16x16, b: i16x16) -> i16x16 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpackssdw))]
-pub unsafe fn _mm256_packs_epi32(a: i32x8, b: i32x8) -> i32x8 {
+pub unsafe fn _mm256_packs_epi32(a: i32x8, b: i32x8) -> u16x16 {
     ::mem::transmute(::myarch::_mm256_packs_epi32(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1465,7 +1465,7 @@ pub unsafe fn _mm256_packs_epi32(a: i32x8, b: i32x8) -> i32x8 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpackuswb))]
-pub unsafe fn _mm256_packus_epi16(a: i16x16, b: i16x16) -> i16x16 {
+pub unsafe fn _mm256_packus_epi16(a: i16x16, b: i16x16) -> u8x32 {
     ::mem::transmute(::myarch::_mm256_packus_epi16(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1474,7 +1474,7 @@ pub unsafe fn _mm256_packus_epi16(a: i16x16, b: i16x16) -> i16x16 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpackusdw))]
-pub unsafe fn _mm256_packus_epi32(a: i32x8, b: i32x8) -> i32x8 {
+pub unsafe fn _mm256_packus_epi32(a: i32x8, b: i32x8) -> u16x16 {
     ::mem::transmute(::myarch::_mm256_packus_epi32(::mem::transmute(a), ::mem::transmute(b)))
 }
 
@@ -1502,7 +1502,7 @@ pub unsafe fn _mm256_permute4x64_epi64(a: i64x4, imm8: i32) -> i64x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shuffle 128-bits of integer data selected by `imm8` from `a` and `b`.
@@ -1518,7 +1518,7 @@ pub unsafe fn _mm256_permute2x128_si256(a: __m256i, b: __m256i, imm8: i32) -> __
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shuffle 64-bit floating-point elements in `a` across lanes using the
@@ -1535,7 +1535,7 @@ pub unsafe fn _mm256_permute4x64_pd(a: f64x4, imm8: i32) -> f64x4 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shuffle eight 32-bit foating-point elements in `a` across lanes using
@@ -1642,7 +1642,7 @@ pub unsafe fn _mm256_shuffle_epi32(a: i32x8, imm8: i32) -> i32x8 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shuffle 16-bit integers in the high 64 bits of 128-bit lanes of `a` using
@@ -1660,7 +1660,7 @@ pub unsafe fn _mm256_shufflehi_epi16(a: i16x16, imm8: i32) -> i16x16 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shuffle 16-bit integers in the low 64 bits of 128-bit lanes of `a` using
@@ -1678,7 +1678,7 @@ pub unsafe fn _mm256_shufflelo_epi16(a: i16x16, imm8: i32) -> i16x16 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Negate packed 16-bit integers in `a` when the corresponding signed
@@ -1716,7 +1716,7 @@ pub unsafe fn _mm256_sign_epi8(a: i8x32, b: i8x32) -> i8x32 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpsllw))]
-pub unsafe fn _mm256_sll_epi16(a: i16x16, count: __m128i) -> i16x16 {
+pub unsafe fn _mm256_sll_epi16(a: i16x16, count: i16x8) -> i16x16 {
     ::mem::transmute(::myarch::_mm256_sll_epi16(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -1725,7 +1725,7 @@ pub unsafe fn _mm256_sll_epi16(a: i16x16, count: __m128i) -> i16x16 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpslld))]
-pub unsafe fn _mm256_sll_epi32(a: i32x8, count: __m128i) -> i32x8 {
+pub unsafe fn _mm256_sll_epi32(a: i32x8, count: i32x4) -> i32x8 {
     ::mem::transmute(::myarch::_mm256_sll_epi32(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -1734,7 +1734,7 @@ pub unsafe fn _mm256_sll_epi32(a: i32x8, count: __m128i) -> i32x8 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpsllq))]
-pub unsafe fn _mm256_sll_epi64(a: i64x4, count: __m128i) -> i64x4 {
+pub unsafe fn _mm256_sll_epi64(a: i64x4, count: i64x2) -> i64x4 {
     ::mem::transmute(::myarch::_mm256_sll_epi64(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -1778,7 +1778,7 @@ pub unsafe fn _mm256_slli_si256(a: __m256i, imm8: i32) -> __m256i {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shift 128-bit lanes in `a` left by `imm8` bytes while shifting in zeros.
@@ -1794,7 +1794,7 @@ pub unsafe fn _mm256_bslli_epi128(a: __m256i, imm8: i32) -> __m256i {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shift packed 32-bit integers in `a` left by the amount
@@ -1803,7 +1803,7 @@ pub unsafe fn _mm256_bslli_epi128(a: __m256i, imm8: i32) -> __m256i {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpsllvd))]
-pub unsafe fn _mm_sllv_epi32(a: i32x4, count: __m128i) -> i32x4 {
+pub unsafe fn _mm_sllv_epi32(a: i32x4, count: i32x4) -> i32x4 {
     ::mem::transmute(::myarch::_mm_sllv_epi32(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -1813,7 +1813,7 @@ pub unsafe fn _mm_sllv_epi32(a: i32x4, count: __m128i) -> i32x4 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpsllvd))]
-pub unsafe fn _mm256_sllv_epi32(a: i32x8, count: __m256i) -> i32x8 {
+pub unsafe fn _mm256_sllv_epi32(a: i32x8, count: i32x8) -> i32x8 {
     ::mem::transmute(::myarch::_mm256_sllv_epi32(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -1823,7 +1823,7 @@ pub unsafe fn _mm256_sllv_epi32(a: i32x8, count: __m256i) -> i32x8 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpsllvq))]
-pub unsafe fn _mm_sllv_epi64(a: i64x2, count: __m128i) -> i64x2 {
+pub unsafe fn _mm_sllv_epi64(a: i64x2, count: i64x2) -> i64x2 {
     ::mem::transmute(::myarch::_mm_sllv_epi64(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -1833,7 +1833,7 @@ pub unsafe fn _mm_sllv_epi64(a: i64x2, count: __m128i) -> i64x2 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpsllvq))]
-pub unsafe fn _mm256_sllv_epi64(a: i64x4, count: __m256i) -> i64x4 {
+pub unsafe fn _mm256_sllv_epi64(a: i64x4, count: i64x4) -> i64x4 {
     ::mem::transmute(::myarch::_mm256_sllv_epi64(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -1842,7 +1842,7 @@ pub unsafe fn _mm256_sllv_epi64(a: i64x4, count: __m256i) -> i64x4 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpsraw))]
-pub unsafe fn _mm256_sra_epi16(a: i16x16, count: __m128i) -> i16x16 {
+pub unsafe fn _mm256_sra_epi16(a: i16x16, count: i16x8) -> i16x16 {
     ::mem::transmute(::myarch::_mm256_sra_epi16(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -1851,7 +1851,7 @@ pub unsafe fn _mm256_sra_epi16(a: i16x16, count: __m128i) -> i16x16 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpsrad))]
-pub unsafe fn _mm256_sra_epi32(a: i32x8, count: __m128i) -> i32x8 {
+pub unsafe fn _mm256_sra_epi32(a: i32x8, count: i32x4) -> i32x8 {
     ::mem::transmute(::myarch::_mm256_sra_epi32(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -1878,7 +1878,7 @@ pub unsafe fn _mm256_srai_epi32(a: i32x8, imm8: i32) -> i32x8 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpsravd))]
-pub unsafe fn _mm_srav_epi32(a: i32x4, count: __m128i) -> i32x4 {
+pub unsafe fn _mm_srav_epi32(a: i32x4, count: i32x4) -> i32x4 {
     ::mem::transmute(::myarch::_mm_srav_epi32(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -1887,7 +1887,7 @@ pub unsafe fn _mm_srav_epi32(a: i32x4, count: __m128i) -> i32x4 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpsravd))]
-pub unsafe fn _mm256_srav_epi32(a: i32x8, count: __m256i) -> i32x8 {
+pub unsafe fn _mm256_srav_epi32(a: i32x8, count: i32x8) -> i32x8 {
     ::mem::transmute(::myarch::_mm256_srav_epi32(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -1904,7 +1904,7 @@ pub unsafe fn _mm256_srli_si256(a: __m256i, imm8: i32) -> __m256i {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shift 128-bit lanes in `a` right by `imm8` bytes while shifting in zeros.
@@ -1920,7 +1920,7 @@ pub unsafe fn _mm256_bsrli_epi128(a: __m256i, imm8: i32) -> __m256i {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shift packed 16-bit integers in `a` right by `count` while shifting in
@@ -1928,7 +1928,7 @@ pub unsafe fn _mm256_bsrli_epi128(a: __m256i, imm8: i32) -> __m256i {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpsrlw))]
-pub unsafe fn _mm256_srl_epi16(a: i16x16, count: __m128i) -> i16x16 {
+pub unsafe fn _mm256_srl_epi16(a: i16x16, count: i16x8) -> i16x16 {
     ::mem::transmute(::myarch::_mm256_srl_epi16(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -1937,7 +1937,7 @@ pub unsafe fn _mm256_srl_epi16(a: i16x16, count: __m128i) -> i16x16 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpsrld))]
-pub unsafe fn _mm256_srl_epi32(a: i32x8, count: __m128i) -> i32x8 {
+pub unsafe fn _mm256_srl_epi32(a: i32x8, count: i32x4) -> i32x8 {
     ::mem::transmute(::myarch::_mm256_srl_epi32(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -1946,7 +1946,7 @@ pub unsafe fn _mm256_srl_epi32(a: i32x8, count: __m128i) -> i32x8 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpsrlq))]
-pub unsafe fn _mm256_srl_epi64(a: i64x4, count: __m128i) -> i64x4 {
+pub unsafe fn _mm256_srl_epi64(a: i64x4, count: i64x2) -> i64x4 {
     ::mem::transmute(::myarch::_mm256_srl_epi64(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -1982,7 +1982,7 @@ pub unsafe fn _mm256_srli_epi64(a: i64x4, imm8: i32) -> i64x4 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpsrlvd))]
-pub unsafe fn _mm_srlv_epi32(a: i32x4, count: __m128i) -> i32x4 {
+pub unsafe fn _mm_srlv_epi32(a: i32x4, count: i32x4) -> i32x4 {
     ::mem::transmute(::myarch::_mm_srlv_epi32(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -1991,7 +1991,7 @@ pub unsafe fn _mm_srlv_epi32(a: i32x4, count: __m128i) -> i32x4 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpsrlvd))]
-pub unsafe fn _mm256_srlv_epi32(a: i32x8, count: __m256i) -> i32x8 {
+pub unsafe fn _mm256_srlv_epi32(a: i32x8, count: i32x8) -> i32x8 {
     ::mem::transmute(::myarch::_mm256_srlv_epi32(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -2000,7 +2000,7 @@ pub unsafe fn _mm256_srlv_epi32(a: i32x8, count: __m256i) -> i32x8 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpsrlvq))]
-pub unsafe fn _mm_srlv_epi64(a: i64x2, count: __m128i) -> i64x2 {
+pub unsafe fn _mm_srlv_epi64(a: i64x2, count: i64x2) -> i64x2 {
     ::mem::transmute(::myarch::_mm_srlv_epi64(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -2009,7 +2009,7 @@ pub unsafe fn _mm_srlv_epi64(a: i64x2, count: __m128i) -> i64x2 {
 #[inline]
 #[target_feature(enable = "avx2")]
 #[cfg_attr(test, assert_instr(vpsrlvq))]
-pub unsafe fn _mm256_srlv_epi64(a: i64x4, count: __m256i) -> i64x4 {
+pub unsafe fn _mm256_srlv_epi64(a: i64x4, count: i64x4) -> i64x4 {
     ::mem::transmute(::myarch::_mm256_srlv_epi64(::mem::transmute(a), ::mem::transmute(count)))
 }
 
@@ -2446,7 +2446,7 @@ pub unsafe fn _mm256_extract_epi8(a: i8x32, imm8: i32) -> i8 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Extract a 16-bit integer from `a`, selected with `imm8`. Returns a 32-bit
@@ -2465,7 +2465,7 @@ pub unsafe fn _mm256_extract_epi16(a: i16x16, imm8: i32) -> i16 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Extract a 32-bit integer from `a`, selected with `imm8`.
@@ -2481,7 +2481,7 @@ pub unsafe fn _mm256_extract_epi32(a: i32x8, imm8: i32) -> i32 {
         };
     }
 
-   ::mem::transmute(constify_imm8!(imm8, call))
+    ::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Returns the first element of the input vector of [4 x double].
