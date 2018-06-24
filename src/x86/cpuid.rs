@@ -28,13 +28,13 @@ use crate::simd::*;
 #[inline]
 #[cfg_attr(test, assert_instr(cpuid))]
 pub unsafe fn __cpuid_count(leaf: u32, sub_leaf: u32) -> CpuidResult {
-    ::mem::transmute(::myarch::__cpuid_count(::mem::transmute(leaf), ::mem::transmute(sub_leaf)))
+    crate::mem::transmute(crate::myarch::__cpuid_count(crate::mem::transmute(leaf), crate::mem::transmute(sub_leaf)))
 }
 
 /// See [`__cpuid_count`](fn.__cpuid_count.html).
 #[inline]
 #[cfg_attr(test, assert_instr(cpuid))]
 pub unsafe fn __cpuid(leaf: u32) -> CpuidResult {
-    ::mem::transmute(::myarch::__cpuid(::mem::transmute(leaf)))
+    crate::mem::transmute(crate::myarch::__cpuid(crate::mem::transmute(leaf)))
 }
 

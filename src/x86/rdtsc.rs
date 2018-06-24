@@ -19,7 +19,7 @@ use crate::simd::*;
 #[inline]
 #[cfg_attr(test, assert_instr(rdtsc))]
 pub unsafe fn _rdtsc() -> i64 {
-    ::mem::transmute(::myarch::_rdtsc())
+    crate::mem::transmute(crate::myarch::_rdtsc())
 }
 
 /// Reads the current value of the processor’s time-stamp counter and
@@ -39,6 +39,6 @@ pub unsafe fn _rdtsc() -> i64 {
 #[inline]
 #[cfg_attr(test, assert_instr(rdtscp))]
 pub unsafe fn __rdtscp(aux: *mut u32) -> u64 {
-    ::mem::transmute(::myarch::__rdtscp(::mem::transmute(aux)))
+    crate::mem::transmute(crate::myarch::__rdtscp(crate::mem::transmute(aux)))
 }
 

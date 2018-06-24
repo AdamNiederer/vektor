@@ -9,7 +9,7 @@ use crate::simd::*;
 #[cfg_attr(test, assert_instr(rdrand))]
 #[cfg_attr(feature = "cargo-clippy", allow(stutter))]
 pub unsafe fn _rdrand16_step(val: &mut u16) -> i32 {
-    ::mem::transmute(::myarch::_rdrand16_step(::mem::transmute(val)))
+    crate::mem::transmute(crate::myarch::_rdrand16_step(crate::mem::transmute(val)))
 }
 
 /// Read a hardware generated 32-bit random value and store the result in val.
@@ -19,7 +19,7 @@ pub unsafe fn _rdrand16_step(val: &mut u16) -> i32 {
 #[cfg_attr(test, assert_instr(rdrand))]
 #[cfg_attr(feature = "cargo-clippy", allow(stutter))]
 pub unsafe fn _rdrand32_step(val: &mut u32) -> i32 {
-    ::mem::transmute(::myarch::_rdrand32_step(::mem::transmute(val)))
+    crate::mem::transmute(crate::myarch::_rdrand32_step(crate::mem::transmute(val)))
 }
 
 /// Read a 16-bit NIST SP800-90B and SP800-90C compliant random value and store
@@ -28,7 +28,7 @@ pub unsafe fn _rdrand32_step(val: &mut u32) -> i32 {
 #[target_feature(enable = "rdseed")]
 #[cfg_attr(test, assert_instr(rdseed))]
 pub unsafe fn _rdseed16_step(val: &mut u16) -> i32 {
-    ::mem::transmute(::myarch::_rdseed16_step(::mem::transmute(val)))
+    crate::mem::transmute(crate::myarch::_rdseed16_step(crate::mem::transmute(val)))
 }
 
 /// Read a 32-bit NIST SP800-90B and SP800-90C compliant random value and store
@@ -37,6 +37,6 @@ pub unsafe fn _rdseed16_step(val: &mut u16) -> i32 {
 #[target_feature(enable = "rdseed")]
 #[cfg_attr(test, assert_instr(rdseed))]
 pub unsafe fn _rdseed32_step(val: &mut u32) -> i32 {
-    ::mem::transmute(::myarch::_rdseed32_step(::mem::transmute(val)))
+    crate::mem::transmute(crate::myarch::_rdseed32_step(crate::mem::transmute(val)))
 }
 

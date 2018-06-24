@@ -20,7 +20,7 @@ use crate::simd::*;
 #[target_feature(enable = "sse4a")]
 #[cfg_attr(test, assert_instr(extrq))]
 pub unsafe fn _mm_extract_si64(x: __m128i, y: __m128i) -> __m128i {
-    ::mem::transmute(::myarch::_mm_extract_si64(::mem::transmute(x), ::mem::transmute(y)))
+    crate::mem::transmute(crate::myarch::_mm_extract_si64(crate::mem::transmute(x), crate::mem::transmute(y)))
 }
 
 /// Inserts the `[length:0]` bits of `y` into `x` at `index`.
@@ -36,6 +36,6 @@ pub unsafe fn _mm_extract_si64(x: __m128i, y: __m128i) -> __m128i {
 #[target_feature(enable = "sse4a")]
 #[cfg_attr(test, assert_instr(insertq))]
 pub unsafe fn _mm_insert_si64(x: __m128i, y: __m128i) -> __m128i {
-    ::mem::transmute(::myarch::_mm_insert_si64(::mem::transmute(x), ::mem::transmute(y)))
+    crate::mem::transmute(crate::myarch::_mm_insert_si64(crate::mem::transmute(x), crate::mem::transmute(y)))
 }
 

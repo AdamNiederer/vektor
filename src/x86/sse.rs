@@ -8,7 +8,7 @@ use crate::simd::*;
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(addss))]
 pub unsafe fn _mm_add_ss(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_add_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_add_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Adds __m128 vectors.
@@ -16,7 +16,7 @@ pub unsafe fn _mm_add_ss(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(addps))]
 pub unsafe fn _mm_add_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_add_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_add_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Subtracts the first component of `b` from `a`, the other components are
@@ -25,7 +25,7 @@ pub unsafe fn _mm_add_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(subss))]
 pub unsafe fn _mm_sub_ss(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_sub_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_sub_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Subtracts __m128 vectors.
@@ -33,7 +33,7 @@ pub unsafe fn _mm_sub_ss(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(subps))]
 pub unsafe fn _mm_sub_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_sub_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_sub_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Multiplies the first component of `a` and `b`, the other components are
@@ -42,7 +42,7 @@ pub unsafe fn _mm_sub_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(mulss))]
 pub unsafe fn _mm_mul_ss(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_mul_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_mul_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Multiplies __m128 vectors.
@@ -50,7 +50,7 @@ pub unsafe fn _mm_mul_ss(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(mulps))]
 pub unsafe fn _mm_mul_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_mul_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_mul_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Divides the first component of `b` by `a`, the other components are
@@ -59,7 +59,7 @@ pub unsafe fn _mm_mul_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(divss))]
 pub unsafe fn _mm_div_ss(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_div_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_div_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Divides __m128 vectors.
@@ -67,7 +67,7 @@ pub unsafe fn _mm_div_ss(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(divps))]
 pub unsafe fn _mm_div_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_div_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_div_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Return the square root of the first single-precision (32-bit)
@@ -76,7 +76,7 @@ pub unsafe fn _mm_div_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(sqrtss))]
 pub unsafe fn _mm_sqrt_ss(a: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_sqrt_ss(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_sqrt_ss(crate::mem::transmute(a)))
 }
 
 /// Return the square root of packed single-precision (32-bit) floating-point
@@ -85,7 +85,7 @@ pub unsafe fn _mm_sqrt_ss(a: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(sqrtps))]
 pub unsafe fn _mm_sqrt_ps(a: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_sqrt_ps(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_sqrt_ps(crate::mem::transmute(a)))
 }
 
 /// Return the approximate reciprocal of the first single-precision
@@ -94,7 +94,7 @@ pub unsafe fn _mm_sqrt_ps(a: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(rcpss))]
 pub unsafe fn _mm_rcp_ss(a: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_rcp_ss(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_rcp_ss(crate::mem::transmute(a)))
 }
 
 /// Return the approximate reciprocal of packed single-precision (32-bit)
@@ -103,7 +103,7 @@ pub unsafe fn _mm_rcp_ss(a: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(rcpps))]
 pub unsafe fn _mm_rcp_ps(a: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_rcp_ps(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_rcp_ps(crate::mem::transmute(a)))
 }
 
 /// Return the approximate reciprocal square root of the fist single-precision
@@ -112,7 +112,7 @@ pub unsafe fn _mm_rcp_ps(a: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(rsqrtss))]
 pub unsafe fn _mm_rsqrt_ss(a: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_rsqrt_ss(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_rsqrt_ss(crate::mem::transmute(a)))
 }
 
 /// Return the approximate reciprocal square root of packed single-precision
@@ -121,7 +121,7 @@ pub unsafe fn _mm_rsqrt_ss(a: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(rsqrtps))]
 pub unsafe fn _mm_rsqrt_ps(a: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_rsqrt_ps(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_rsqrt_ps(crate::mem::transmute(a)))
 }
 
 /// Compare the first single-precision (32-bit) floating-point element of `a`
@@ -131,7 +131,7 @@ pub unsafe fn _mm_rsqrt_ps(a: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(minss))]
 pub unsafe fn _mm_min_ss(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_min_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_min_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare packed single-precision (32-bit) floating-point elements in `a` and
@@ -140,7 +140,7 @@ pub unsafe fn _mm_min_ss(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(minps))]
 pub unsafe fn _mm_min_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_min_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_min_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare the first single-precision (32-bit) floating-point element of `a`
@@ -150,7 +150,7 @@ pub unsafe fn _mm_min_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(maxss))]
 pub unsafe fn _mm_max_ss(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_max_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_max_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare packed single-precision (32-bit) floating-point elements in `a` and
@@ -159,7 +159,7 @@ pub unsafe fn _mm_max_ss(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(maxps))]
 pub unsafe fn _mm_max_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_max_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_max_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Bitwise AND of packed single-precision (32-bit) floating-point elements.
@@ -169,7 +169,7 @@ pub unsafe fn _mm_max_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[cfg_attr(all(test, any(target_arch = "x86_64", target_feature = "sse2")),
            assert_instr(andps))]
 pub unsafe fn _mm_and_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_and_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_and_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Bitwise AND-NOT of packed single-precision (32-bit) floating-point
@@ -183,7 +183,7 @@ pub unsafe fn _mm_and_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[cfg_attr(all(test, any(target_arch = "x86_64", target_feature = "sse2")),
            assert_instr(andnps))]
 pub unsafe fn _mm_andnot_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_andnot_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_andnot_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Bitwise OR of packed single-precision (32-bit) floating-point elements.
@@ -193,7 +193,7 @@ pub unsafe fn _mm_andnot_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[cfg_attr(all(test, any(target_arch = "x86_64", target_feature = "sse2")),
            assert_instr(orps))]
 pub unsafe fn _mm_or_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_or_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_or_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Bitwise exclusive OR of packed single-precision (32-bit) floating-point
@@ -204,7 +204,7 @@ pub unsafe fn _mm_or_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[cfg_attr(all(test, any(target_arch = "x86_64", target_feature = "sse2")),
            assert_instr(xorps))]
 pub unsafe fn _mm_xor_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_xor_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_xor_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare the lowest `f32` of both inputs for equality. The lowest 32 bits of
@@ -214,7 +214,7 @@ pub unsafe fn _mm_xor_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpeqss))]
 pub unsafe fn _mm_cmpeq_ss(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmpeq_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpeq_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare the lowest `f32` of both inputs for less than. The lowest 32 bits
@@ -225,7 +225,7 @@ pub unsafe fn _mm_cmpeq_ss(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpltss))]
 pub unsafe fn _mm_cmplt_ss(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmplt_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmplt_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare the lowest `f32` of both inputs for less than or equal. The lowest
@@ -236,7 +236,7 @@ pub unsafe fn _mm_cmplt_ss(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpless))]
 pub unsafe fn _mm_cmple_ss(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmple_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmple_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare the lowest `f32` of both inputs for greater than. The lowest 32
@@ -247,7 +247,7 @@ pub unsafe fn _mm_cmple_ss(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpltss))]
 pub unsafe fn _mm_cmpgt_ss(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmpgt_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpgt_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare the lowest `f32` of both inputs for greater than or equal. The
@@ -258,7 +258,7 @@ pub unsafe fn _mm_cmpgt_ss(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpless))]
 pub unsafe fn _mm_cmpge_ss(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmpge_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpge_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare the lowest `f32` of both inputs for inequality. The lowest 32 bits
@@ -269,7 +269,7 @@ pub unsafe fn _mm_cmpge_ss(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpneqss))]
 pub unsafe fn _mm_cmpneq_ss(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmpneq_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpneq_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare the lowest `f32` of both inputs for not-less-than. The lowest 32
@@ -280,7 +280,7 @@ pub unsafe fn _mm_cmpneq_ss(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpnltss))]
 pub unsafe fn _mm_cmpnlt_ss(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmpnlt_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpnlt_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare the lowest `f32` of both inputs for not-less-than-or-equal. The
@@ -291,7 +291,7 @@ pub unsafe fn _mm_cmpnlt_ss(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpnless))]
 pub unsafe fn _mm_cmpnle_ss(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmpnle_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpnle_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare the lowest `f32` of both inputs for not-greater-than. The lowest 32
@@ -302,7 +302,7 @@ pub unsafe fn _mm_cmpnle_ss(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpnltss))]
 pub unsafe fn _mm_cmpngt_ss(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmpngt_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpngt_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare the lowest `f32` of both inputs for not-greater-than-or-equal. The
@@ -313,7 +313,7 @@ pub unsafe fn _mm_cmpngt_ss(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpnless))]
 pub unsafe fn _mm_cmpnge_ss(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmpnge_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpnge_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Check if the lowest `f32` of both inputs are ordered. The lowest 32 bits of
@@ -324,7 +324,7 @@ pub unsafe fn _mm_cmpnge_ss(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpordss))]
 pub unsafe fn _mm_cmpord_ss(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmpord_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpord_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Check if the lowest `f32` of both inputs are unordered. The lowest 32 bits
@@ -335,7 +335,7 @@ pub unsafe fn _mm_cmpord_ss(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpunordss))]
 pub unsafe fn _mm_cmpunord_ss(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmpunord_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpunord_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare each of the four floats in `a` to the corresponding element in `b`.
@@ -345,7 +345,7 @@ pub unsafe fn _mm_cmpunord_ss(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpeqps))]
 pub unsafe fn _mm_cmpeq_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmpeq_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpeq_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare each of the four floats in `a` to the corresponding element in `b`.
@@ -355,7 +355,7 @@ pub unsafe fn _mm_cmpeq_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpltps))]
 pub unsafe fn _mm_cmplt_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmplt_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmplt_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare each of the four floats in `a` to the corresponding element in `b`.
@@ -366,7 +366,7 @@ pub unsafe fn _mm_cmplt_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpleps))]
 pub unsafe fn _mm_cmple_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmple_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmple_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare each of the four floats in `a` to the corresponding element in `b`.
@@ -376,7 +376,7 @@ pub unsafe fn _mm_cmple_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpltps))]
 pub unsafe fn _mm_cmpgt_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmpgt_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpgt_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare each of the four floats in `a` to the corresponding element in `b`.
@@ -387,7 +387,7 @@ pub unsafe fn _mm_cmpgt_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpleps))]
 pub unsafe fn _mm_cmpge_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmpge_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpge_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare each of the four floats in `a` to the corresponding element in `b`.
@@ -397,7 +397,7 @@ pub unsafe fn _mm_cmpge_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpneqps))]
 pub unsafe fn _mm_cmpneq_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmpneq_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpneq_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare each of the four floats in `a` to the corresponding element in `b`.
@@ -408,7 +408,7 @@ pub unsafe fn _mm_cmpneq_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpnltps))]
 pub unsafe fn _mm_cmpnlt_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmpnlt_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpnlt_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare each of the four floats in `a` to the corresponding element in `b`.
@@ -419,7 +419,7 @@ pub unsafe fn _mm_cmpnlt_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpnleps))]
 pub unsafe fn _mm_cmpnle_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmpnle_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpnle_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare each of the four floats in `a` to the corresponding element in `b`.
@@ -430,7 +430,7 @@ pub unsafe fn _mm_cmpnle_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpnltps))]
 pub unsafe fn _mm_cmpngt_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmpngt_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpngt_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare each of the four floats in `a` to the corresponding element in `b`.
@@ -441,7 +441,7 @@ pub unsafe fn _mm_cmpngt_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpnleps))]
 pub unsafe fn _mm_cmpnge_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmpnge_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpnge_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare each of the four floats in `a` to the corresponding element in `b`.
@@ -452,7 +452,7 @@ pub unsafe fn _mm_cmpnge_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpordps))]
 pub unsafe fn _mm_cmpord_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmpord_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpord_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare each of the four floats in `a` to the corresponding element in `b`.
@@ -463,7 +463,7 @@ pub unsafe fn _mm_cmpord_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cmpunordps))]
 pub unsafe fn _mm_cmpunord_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cmpunord_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpunord_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare two 32-bit floats from the low-order bits of `a` and `b`. Returns
@@ -472,7 +472,7 @@ pub unsafe fn _mm_cmpunord_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(comiss))]
 pub unsafe fn _mm_comieq_ss(a: f32x4, b: f32x4) -> i32 {
-    ::mem::transmute(::myarch::_mm_comieq_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_comieq_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare two 32-bit floats from the low-order bits of `a` and `b`. Returns
@@ -481,7 +481,7 @@ pub unsafe fn _mm_comieq_ss(a: f32x4, b: f32x4) -> i32 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(comiss))]
 pub unsafe fn _mm_comilt_ss(a: f32x4, b: f32x4) -> i32 {
-    ::mem::transmute(::myarch::_mm_comilt_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_comilt_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare two 32-bit floats from the low-order bits of `a` and `b`. Returns
@@ -491,7 +491,7 @@ pub unsafe fn _mm_comilt_ss(a: f32x4, b: f32x4) -> i32 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(comiss))]
 pub unsafe fn _mm_comile_ss(a: f32x4, b: f32x4) -> i32 {
-    ::mem::transmute(::myarch::_mm_comile_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_comile_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare two 32-bit floats from the low-order bits of `a` and `b`. Returns
@@ -501,7 +501,7 @@ pub unsafe fn _mm_comile_ss(a: f32x4, b: f32x4) -> i32 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(comiss))]
 pub unsafe fn _mm_comigt_ss(a: f32x4, b: f32x4) -> i32 {
-    ::mem::transmute(::myarch::_mm_comigt_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_comigt_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare two 32-bit floats from the low-order bits of `a` and `b`. Returns
@@ -511,7 +511,7 @@ pub unsafe fn _mm_comigt_ss(a: f32x4, b: f32x4) -> i32 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(comiss))]
 pub unsafe fn _mm_comige_ss(a: f32x4, b: f32x4) -> i32 {
-    ::mem::transmute(::myarch::_mm_comige_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_comige_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare two 32-bit floats from the low-order bits of `a` and `b`. Returns
@@ -520,7 +520,7 @@ pub unsafe fn _mm_comige_ss(a: f32x4, b: f32x4) -> i32 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(comiss))]
 pub unsafe fn _mm_comineq_ss(a: f32x4, b: f32x4) -> i32 {
-    ::mem::transmute(::myarch::_mm_comineq_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_comineq_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare two 32-bit floats from the low-order bits of `a` and `b`. Returns
@@ -530,7 +530,7 @@ pub unsafe fn _mm_comineq_ss(a: f32x4, b: f32x4) -> i32 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(ucomiss))]
 pub unsafe fn _mm_ucomieq_ss(a: f32x4, b: f32x4) -> i32 {
-    ::mem::transmute(::myarch::_mm_ucomieq_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_ucomieq_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare two 32-bit floats from the low-order bits of `a` and `b`. Returns
@@ -541,7 +541,7 @@ pub unsafe fn _mm_ucomieq_ss(a: f32x4, b: f32x4) -> i32 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(ucomiss))]
 pub unsafe fn _mm_ucomilt_ss(a: f32x4, b: f32x4) -> i32 {
-    ::mem::transmute(::myarch::_mm_ucomilt_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_ucomilt_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare two 32-bit floats from the low-order bits of `a` and `b`. Returns
@@ -552,7 +552,7 @@ pub unsafe fn _mm_ucomilt_ss(a: f32x4, b: f32x4) -> i32 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(ucomiss))]
 pub unsafe fn _mm_ucomile_ss(a: f32x4, b: f32x4) -> i32 {
-    ::mem::transmute(::myarch::_mm_ucomile_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_ucomile_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare two 32-bit floats from the low-order bits of `a` and `b`. Returns
@@ -563,7 +563,7 @@ pub unsafe fn _mm_ucomile_ss(a: f32x4, b: f32x4) -> i32 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(ucomiss))]
 pub unsafe fn _mm_ucomigt_ss(a: f32x4, b: f32x4) -> i32 {
-    ::mem::transmute(::myarch::_mm_ucomigt_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_ucomigt_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare two 32-bit floats from the low-order bits of `a` and `b`. Returns
@@ -574,7 +574,7 @@ pub unsafe fn _mm_ucomigt_ss(a: f32x4, b: f32x4) -> i32 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(ucomiss))]
 pub unsafe fn _mm_ucomige_ss(a: f32x4, b: f32x4) -> i32 {
-    ::mem::transmute(::myarch::_mm_ucomige_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_ucomige_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compare two 32-bit floats from the low-order bits of `a` and `b`. Returns
@@ -584,7 +584,7 @@ pub unsafe fn _mm_ucomige_ss(a: f32x4, b: f32x4) -> i32 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(ucomiss))]
 pub unsafe fn _mm_ucomineq_ss(a: f32x4, b: f32x4) -> i32 {
-    ::mem::transmute(::myarch::_mm_ucomineq_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_ucomineq_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Convert the lowest 32 bit float in the input vector to a 32 bit integer.
@@ -599,7 +599,7 @@ pub unsafe fn _mm_ucomineq_ss(a: f32x4, b: f32x4) -> i32 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cvtss2si))]
 pub unsafe fn _mm_cvtss_si32(a: f32x4) -> i32 {
-    ::mem::transmute(::myarch::_mm_cvtss_si32(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvtss_si32(crate::mem::transmute(a)))
 }
 
 /// Alias for [`_mm_cvtss_si32`](fn._mm_cvtss_si32.html).
@@ -607,7 +607,7 @@ pub unsafe fn _mm_cvtss_si32(a: f32x4) -> i32 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cvtss2si))]
 pub unsafe fn _mm_cvt_ss2si(a: f32x4) -> i32 {
-    ::mem::transmute(::myarch::_mm_cvt_ss2si(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvt_ss2si(crate::mem::transmute(a)))
 }
 
 /// Convert the lowest 32 bit float in the input vector to a 32 bit integer
@@ -624,7 +624,7 @@ pub unsafe fn _mm_cvt_ss2si(a: f32x4) -> i32 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cvttss2si))]
 pub unsafe fn _mm_cvttss_si32(a: f32x4) -> i32 {
-    ::mem::transmute(::myarch::_mm_cvttss_si32(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvttss_si32(crate::mem::transmute(a)))
 }
 
 /// Alias for [`_mm_cvttss_si32`](fn._mm_cvttss_si32.html).
@@ -632,7 +632,7 @@ pub unsafe fn _mm_cvttss_si32(a: f32x4) -> i32 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cvttss2si))]
 pub unsafe fn _mm_cvtt_ss2si(a: f32x4) -> i32 {
-    ::mem::transmute(::myarch::_mm_cvtt_ss2si(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvtt_ss2si(crate::mem::transmute(a)))
 }
 
 /// Extract the lowest 32 bit float from the input vector.
@@ -641,7 +641,7 @@ pub unsafe fn _mm_cvtt_ss2si(a: f32x4) -> i32 {
 // No point in using assert_instrs. In Unix x86_64 calling convention this is a
 // no-op, and on Windows it's just a `mov`.
 pub unsafe fn _mm_cvtss_f32(a: f32x4) -> f32 {
-    ::mem::transmute(::myarch::_mm_cvtss_f32(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvtss_f32(crate::mem::transmute(a)))
 }
 
 /// Convert a 32 bit integer to a 32 bit float. The result vector is the input
@@ -653,7 +653,7 @@ pub unsafe fn _mm_cvtss_f32(a: f32x4) -> f32 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cvtsi2ss))]
 pub unsafe fn _mm_cvtsi32_ss(a: f32x4, b: i32) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cvtsi32_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cvtsi32_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Alias for [`_mm_cvtsi32_ss`](fn._mm_cvtsi32_ss.html).
@@ -661,7 +661,7 @@ pub unsafe fn _mm_cvtsi32_ss(a: f32x4, b: i32) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cvtsi2ss))]
 pub unsafe fn _mm_cvt_si2ss(a: f32x4, b: i32) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cvt_si2ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cvt_si2ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Construct a `__m128` with the lowest element set to `a` and the rest set to
@@ -670,7 +670,7 @@ pub unsafe fn _mm_cvt_si2ss(a: f32x4, b: i32) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(movss))]
 pub unsafe fn _mm_set_ss(a: f32) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_set_ss(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_set_ss(crate::mem::transmute(a)))
 }
 
 /// Construct a `__m128` with all element set to `a`.
@@ -678,7 +678,7 @@ pub unsafe fn _mm_set_ss(a: f32) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(shufps))]
 pub unsafe fn _mm_set1_ps(a: f32) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_set1_ps(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_set1_ps(crate::mem::transmute(a)))
 }
 
 /// Alias for [`_mm_set1_ps`](fn._mm_set1_ps.html)
@@ -686,7 +686,7 @@ pub unsafe fn _mm_set1_ps(a: f32) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(shufps))]
 pub unsafe fn _mm_set_ps1(a: f32) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_set_ps1(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_set_ps1(crate::mem::transmute(a)))
 }
 
 /// Construct a `__m128` from four floating point values highest to lowest.
@@ -710,7 +710,7 @@ pub unsafe fn _mm_set_ps1(a: f32) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(unpcklps))]
 pub unsafe fn _mm_set_ps(a: f32, b: f32, c: f32, d: f32) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_set_ps(::mem::transmute(a), ::mem::transmute(b), ::mem::transmute(c), ::mem::transmute(d)))
+    crate::mem::transmute(crate::myarch::_mm_set_ps(crate::mem::transmute(a), crate::mem::transmute(b), crate::mem::transmute(c), crate::mem::transmute(d)))
 }
 
 /// Construct a `__m128` from four floating point values lowest to highest.
@@ -727,7 +727,7 @@ pub unsafe fn _mm_set_ps(a: f32, b: f32, c: f32, d: f32) -> f32x4 {
 // On a 32-bit architecture it just copies the operands from the stack.
 #[cfg_attr(all(test, target_arch = "x86"), assert_instr(movaps))]
 pub unsafe fn _mm_setr_ps(a: f32, b: f32, c: f32, d: f32) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_setr_ps(::mem::transmute(a), ::mem::transmute(b), ::mem::transmute(c), ::mem::transmute(d)))
+    crate::mem::transmute(crate::myarch::_mm_setr_ps(crate::mem::transmute(a), crate::mem::transmute(b), crate::mem::transmute(c), crate::mem::transmute(d)))
 }
 
 /// Construct a `__m128` with all elements initialized to zero.
@@ -735,7 +735,7 @@ pub unsafe fn _mm_setr_ps(a: f32, b: f32, c: f32, d: f32) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(xorps))]
 pub unsafe fn _mm_setzero_ps() -> f32x4 {
-    ::mem::transmute(::myarch::_mm_setzero_ps())
+    crate::mem::transmute(crate::myarch::_mm_setzero_ps())
 }
 
 /// Shuffle packed single-precision (32-bit) floating-point elements in `a` and
@@ -751,11 +751,11 @@ pub unsafe fn _mm_shuffle_ps(a: f32x4, b: f32x4, mask: u32) -> f32x4 {
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_mm_shuffle_ps(::mem::transmute(a), ::mem::transmute(b), $imm8)
+            crate::myarch::_mm_shuffle_ps(crate::mem::transmute(a), crate::mem::transmute(b), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(mask, call))
+    crate::mem::transmute(constify_imm8!(mask, call))
 }
 
 /// Unpack and interleave single-precision (32-bit) floating-point elements
@@ -764,7 +764,7 @@ pub unsafe fn _mm_shuffle_ps(a: f32x4, b: f32x4, mask: u32) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(unpckhps))]
 pub unsafe fn _mm_unpackhi_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_unpackhi_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_unpackhi_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Unpack and interleave single-precision (32-bit) floating-point elements
@@ -773,7 +773,7 @@ pub unsafe fn _mm_unpackhi_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(unpcklps))]
 pub unsafe fn _mm_unpacklo_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_unpacklo_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_unpacklo_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Combine higher half of `a` and `b`. The highwe half of `b` occupies the
@@ -782,7 +782,7 @@ pub unsafe fn _mm_unpacklo_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(movhlps))]
 pub unsafe fn _mm_movehl_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_movehl_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_movehl_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Combine lower half of `a` and `b`. The lower half of `b` occupies the
@@ -791,7 +791,7 @@ pub unsafe fn _mm_movehl_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(movlhps))]
 pub unsafe fn _mm_movelh_ps(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_movelh_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_movelh_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Return a mask of the most significant bit of each element in `a`.
@@ -802,7 +802,7 @@ pub unsafe fn _mm_movelh_ps(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(movmskps))]
 pub unsafe fn _mm_movemask_ps(a: f32x4) -> i32 {
-    ::mem::transmute(::myarch::_mm_movemask_ps(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_movemask_ps(crate::mem::transmute(a)))
 }
 
 /// Set the upper two single-precision floating-point values with 64 bits of
@@ -856,7 +856,7 @@ pub unsafe fn _mm_movemask_ps(a: f32x4) -> i32 {
 // TODO: This function is actually not limited to floats, but that's what
 // what matches the C type most closely: (__m128, *const __m64) -> __m128
 pub unsafe fn _mm_loadh_pi(a: f32x4, p: *const __m64) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_loadh_pi(::mem::transmute(a), ::mem::transmute(p)))
+    crate::mem::transmute(crate::myarch::_mm_loadh_pi(crate::mem::transmute(a), crate::mem::transmute(p)))
 }
 
 /// Load two floats from `p` into the lower half of a `__m128`. The upper half
@@ -907,7 +907,7 @@ pub unsafe fn _mm_loadh_pi(a: f32x4, p: *const __m64) -> f32x4 {
            assert_instr(movss))]
 // TODO: Like _mm_loadh_pi, this also isn't limited to floats.
 pub unsafe fn _mm_loadl_pi(a: f32x4, p: *const __m64) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_loadl_pi(::mem::transmute(a), ::mem::transmute(p)))
+    crate::mem::transmute(crate::myarch::_mm_loadl_pi(crate::mem::transmute(a), crate::mem::transmute(p)))
 }
 
 /// Construct a `__m128` with the lowest element read from `p` and the other
@@ -918,7 +918,7 @@ pub unsafe fn _mm_loadl_pi(a: f32x4, p: *const __m64) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(movss))]
 pub unsafe fn _mm_load_ss(p: *const f32) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_load_ss(::mem::transmute(p)))
+    crate::mem::transmute(crate::myarch::_mm_load_ss(crate::mem::transmute(p)))
 }
 
 /// Construct a `__m128` by duplicating the value read from `p` into all
@@ -930,7 +930,7 @@ pub unsafe fn _mm_load_ss(p: *const f32) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(movss))]
 pub unsafe fn _mm_load1_ps(p: *const f32) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_load1_ps(::mem::transmute(p)))
+    crate::mem::transmute(crate::myarch::_mm_load1_ps(crate::mem::transmute(p)))
 }
 
 /// Alias for [`_mm_load1_ps`](fn._mm_load1_ps.html)
@@ -938,7 +938,7 @@ pub unsafe fn _mm_load1_ps(p: *const f32) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(movss))]
 pub unsafe fn _mm_load_ps1(p: *const f32) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_load_ps1(::mem::transmute(p)))
+    crate::mem::transmute(crate::myarch::_mm_load_ps1(crate::mem::transmute(p)))
 }
 
 /// Load four `f32` values from *aligned* memory into a `__m128`. If the
@@ -953,7 +953,7 @@ pub unsafe fn _mm_load_ps1(p: *const f32) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(movaps))]
 pub unsafe fn _mm_load_ps(p: *const f32) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_load_ps(::mem::transmute(p)))
+    crate::mem::transmute(crate::myarch::_mm_load_ps(crate::mem::transmute(p)))
 }
 
 /// Load four `f32` values from memory into a `__m128`. There are no
@@ -967,7 +967,7 @@ pub unsafe fn _mm_load_ps(p: *const f32) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(movups))]
 pub unsafe fn _mm_loadu_ps(p: *const f32) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_loadu_ps(::mem::transmute(p)))
+    crate::mem::transmute(crate::myarch::_mm_loadu_ps(crate::mem::transmute(p)))
 }
 
 /// Load four `f32` values from aligned memory into a `__m128` in reverse
@@ -993,7 +993,7 @@ pub unsafe fn _mm_loadu_ps(p: *const f32) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(movaps))]
 pub unsafe fn _mm_loadr_ps(p: *const f32) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_loadr_ps(::mem::transmute(p)))
+    crate::mem::transmute(crate::myarch::_mm_loadr_ps(crate::mem::transmute(p)))
 }
 
 /// Return a `__m128` with the first component from `b` and the remaining
@@ -1007,7 +1007,7 @@ pub unsafe fn _mm_loadr_ps(p: *const f32) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(movss))]
 pub unsafe fn _mm_move_ss(a: f32x4, b: f32x4) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_move_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_move_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Get the unsigned 32-bit value of the MXCSR control and status register.
@@ -1017,7 +1017,7 @@ pub unsafe fn _mm_move_ss(a: f32x4, b: f32x4) -> f32x4 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(stmxcsr))]
 pub unsafe fn _mm_getcsr() -> u32 {
-    ::mem::transmute(::myarch::_mm_getcsr())
+    crate::mem::transmute(crate::myarch::_mm_getcsr())
 }
 
 /// See [`_mm_setcsr`](fn._mm_setcsr.html)
@@ -1025,7 +1025,7 @@ pub unsafe fn _mm_getcsr() -> u32 {
 #[allow(non_snake_case)]
 #[target_feature(enable = "sse")]
 pub unsafe fn _MM_GET_EXCEPTION_MASK() -> u32 {
-    ::mem::transmute(::myarch::_MM_GET_EXCEPTION_MASK())
+    crate::mem::transmute(crate::myarch::_MM_GET_EXCEPTION_MASK())
 }
 
 /// See [`_mm_setcsr`](fn._mm_setcsr.html)
@@ -1033,7 +1033,7 @@ pub unsafe fn _MM_GET_EXCEPTION_MASK() -> u32 {
 #[allow(non_snake_case)]
 #[target_feature(enable = "sse")]
 pub unsafe fn _MM_GET_EXCEPTION_STATE() -> u32 {
-    ::mem::transmute(::myarch::_MM_GET_EXCEPTION_STATE())
+    crate::mem::transmute(crate::myarch::_MM_GET_EXCEPTION_STATE())
 }
 
 /// See [`_mm_setcsr`](fn._mm_setcsr.html)
@@ -1041,7 +1041,7 @@ pub unsafe fn _MM_GET_EXCEPTION_STATE() -> u32 {
 #[allow(non_snake_case)]
 #[target_feature(enable = "sse")]
 pub unsafe fn _MM_GET_FLUSH_ZERO_MODE() -> u32 {
-    ::mem::transmute(::myarch::_MM_GET_FLUSH_ZERO_MODE())
+    crate::mem::transmute(crate::myarch::_MM_GET_FLUSH_ZERO_MODE())
 }
 
 /// See [`_mm_setcsr`](fn._mm_setcsr.html)
@@ -1049,14 +1049,14 @@ pub unsafe fn _MM_GET_FLUSH_ZERO_MODE() -> u32 {
 #[allow(non_snake_case)]
 #[target_feature(enable = "sse")]
 pub unsafe fn _MM_GET_ROUNDING_MODE() -> u32 {
-    ::mem::transmute(::myarch::_MM_GET_ROUNDING_MODE())
+    crate::mem::transmute(crate::myarch::_MM_GET_ROUNDING_MODE())
 }
 
 /// Return vector of type __m128 with undefined elements.
 #[inline]
 #[target_feature(enable = "sse")]
 pub unsafe fn _mm_undefined_ps() -> f32x4 {
-    ::mem::transmute(::myarch::_mm_undefined_ps())
+    crate::mem::transmute(crate::myarch::_mm_undefined_ps())
 }
 
 /// Compares the packed 16-bit signed integers of `a` and `b` writing the
@@ -1065,7 +1065,7 @@ pub unsafe fn _mm_undefined_ps() -> f32x4 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(pmaxsw))]
 pub unsafe fn _mm_max_pi16(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_max_pi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_max_pi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compares the packed 16-bit signed integers of `a` and `b` writing the
@@ -1074,7 +1074,7 @@ pub unsafe fn _mm_max_pi16(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(pmaxsw))]
 pub unsafe fn _m_pmaxsw(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_m_pmaxsw(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_m_pmaxsw(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compares the packed 8-bit signed integers of `a` and `b` writing the
@@ -1083,7 +1083,7 @@ pub unsafe fn _m_pmaxsw(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(pmaxub))]
 pub unsafe fn _mm_max_pu8(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_max_pu8(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_max_pu8(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compares the packed 8-bit signed integers of `a` and `b` writing the
@@ -1092,7 +1092,7 @@ pub unsafe fn _mm_max_pu8(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(pmaxub))]
 pub unsafe fn _m_pmaxub(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_m_pmaxub(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_m_pmaxub(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compares the packed 16-bit signed integers of `a` and `b` writing the
@@ -1101,7 +1101,7 @@ pub unsafe fn _m_pmaxub(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(pminsw))]
 pub unsafe fn _mm_min_pi16(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_min_pi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_min_pi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compares the packed 16-bit signed integers of `a` and `b` writing the
@@ -1110,7 +1110,7 @@ pub unsafe fn _mm_min_pi16(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(pminsw))]
 pub unsafe fn _m_pminsw(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_m_pminsw(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_m_pminsw(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compares the packed 8-bit signed integers of `a` and `b` writing the
@@ -1119,7 +1119,7 @@ pub unsafe fn _m_pminsw(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(pminub))]
 pub unsafe fn _mm_min_pu8(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_min_pu8(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_min_pu8(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compares the packed 8-bit signed integers of `a` and `b` writing the
@@ -1128,7 +1128,7 @@ pub unsafe fn _mm_min_pu8(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(pminub))]
 pub unsafe fn _m_pminub(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_m_pminub(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_m_pminub(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Multiplies packed 16-bit unsigned integer values and writes the
@@ -1138,7 +1138,7 @@ pub unsafe fn _m_pminub(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(pmulhuw))]
 pub unsafe fn _mm_mulhi_pu16(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_mulhi_pu16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_mulhi_pu16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Multiplies packed 16-bit unsigned integer values and writes the
@@ -1148,7 +1148,7 @@ pub unsafe fn _mm_mulhi_pu16(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(pmulhuw))]
 pub unsafe fn _m_pmulhuw(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_m_pmulhuw(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_m_pmulhuw(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Computes the rounded averages of the packed unsigned 8-bit integer
@@ -1158,7 +1158,7 @@ pub unsafe fn _m_pmulhuw(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(pavgb))]
 pub unsafe fn _mm_avg_pu8(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_avg_pu8(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_avg_pu8(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Computes the rounded averages of the packed unsigned 8-bit integer
@@ -1168,7 +1168,7 @@ pub unsafe fn _mm_avg_pu8(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(pavgb))]
 pub unsafe fn _m_pavgb(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_m_pavgb(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_m_pavgb(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Computes the rounded averages of the packed unsigned 16-bit integer
@@ -1178,7 +1178,7 @@ pub unsafe fn _m_pavgb(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(pavgw))]
 pub unsafe fn _mm_avg_pu16(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_avg_pu16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_avg_pu16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Computes the rounded averages of the packed unsigned 16-bit integer
@@ -1188,7 +1188,7 @@ pub unsafe fn _mm_avg_pu16(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(pavgw))]
 pub unsafe fn _m_pavgw(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_m_pavgw(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_m_pavgw(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Subtracts the corresponding 8-bit unsigned integer values of the two
@@ -1199,7 +1199,7 @@ pub unsafe fn _m_pavgw(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(psadbw))]
 pub unsafe fn _mm_sad_pu8(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_sad_pu8(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_sad_pu8(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Subtracts the corresponding 8-bit unsigned integer values of the two
@@ -1210,7 +1210,7 @@ pub unsafe fn _mm_sad_pu8(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(psadbw))]
 pub unsafe fn _m_psadbw(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_m_psadbw(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_m_psadbw(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Converts two elements of a 64-bit vector of [2 x i32] into two
@@ -1221,7 +1221,7 @@ pub unsafe fn _m_psadbw(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(cvtpi2ps))]
 pub unsafe fn _mm_cvtpi32_ps(a: f32x4, b: __m64) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cvtpi32_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cvtpi32_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Converts two elements of a 64-bit vector of [2 x i32] into two
@@ -1232,7 +1232,7 @@ pub unsafe fn _mm_cvtpi32_ps(a: f32x4, b: __m64) -> f32x4 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(cvtpi2ps))]
 pub unsafe fn _mm_cvt_pi2ps(a: f32x4, b: __m64) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cvt_pi2ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cvt_pi2ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Converts the lower 4 8-bit values of `a` into a 128-bit vector of 4 `f32`s.
@@ -1240,7 +1240,7 @@ pub unsafe fn _mm_cvt_pi2ps(a: f32x4, b: __m64) -> f32x4 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(cvtpi2ps))]
 pub unsafe fn _mm_cvtpi8_ps(a: __m64) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cvtpi8_ps(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvtpi8_ps(crate::mem::transmute(a)))
 }
 
 /// Converts the lower 4 8-bit values of `a` into a 128-bit vector of 4 `f32`s.
@@ -1248,7 +1248,7 @@ pub unsafe fn _mm_cvtpi8_ps(a: __m64) -> f32x4 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(cvtpi2ps))]
 pub unsafe fn _mm_cvtpu8_ps(a: __m64) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cvtpu8_ps(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvtpu8_ps(crate::mem::transmute(a)))
 }
 
 /// Converts a 64-bit vector of `i16`s into a 128-bit vector of 4 `f32`s.
@@ -1256,7 +1256,7 @@ pub unsafe fn _mm_cvtpu8_ps(a: __m64) -> f32x4 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(cvtpi2ps))]
 pub unsafe fn _mm_cvtpi16_ps(a: __m64) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cvtpi16_ps(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvtpi16_ps(crate::mem::transmute(a)))
 }
 
 /// Converts a 64-bit vector of `i16`s into a 128-bit vector of 4 `f32`s.
@@ -1264,7 +1264,7 @@ pub unsafe fn _mm_cvtpi16_ps(a: __m64) -> f32x4 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(cvtpi2ps))]
 pub unsafe fn _mm_cvtpu16_ps(a: __m64) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cvtpu16_ps(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvtpu16_ps(crate::mem::transmute(a)))
 }
 
 /// Converts the two 32-bit signed integer values from each 64-bit vector
@@ -1273,7 +1273,7 @@ pub unsafe fn _mm_cvtpu16_ps(a: __m64) -> f32x4 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(cvtpi2ps))]
 pub unsafe fn _mm_cvtpi32x2_ps(a: __m64, b: __m64) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cvtpi32x2_ps(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cvtpi32x2_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Extracts 16-bit element from a 64-bit vector of [4 x i16] and
@@ -1286,11 +1286,11 @@ pub unsafe fn _mm_extract_pi16(a: __m64, imm2: i32) -> i32 {
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_mm_extract_pi16(::mem::transmute(a), $imm8)
+            crate::myarch::_mm_extract_pi16(crate::mem::transmute(a), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(imm2, call))
+    crate::mem::transmute(constify_imm8!(imm2, call))
 }
 
 /// Extracts 16-bit element from a 64-bit vector of [4 x i16] and
@@ -1303,11 +1303,11 @@ pub unsafe fn _m_pextrw(a: __m64, imm2: i32) -> i32 {
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_m_pextrw(::mem::transmute(a), $imm8)
+            crate::myarch::_m_pextrw(crate::mem::transmute(a), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(imm2, call))
+    crate::mem::transmute(constify_imm8!(imm2, call))
 }
 
 /// Copies data from the 64-bit vector of [4 x i16] to the destination,
@@ -1321,11 +1321,11 @@ pub unsafe fn _mm_insert_pi16(a: __m64, d: i32, imm2: i32) -> __m64 {
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_mm_insert_pi16(::mem::transmute(a), ::mem::transmute(d), $imm8)
+            crate::myarch::_mm_insert_pi16(crate::mem::transmute(a), crate::mem::transmute(d), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(imm2, call))
+    crate::mem::transmute(constify_imm8!(imm2, call))
 }
 
 /// Copies data from the 64-bit vector of [4 x i16] to the destination,
@@ -1339,11 +1339,11 @@ pub unsafe fn _m_pinsrw(a: __m64, d: i32, imm2: i32) -> __m64 {
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_m_pinsrw(::mem::transmute(a), ::mem::transmute(d), $imm8)
+            crate::myarch::_m_pinsrw(crate::mem::transmute(a), crate::mem::transmute(d), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(imm2, call))
+    crate::mem::transmute(constify_imm8!(imm2, call))
 }
 
 /// Takes the most significant bit from each 8-bit element in a 64-bit
@@ -1353,7 +1353,7 @@ pub unsafe fn _m_pinsrw(a: __m64, d: i32, imm2: i32) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(pmovmskb))]
 pub unsafe fn _mm_movemask_pi8(a: __m64) -> i32 {
-    ::mem::transmute(::myarch::_mm_movemask_pi8(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_movemask_pi8(crate::mem::transmute(a)))
 }
 
 /// Takes the most significant bit from each 8-bit element in a 64-bit
@@ -1363,7 +1363,7 @@ pub unsafe fn _mm_movemask_pi8(a: __m64) -> i32 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(pmovmskb))]
 pub unsafe fn _m_pmovmskb(a: __m64) -> i32 {
-    ::mem::transmute(::myarch::_m_pmovmskb(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_m_pmovmskb(crate::mem::transmute(a)))
 }
 
 /// Shuffles the 4 16-bit integers from a 64-bit integer vector to the
@@ -1376,11 +1376,11 @@ pub unsafe fn _mm_shuffle_pi16(a: __m64, imm8: i32) -> __m64 {
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_mm_shuffle_pi16(::mem::transmute(a), $imm8)
+            crate::myarch::_mm_shuffle_pi16(crate::mem::transmute(a), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(imm8, call))
+    crate::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Shuffles the 4 16-bit integers from a 64-bit integer vector to the
@@ -1393,11 +1393,11 @@ pub unsafe fn _m_pshufw(a: __m64, imm8: i32) -> __m64 {
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_m_pshufw(::mem::transmute(a), $imm8)
+            crate::myarch::_m_pshufw(crate::mem::transmute(a), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(imm8, call))
+    crate::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Convert the two lower packed single-precision (32-bit) floating-point
@@ -1406,7 +1406,7 @@ pub unsafe fn _m_pshufw(a: __m64, imm8: i32) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(cvttps2pi))]
 pub unsafe fn _mm_cvttps_pi32(a: f32x4) -> __m64 {
-    ::mem::transmute(::myarch::_mm_cvttps_pi32(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvttps_pi32(crate::mem::transmute(a)))
 }
 
 /// Convert the two lower packed single-precision (32-bit) floating-point
@@ -1415,7 +1415,7 @@ pub unsafe fn _mm_cvttps_pi32(a: f32x4) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(cvttps2pi))]
 pub unsafe fn _mm_cvtt_ps2pi(a: f32x4) -> __m64 {
-    ::mem::transmute(::myarch::_mm_cvtt_ps2pi(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvtt_ps2pi(crate::mem::transmute(a)))
 }
 
 /// Convert the two lower packed single-precision (32-bit) floating-point
@@ -1424,7 +1424,7 @@ pub unsafe fn _mm_cvtt_ps2pi(a: f32x4) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(cvtps2pi))]
 pub unsafe fn _mm_cvtps_pi32(a: f32x4) -> __m64 {
-    ::mem::transmute(::myarch::_mm_cvtps_pi32(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvtps_pi32(crate::mem::transmute(a)))
 }
 
 /// Convert the two lower packed single-precision (32-bit) floating-point
@@ -1433,7 +1433,7 @@ pub unsafe fn _mm_cvtps_pi32(a: f32x4) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(cvtps2pi))]
 pub unsafe fn _mm_cvt_ps2pi(a: f32x4) -> __m64 {
-    ::mem::transmute(::myarch::_mm_cvt_ps2pi(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvt_ps2pi(crate::mem::transmute(a)))
 }
 
 /// Convert packed single-precision (32-bit) floating-point elements in `a` to
@@ -1442,7 +1442,7 @@ pub unsafe fn _mm_cvt_ps2pi(a: f32x4) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(cvtps2pi))]
 pub unsafe fn _mm_cvtps_pi16(a: f32x4) -> __m64 {
-    ::mem::transmute(::myarch::_mm_cvtps_pi16(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvtps_pi16(crate::mem::transmute(a)))
 }
 
 /// Convert packed single-precision (32-bit) floating-point elements in `a` to
@@ -1452,6 +1452,6 @@ pub unsafe fn _mm_cvtps_pi16(a: f32x4) -> __m64 {
 #[target_feature(enable = "sse,mmx")]
 #[cfg_attr(test, assert_instr(cvtps2pi))]
 pub unsafe fn _mm_cvtps_pi8(a: f32x4) -> __m64 {
-    ::mem::transmute(::myarch::_mm_cvtps_pi8(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvtps_pi8(crate::mem::transmute(a)))
 }
 

@@ -8,7 +8,7 @@ use crate::simd::*;
 #[target_feature(enable = "ssse3")]
 #[cfg_attr(test, assert_instr(pabsb))]
 pub unsafe fn _mm_abs_epi8(a: i8x16) -> u8x16 {
-    ::mem::transmute(::myarch::_mm_abs_epi8(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_abs_epi8(crate::mem::transmute(a)))
 }
 
 /// Compute the absolute value of each of the packed 16-bit signed integers in
@@ -18,7 +18,7 @@ pub unsafe fn _mm_abs_epi8(a: i8x16) -> u8x16 {
 #[target_feature(enable = "ssse3")]
 #[cfg_attr(test, assert_instr(pabsw))]
 pub unsafe fn _mm_abs_epi16(a: i16x8) -> u16x8 {
-    ::mem::transmute(::myarch::_mm_abs_epi16(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_abs_epi16(crate::mem::transmute(a)))
 }
 
 /// Compute the absolute value of each of the packed 32-bit signed integers in
@@ -28,7 +28,7 @@ pub unsafe fn _mm_abs_epi16(a: i16x8) -> u16x8 {
 #[target_feature(enable = "ssse3")]
 #[cfg_attr(test, assert_instr(pabsd))]
 pub unsafe fn _mm_abs_epi32(a: i32x4) -> u32x4 {
-    ::mem::transmute(::myarch::_mm_abs_epi32(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_abs_epi32(crate::mem::transmute(a)))
 }
 
 /// Shuffle bytes from `a` according to the content of `b`.
@@ -59,7 +59,7 @@ pub unsafe fn _mm_abs_epi32(a: i32x4) -> u32x4 {
 #[target_feature(enable = "ssse3")]
 #[cfg_attr(test, assert_instr(pshufb))]
 pub unsafe fn _mm_shuffle_epi8(a: i8x16, b: i8x16) -> i8x16 {
-    ::mem::transmute(::myarch::_mm_shuffle_epi8(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_shuffle_epi8(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Concatenate 16-byte blocks in `a` and `b` into a 32-byte temporary result,
@@ -72,11 +72,11 @@ pub unsafe fn _mm_alignr_epi8(a: i8x16, b: i8x16, n: i32) -> i8x16 {
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_mm_alignr_epi8(::mem::transmute(a), ::mem::transmute(b), $imm8)
+            crate::myarch::_mm_alignr_epi8(crate::mem::transmute(a), crate::mem::transmute(b), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(n, call))
+    crate::mem::transmute(constify_imm8!(n, call))
 }
 
 /// Horizontally add the adjacent pairs of values contained in 2 packed
@@ -85,7 +85,7 @@ pub unsafe fn _mm_alignr_epi8(a: i8x16, b: i8x16, n: i32) -> i8x16 {
 #[target_feature(enable = "ssse3")]
 #[cfg_attr(test, assert_instr(phaddw))]
 pub unsafe fn _mm_hadd_epi16(a: i16x8, b: i16x8) -> i16x8 {
-    ::mem::transmute(::myarch::_mm_hadd_epi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_hadd_epi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Horizontally add the adjacent pairs of values contained in 2 packed
@@ -95,7 +95,7 @@ pub unsafe fn _mm_hadd_epi16(a: i16x8, b: i16x8) -> i16x8 {
 #[target_feature(enable = "ssse3")]
 #[cfg_attr(test, assert_instr(phaddsw))]
 pub unsafe fn _mm_hadds_epi16(a: i16x8, b: i16x8) -> i16x8 {
-    ::mem::transmute(::myarch::_mm_hadds_epi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_hadds_epi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Horizontally add the adjacent pairs of values contained in 2 packed
@@ -104,7 +104,7 @@ pub unsafe fn _mm_hadds_epi16(a: i16x8, b: i16x8) -> i16x8 {
 #[target_feature(enable = "ssse3")]
 #[cfg_attr(test, assert_instr(phaddd))]
 pub unsafe fn _mm_hadd_epi32(a: i32x4, b: i32x4) -> i32x4 {
-    ::mem::transmute(::myarch::_mm_hadd_epi32(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_hadd_epi32(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Horizontally subtract the adjacent pairs of values contained in 2
@@ -113,7 +113,7 @@ pub unsafe fn _mm_hadd_epi32(a: i32x4, b: i32x4) -> i32x4 {
 #[target_feature(enable = "ssse3")]
 #[cfg_attr(test, assert_instr(phsubw))]
 pub unsafe fn _mm_hsub_epi16(a: i16x8, b: i16x8) -> i16x8 {
-    ::mem::transmute(::myarch::_mm_hsub_epi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_hsub_epi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Horizontally subtract the adjacent pairs of values contained in 2
@@ -124,7 +124,7 @@ pub unsafe fn _mm_hsub_epi16(a: i16x8, b: i16x8) -> i16x8 {
 #[target_feature(enable = "ssse3")]
 #[cfg_attr(test, assert_instr(phsubsw))]
 pub unsafe fn _mm_hsubs_epi16(a: i16x8, b: i16x8) -> i16x8 {
-    ::mem::transmute(::myarch::_mm_hsubs_epi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_hsubs_epi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Horizontally subtract the adjacent pairs of values contained in 2
@@ -133,7 +133,7 @@ pub unsafe fn _mm_hsubs_epi16(a: i16x8, b: i16x8) -> i16x8 {
 #[target_feature(enable = "ssse3")]
 #[cfg_attr(test, assert_instr(phsubd))]
 pub unsafe fn _mm_hsub_epi32(a: i32x4, b: i32x4) -> i32x4 {
-    ::mem::transmute(::myarch::_mm_hsub_epi32(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_hsub_epi32(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Multiply corresponding pairs of packed 8-bit unsigned integer
@@ -145,7 +145,7 @@ pub unsafe fn _mm_hsub_epi32(a: i32x4, b: i32x4) -> i32x4 {
 #[target_feature(enable = "ssse3")]
 #[cfg_attr(test, assert_instr(pmaddubsw))]
 pub unsafe fn _mm_maddubs_epi16(a: i16x8, b: i16x8) -> i16x8 {
-    ::mem::transmute(::myarch::_mm_maddubs_epi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_maddubs_epi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Multiply packed 16-bit signed integer values, truncate the 32-bit
@@ -155,7 +155,7 @@ pub unsafe fn _mm_maddubs_epi16(a: i16x8, b: i16x8) -> i16x8 {
 #[target_feature(enable = "ssse3")]
 #[cfg_attr(test, assert_instr(pmulhrsw))]
 pub unsafe fn _mm_mulhrs_epi16(a: i16x8, b: i16x8) -> i16x8 {
-    ::mem::transmute(::myarch::_mm_mulhrs_epi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_mulhrs_epi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Negate packed 8-bit integers in `a` when the corresponding signed 8-bit
@@ -166,7 +166,7 @@ pub unsafe fn _mm_mulhrs_epi16(a: i16x8, b: i16x8) -> i16x8 {
 #[target_feature(enable = "ssse3")]
 #[cfg_attr(test, assert_instr(psignb))]
 pub unsafe fn _mm_sign_epi8(a: i8x16, b: i8x16) -> i8x16 {
-    ::mem::transmute(::myarch::_mm_sign_epi8(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_sign_epi8(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Negate packed 16-bit integers in `a` when the corresponding signed 16-bit
@@ -177,7 +177,7 @@ pub unsafe fn _mm_sign_epi8(a: i8x16, b: i8x16) -> i8x16 {
 #[target_feature(enable = "ssse3")]
 #[cfg_attr(test, assert_instr(psignw))]
 pub unsafe fn _mm_sign_epi16(a: i16x8, b: i16x8) -> i16x8 {
-    ::mem::transmute(::myarch::_mm_sign_epi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_sign_epi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Negate packed 32-bit integers in `a` when the corresponding signed 32-bit
@@ -188,7 +188,7 @@ pub unsafe fn _mm_sign_epi16(a: i16x8, b: i16x8) -> i16x8 {
 #[target_feature(enable = "ssse3")]
 #[cfg_attr(test, assert_instr(psignd))]
 pub unsafe fn _mm_sign_epi32(a: i32x4, b: i32x4) -> i32x4 {
-    ::mem::transmute(::myarch::_mm_sign_epi32(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_sign_epi32(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compute the absolute value of packed 8-bit integers in `a` and
@@ -197,7 +197,7 @@ pub unsafe fn _mm_sign_epi32(a: i32x4, b: i32x4) -> i32x4 {
 #[target_feature(enable = "ssse3,mmx")]
 #[cfg_attr(test, assert_instr(pabsb))]
 pub unsafe fn _mm_abs_pi8(a: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_abs_pi8(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_abs_pi8(crate::mem::transmute(a)))
 }
 
 /// Compute the absolute value of packed 8-bit integers in `a`, and return the
@@ -206,7 +206,7 @@ pub unsafe fn _mm_abs_pi8(a: __m64) -> __m64 {
 #[target_feature(enable = "ssse3,mmx")]
 #[cfg_attr(test, assert_instr(pabsw))]
 pub unsafe fn _mm_abs_pi16(a: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_abs_pi16(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_abs_pi16(crate::mem::transmute(a)))
 }
 
 /// Compute the absolute value of packed 32-bit integers in `a`, and return the
@@ -215,7 +215,7 @@ pub unsafe fn _mm_abs_pi16(a: __m64) -> __m64 {
 #[target_feature(enable = "ssse3,mmx")]
 #[cfg_attr(test, assert_instr(pabsd))]
 pub unsafe fn _mm_abs_pi32(a: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_abs_pi32(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_abs_pi32(crate::mem::transmute(a)))
 }
 
 /// Shuffle packed 8-bit integers in `a` according to shuffle control mask in
@@ -224,7 +224,7 @@ pub unsafe fn _mm_abs_pi32(a: __m64) -> __m64 {
 #[target_feature(enable = "ssse3,mmx")]
 #[cfg_attr(test, assert_instr(pshufb))]
 pub unsafe fn _mm_shuffle_pi8(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_shuffle_pi8(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_shuffle_pi8(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Concatenates the two 64-bit integer vector operands, and right-shifts
@@ -237,11 +237,11 @@ pub unsafe fn _mm_alignr_pi8(a: __m64, b: __m64, n: i32) -> __m64 {
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_mm_alignr_pi8(::mem::transmute(a), ::mem::transmute(b), $imm8)
+            crate::myarch::_mm_alignr_pi8(crate::mem::transmute(a), crate::mem::transmute(b), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(n, call))
+    crate::mem::transmute(constify_imm8!(n, call))
 }
 
 /// Horizontally add the adjacent pairs of values contained in 2 packed
@@ -250,7 +250,7 @@ pub unsafe fn _mm_alignr_pi8(a: __m64, b: __m64, n: i32) -> __m64 {
 #[target_feature(enable = "ssse3,mmx")]
 #[cfg_attr(test, assert_instr(phaddw))]
 pub unsafe fn _mm_hadd_pi16(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_hadd_pi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_hadd_pi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Horizontally add the adjacent pairs of values contained in 2 packed
@@ -259,7 +259,7 @@ pub unsafe fn _mm_hadd_pi16(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "ssse3,mmx")]
 #[cfg_attr(test, assert_instr(phaddd))]
 pub unsafe fn _mm_hadd_pi32(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_hadd_pi32(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_hadd_pi32(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Horizontally add the adjacent pairs of values contained in 2 packed
@@ -269,7 +269,7 @@ pub unsafe fn _mm_hadd_pi32(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "ssse3,mmx")]
 #[cfg_attr(test, assert_instr(phaddsw))]
 pub unsafe fn _mm_hadds_pi16(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_hadds_pi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_hadds_pi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Horizontally subtracts the adjacent pairs of values contained in 2
@@ -278,7 +278,7 @@ pub unsafe fn _mm_hadds_pi16(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "ssse3,mmx")]
 #[cfg_attr(test, assert_instr(phsubw))]
 pub unsafe fn _mm_hsub_pi16(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_hsub_pi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_hsub_pi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Horizontally subtracts the adjacent pairs of values contained in 2
@@ -287,7 +287,7 @@ pub unsafe fn _mm_hsub_pi16(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "ssse3,mmx")]
 #[cfg_attr(test, assert_instr(phsubd))]
 pub unsafe fn _mm_hsub_pi32(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_hsub_pi32(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_hsub_pi32(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Horizontally subtracts the adjacent pairs of values contained in 2
@@ -298,7 +298,7 @@ pub unsafe fn _mm_hsub_pi32(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "ssse3,mmx")]
 #[cfg_attr(test, assert_instr(phsubsw))]
 pub unsafe fn _mm_hsubs_pi16(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_hsubs_pi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_hsubs_pi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Multiplies corresponding pairs of packed 8-bit unsigned integer
@@ -310,7 +310,7 @@ pub unsafe fn _mm_hsubs_pi16(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "ssse3,mmx")]
 #[cfg_attr(test, assert_instr(pmaddubsw))]
 pub unsafe fn _mm_maddubs_pi16(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_maddubs_pi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_maddubs_pi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Multiplies packed 16-bit signed integer values, truncates the 32-bit
@@ -320,7 +320,7 @@ pub unsafe fn _mm_maddubs_pi16(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "ssse3,mmx")]
 #[cfg_attr(test, assert_instr(pmulhrsw))]
 pub unsafe fn _mm_mulhrs_pi16(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_mulhrs_pi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_mulhrs_pi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Negate packed 8-bit integers in `a` when the corresponding signed 8-bit
@@ -331,7 +331,7 @@ pub unsafe fn _mm_mulhrs_pi16(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "ssse3,mmx")]
 #[cfg_attr(test, assert_instr(psignb))]
 pub unsafe fn _mm_sign_pi8(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_sign_pi8(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_sign_pi8(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Negate packed 16-bit integers in `a` when the corresponding signed 16-bit
@@ -342,7 +342,7 @@ pub unsafe fn _mm_sign_pi8(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "ssse3,mmx")]
 #[cfg_attr(test, assert_instr(psignw))]
 pub unsafe fn _mm_sign_pi16(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_sign_pi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_sign_pi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Negate packed 32-bit integers in `a` when the corresponding signed 32-bit
@@ -353,6 +353,6 @@ pub unsafe fn _mm_sign_pi16(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "ssse3,mmx")]
 #[cfg_attr(test, assert_instr(psignd))]
 pub unsafe fn _mm_sign_pi32(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_sign_pi32(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_sign_pi32(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 

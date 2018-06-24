@@ -8,6 +8,6 @@ use crate::simd::*;
 #[target_feature(enable = "xsave")]
 #[cfg_attr(test, assert_instr(xgetbv))]
 pub unsafe fn _xgetbv(xcr_no: u32) -> u64 {
-    ::mem::transmute(::myarch::_xgetbv(::mem::transmute(xcr_no)))
+    crate::mem::transmute(crate::myarch::_xgetbv(crate::mem::transmute(xcr_no)))
 }
 

@@ -12,7 +12,7 @@ use crate::simd::*;
 #[cfg_attr(all(test, target_arch = "x86"), assert_instr(mulx))]
 #[target_feature(enable = "bmi2")]
 pub unsafe fn _mulx_u32(a: u32, b: u32, hi: &mut u32) -> u32 {
-    ::mem::transmute(::myarch::_mulx_u32(::mem::transmute(a), ::mem::transmute(b), ::mem::transmute(hi)))
+    crate::mem::transmute(crate::myarch::_mulx_u32(crate::mem::transmute(a), crate::mem::transmute(b), crate::mem::transmute(hi)))
 }
 
 /// Zero higher bits of `a` >= `index`.
@@ -20,7 +20,7 @@ pub unsafe fn _mulx_u32(a: u32, b: u32, hi: &mut u32) -> u32 {
 #[target_feature(enable = "bmi2")]
 #[cfg_attr(test, assert_instr(bzhi))]
 pub unsafe fn _bzhi_u32(a: u32, index: u32) -> u32 {
-    ::mem::transmute(::myarch::_bzhi_u32(::mem::transmute(a), ::mem::transmute(index)))
+    crate::mem::transmute(crate::myarch::_bzhi_u32(crate::mem::transmute(a), crate::mem::transmute(index)))
 }
 
 /// Scatter contiguous low order bits of `a` to the result at the positions
@@ -29,7 +29,7 @@ pub unsafe fn _bzhi_u32(a: u32, index: u32) -> u32 {
 #[target_feature(enable = "bmi2")]
 #[cfg_attr(test, assert_instr(pdep))]
 pub unsafe fn _pdep_u32(a: u32, mask: u32) -> u32 {
-    ::mem::transmute(::myarch::_pdep_u32(::mem::transmute(a), ::mem::transmute(mask)))
+    crate::mem::transmute(crate::myarch::_pdep_u32(crate::mem::transmute(a), crate::mem::transmute(mask)))
 }
 
 /// Gathers the bits of `x` specified by the `mask` into the contiguous low
@@ -38,6 +38,6 @@ pub unsafe fn _pdep_u32(a: u32, mask: u32) -> u32 {
 #[target_feature(enable = "bmi2")]
 #[cfg_attr(test, assert_instr(pext))]
 pub unsafe fn _pext_u32(a: u32, mask: u32) -> u32 {
-    ::mem::transmute(::myarch::_pext_u32(::mem::transmute(a), ::mem::transmute(mask)))
+    crate::mem::transmute(crate::myarch::_pext_u32(crate::mem::transmute(a), crate::mem::transmute(mask)))
 }
 

@@ -15,7 +15,7 @@ use crate::simd::*;
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cvtss2si))]
 pub unsafe fn _mm_cvtss_si64(a: f32x4) -> i64 {
-    ::mem::transmute(::myarch::_mm_cvtss_si64(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvtss_si64(crate::mem::transmute(a)))
 }
 
 /// Convert the lowest 32 bit float in the input vector to a 64 bit integer
@@ -31,7 +31,7 @@ pub unsafe fn _mm_cvtss_si64(a: f32x4) -> i64 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cvttss2si))]
 pub unsafe fn _mm_cvttss_si64(a: f32x4) -> i64 {
-    ::mem::transmute(::myarch::_mm_cvttss_si64(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvttss_si64(crate::mem::transmute(a)))
 }
 
 /// Convert a 64 bit integer to a 32 bit float. The result vector is the input
@@ -43,6 +43,6 @@ pub unsafe fn _mm_cvttss_si64(a: f32x4) -> i64 {
 #[target_feature(enable = "sse")]
 #[cfg_attr(test, assert_instr(cvtsi2ss))]
 pub unsafe fn _mm_cvtsi64_ss(a: f32x4, b: i64) -> f32x4 {
-    ::mem::transmute(::myarch::_mm_cvtsi64_ss(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cvtsi64_ss(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 

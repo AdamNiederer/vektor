@@ -1,8 +1,7 @@
 #![no_std]
-#![feature(target_feature, stdsimd, attr_literals, rustc_attrs, crate_in_paths, tbm_target_feature, mmx_target_feature, sse4a_target_feature)]
+#![feature(stdsimd, attr_literals, rustc_attrs, crate_in_paths, tbm_target_feature, mmx_target_feature, sse4a_target_feature)]
 
 use core::mem;
-use core::arch;
 use core::simd;
 
 // Taken from stdsimd https://github.com/rust-lang-nursery/stdsimd/blob/3491956867a0873ecf7403d52cad6de3d9137b16/coresimd/x86/macros.rs
@@ -278,9 +277,9 @@ use core::arch::x86 as myarch;
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 pub mod x86;
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
-pub use x86::*;
+pub use crate::x86::*;
 
 #[cfg(target_arch = "x86_64")]
 pub mod x86_64;
 #[cfg(target_arch = "x86_64")]
-pub use x86_64::*;
+pub use crate::x86_64::*;

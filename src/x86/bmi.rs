@@ -8,7 +8,7 @@ use crate::simd::*;
 #[target_feature(enable = "bmi1")]
 #[cfg_attr(test, assert_instr(bextr))]
 pub unsafe fn _bextr_u32(a: u32, start: u32, len: u32) -> u32 {
-    ::mem::transmute(::myarch::_bextr_u32(::mem::transmute(a), ::mem::transmute(start), ::mem::transmute(len)))
+    crate::mem::transmute(crate::myarch::_bextr_u32(crate::mem::transmute(a), crate::mem::transmute(start), crate::mem::transmute(len)))
 }
 
 /// Extracts bits of `a` specified by `control` into
@@ -20,7 +20,7 @@ pub unsafe fn _bextr_u32(a: u32, start: u32, len: u32) -> u32 {
 #[target_feature(enable = "bmi1")]
 #[cfg_attr(test, assert_instr(bextr))]
 pub unsafe fn _bextr2_u32(a: u32, control: u32) -> u32 {
-    ::mem::transmute(::myarch::_bextr2_u32(::mem::transmute(a), ::mem::transmute(control)))
+    crate::mem::transmute(crate::myarch::_bextr2_u32(crate::mem::transmute(a), crate::mem::transmute(control)))
 }
 
 /// Bitwise logical `AND` of inverted `a` with `b`.
@@ -28,7 +28,7 @@ pub unsafe fn _bextr2_u32(a: u32, control: u32) -> u32 {
 #[target_feature(enable = "bmi1")]
 #[cfg_attr(test, assert_instr(andn))]
 pub unsafe fn _andn_u32(a: u32, b: u32) -> u32 {
-    ::mem::transmute(::myarch::_andn_u32(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_andn_u32(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Extract lowest set isolated bit.
@@ -36,7 +36,7 @@ pub unsafe fn _andn_u32(a: u32, b: u32) -> u32 {
 #[target_feature(enable = "bmi1")]
 #[cfg_attr(test, assert_instr(blsi))]
 pub unsafe fn _blsi_u32(x: u32) -> u32 {
-    ::mem::transmute(::myarch::_blsi_u32(::mem::transmute(x)))
+    crate::mem::transmute(crate::myarch::_blsi_u32(crate::mem::transmute(x)))
 }
 
 /// Get mask up to lowest set bit.
@@ -44,7 +44,7 @@ pub unsafe fn _blsi_u32(x: u32) -> u32 {
 #[target_feature(enable = "bmi1")]
 #[cfg_attr(test, assert_instr(blsmsk))]
 pub unsafe fn _blsmsk_u32(x: u32) -> u32 {
-    ::mem::transmute(::myarch::_blsmsk_u32(::mem::transmute(x)))
+    crate::mem::transmute(crate::myarch::_blsmsk_u32(crate::mem::transmute(x)))
 }
 
 /// Resets the lowest set bit of `x`.
@@ -54,7 +54,7 @@ pub unsafe fn _blsmsk_u32(x: u32) -> u32 {
 #[target_feature(enable = "bmi1")]
 #[cfg_attr(test, assert_instr(blsr))]
 pub unsafe fn _blsr_u32(x: u32) -> u32 {
-    ::mem::transmute(::myarch::_blsr_u32(::mem::transmute(x)))
+    crate::mem::transmute(crate::myarch::_blsr_u32(crate::mem::transmute(x)))
 }
 
 /// Counts the number of trailing least significant zero bits.
@@ -64,7 +64,7 @@ pub unsafe fn _blsr_u32(x: u32) -> u32 {
 #[target_feature(enable = "bmi1")]
 #[cfg_attr(test, assert_instr(tzcnt))]
 pub unsafe fn _tzcnt_u32(x: u32) -> u32 {
-    ::mem::transmute(::myarch::_tzcnt_u32(::mem::transmute(x)))
+    crate::mem::transmute(crate::myarch::_tzcnt_u32(crate::mem::transmute(x)))
 }
 
 /// Counts the number of trailing least significant zero bits.
@@ -74,6 +74,6 @@ pub unsafe fn _tzcnt_u32(x: u32) -> u32 {
 #[target_feature(enable = "bmi1")]
 #[cfg_attr(test, assert_instr(tzcnt))]
 pub unsafe fn _mm_tzcnt_32(x: u32) -> i32 {
-    ::mem::transmute(::myarch::_mm_tzcnt_32(::mem::transmute(x)))
+    crate::mem::transmute(crate::myarch::_mm_tzcnt_32(crate::mem::transmute(x)))
 }
 

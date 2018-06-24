@@ -6,6 +6,6 @@ use crate::simd::*;
 #[inline]
 #[cfg_attr(test, assert_instr(bswap))]
 pub unsafe fn _bswap(x: i32) -> i32 {
-    ::mem::transmute(::myarch::_bswap(::mem::transmute(x)))
+    crate::mem::transmute(crate::myarch::_bswap(crate::mem::transmute(x)))
 }
 

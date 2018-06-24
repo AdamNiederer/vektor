@@ -9,7 +9,7 @@ use crate::simd::*;
 #[target_feature(enable = "lzcnt")]
 #[cfg_attr(test, assert_instr(lzcnt))]
 pub unsafe fn _lzcnt_u32(x: u32) -> u32 {
-    ::mem::transmute(::myarch::_lzcnt_u32(::mem::transmute(x)))
+    crate::mem::transmute(crate::myarch::_lzcnt_u32(crate::mem::transmute(x)))
 }
 
 /// Counts the bits that are set.
@@ -17,6 +17,6 @@ pub unsafe fn _lzcnt_u32(x: u32) -> u32 {
 #[target_feature(enable = "popcnt")]
 #[cfg_attr(test, assert_instr(popcnt))]
 pub unsafe fn _popcnt32(x: i32) -> i32 {
-    ::mem::transmute(::myarch::_popcnt32(::mem::transmute(x)))
+    crate::mem::transmute(crate::myarch::_popcnt32(crate::mem::transmute(x)))
 }
 

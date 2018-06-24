@@ -9,7 +9,7 @@ use crate::simd::*;
 #[cfg_attr(test, assert_instr(bextr))]
 #[cfg(not(target_arch = "x86"))]
 pub unsafe fn _bextr_u64(a: u64, start: u32, len: u32) -> u64 {
-    ::mem::transmute(::myarch::_bextr_u64(::mem::transmute(a), ::mem::transmute(start), ::mem::transmute(len)))
+    crate::mem::transmute(crate::myarch::_bextr_u64(crate::mem::transmute(a), crate::mem::transmute(start), crate::mem::transmute(len)))
 }
 
 /// Extracts bits of `a` specified by `control` into
@@ -22,7 +22,7 @@ pub unsafe fn _bextr_u64(a: u64, start: u32, len: u32) -> u64 {
 #[cfg_attr(test, assert_instr(bextr))]
 #[cfg(not(target_arch = "x86"))]
 pub unsafe fn _bextr2_u64(a: u64, control: u64) -> u64 {
-    ::mem::transmute(::myarch::_bextr2_u64(::mem::transmute(a), ::mem::transmute(control)))
+    crate::mem::transmute(crate::myarch::_bextr2_u64(crate::mem::transmute(a), crate::mem::transmute(control)))
 }
 
 /// Bitwise logical `AND` of inverted `a` with `b`.
@@ -30,22 +30,22 @@ pub unsafe fn _bextr2_u64(a: u64, control: u64) -> u64 {
 #[target_feature(enable = "bmi1")]
 #[cfg_attr(test, assert_instr(andn))]
 pub unsafe fn _andn_u64(a: u64, b: u64) -> u64 {
-    ::mem::transmute(::myarch::_andn_u64(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_andn_u64(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
  // generates lots of instructions
 pub unsafe fn _blsi_u64(x: u64) -> u64 {
-    ::mem::transmute(::myarch::_blsi_u64(::mem::transmute(x)))
+    crate::mem::transmute(crate::myarch::_blsi_u64(crate::mem::transmute(x)))
 }
 
  // generates lots of instructions
 pub unsafe fn _blsmsk_u64(x: u64) -> u64 {
-    ::mem::transmute(::myarch::_blsmsk_u64(::mem::transmute(x)))
+    crate::mem::transmute(crate::myarch::_blsmsk_u64(crate::mem::transmute(x)))
 }
 
  // generates lots of instructions
 pub unsafe fn _blsr_u64(x: u64) -> u64 {
-    ::mem::transmute(::myarch::_blsr_u64(::mem::transmute(x)))
+    crate::mem::transmute(crate::myarch::_blsr_u64(crate::mem::transmute(x)))
 }
 
 /// Counts the number of trailing least significant zero bits.
@@ -55,7 +55,7 @@ pub unsafe fn _blsr_u64(x: u64) -> u64 {
 #[target_feature(enable = "bmi1")]
 #[cfg_attr(test, assert_instr(tzcnt))]
 pub unsafe fn _tzcnt_u64(x: u64) -> u64 {
-    ::mem::transmute(::myarch::_tzcnt_u64(::mem::transmute(x)))
+    crate::mem::transmute(crate::myarch::_tzcnt_u64(crate::mem::transmute(x)))
 }
 
 /// Counts the number of trailing least significant zero bits.
@@ -65,6 +65,6 @@ pub unsafe fn _tzcnt_u64(x: u64) -> u64 {
 #[target_feature(enable = "bmi1")]
 #[cfg_attr(test, assert_instr(tzcnt))]
 pub unsafe fn _mm_tzcnt_64(x: u64) -> i64 {
-    ::mem::transmute(::myarch::_mm_tzcnt_64(::mem::transmute(x)))
+    crate::mem::transmute(crate::myarch::_mm_tzcnt_64(crate::mem::transmute(x)))
 }
 

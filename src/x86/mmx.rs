@@ -9,7 +9,7 @@ use crate::simd::*;
 // FIXME: this produces a xor intrinsic instead of xorps on x86_64
 #[cfg_attr(all(test, target_arch = "x86_64"), assert_instr(xor))]
 pub unsafe fn _mm_setzero_si64() -> __m64 {
-    ::mem::transmute(::myarch::_mm_setzero_si64())
+    crate::mem::transmute(crate::myarch::_mm_setzero_si64())
 }
 
 /// Add packed 8-bit integers in `a` and `b`.
@@ -17,7 +17,7 @@ pub unsafe fn _mm_setzero_si64() -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(paddb))]
 pub unsafe fn _mm_add_pi8(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_add_pi8(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_add_pi8(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Add packed 8-bit integers in `a` and `b`.
@@ -25,7 +25,7 @@ pub unsafe fn _mm_add_pi8(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(paddb))]
 pub unsafe fn _m_paddb(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_m_paddb(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_m_paddb(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Add packed 16-bit integers in `a` and `b`.
@@ -33,7 +33,7 @@ pub unsafe fn _m_paddb(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(paddw))]
 pub unsafe fn _mm_add_pi16(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_add_pi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_add_pi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Add packed 16-bit integers in `a` and `b`.
@@ -41,7 +41,7 @@ pub unsafe fn _mm_add_pi16(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(paddw))]
 pub unsafe fn _m_paddw(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_m_paddw(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_m_paddw(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Add packed 32-bit integers in `a` and `b`.
@@ -49,7 +49,7 @@ pub unsafe fn _m_paddw(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(paddd))]
 pub unsafe fn _mm_add_pi32(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_add_pi32(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_add_pi32(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Add packed 32-bit integers in `a` and `b`.
@@ -57,7 +57,7 @@ pub unsafe fn _mm_add_pi32(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(paddd))]
 pub unsafe fn _m_paddd(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_m_paddd(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_m_paddd(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Add packed 8-bit integers in `a` and `b` using saturation.
@@ -65,7 +65,7 @@ pub unsafe fn _m_paddd(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(paddsb))]
 pub unsafe fn _mm_adds_pi8(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_adds_pi8(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_adds_pi8(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Add packed 8-bit integers in `a` and `b` using saturation.
@@ -73,7 +73,7 @@ pub unsafe fn _mm_adds_pi8(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(paddsb))]
 pub unsafe fn _m_paddsb(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_m_paddsb(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_m_paddsb(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Add packed 16-bit integers in `a` and `b` using saturation.
@@ -81,7 +81,7 @@ pub unsafe fn _m_paddsb(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(paddsw))]
 pub unsafe fn _mm_adds_pi16(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_adds_pi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_adds_pi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Add packed 16-bit integers in `a` and `b` using saturation.
@@ -89,7 +89,7 @@ pub unsafe fn _mm_adds_pi16(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(paddsw))]
 pub unsafe fn _m_paddsw(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_m_paddsw(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_m_paddsw(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Add packed unsigned 8-bit integers in `a` and `b` using saturation.
@@ -97,7 +97,7 @@ pub unsafe fn _m_paddsw(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(paddusb))]
 pub unsafe fn _mm_adds_pu8(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_adds_pu8(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_adds_pu8(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Add packed unsigned 8-bit integers in `a` and `b` using saturation.
@@ -105,7 +105,7 @@ pub unsafe fn _mm_adds_pu8(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(paddusb))]
 pub unsafe fn _m_paddusb(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_m_paddusb(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_m_paddusb(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Add packed unsigned 16-bit integers in `a` and `b` using saturation.
@@ -113,7 +113,7 @@ pub unsafe fn _m_paddusb(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(paddusw))]
 pub unsafe fn _mm_adds_pu16(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_adds_pu16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_adds_pu16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Add packed unsigned 16-bit integers in `a` and `b` using saturation.
@@ -121,7 +121,7 @@ pub unsafe fn _mm_adds_pu16(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(paddusw))]
 pub unsafe fn _m_paddusw(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_m_paddusw(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_m_paddusw(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Subtract packed 8-bit integers in `b` from packed 8-bit integers in `a`.
@@ -129,7 +129,7 @@ pub unsafe fn _m_paddusw(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(psubb))]
 pub unsafe fn _mm_sub_pi8(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_sub_pi8(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_sub_pi8(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Subtract packed 8-bit integers in `b` from packed 8-bit integers in `a`.
@@ -137,7 +137,7 @@ pub unsafe fn _mm_sub_pi8(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(psubb))]
 pub unsafe fn _m_psubb(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_m_psubb(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_m_psubb(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Subtract packed 16-bit integers in `b` from packed 16-bit integers in `a`.
@@ -145,7 +145,7 @@ pub unsafe fn _m_psubb(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(psubw))]
 pub unsafe fn _mm_sub_pi16(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_sub_pi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_sub_pi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Subtract packed 16-bit integers in `b` from packed 16-bit integers in `a`.
@@ -153,7 +153,7 @@ pub unsafe fn _mm_sub_pi16(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(psubw))]
 pub unsafe fn _m_psubw(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_m_psubw(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_m_psubw(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Subtract packed 32-bit integers in `b` from packed 32-bit integers in `a`.
@@ -161,7 +161,7 @@ pub unsafe fn _m_psubw(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(psubd))]
 pub unsafe fn _mm_sub_pi32(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_sub_pi32(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_sub_pi32(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Subtract packed 32-bit integers in `b` from packed 32-bit integers in `a`.
@@ -169,7 +169,7 @@ pub unsafe fn _mm_sub_pi32(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(psubd))]
 pub unsafe fn _m_psubd(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_m_psubd(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_m_psubd(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Subtract packed 8-bit integers in `b` from packed 8-bit integers in `a`
@@ -178,7 +178,7 @@ pub unsafe fn _m_psubd(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(psubsb))]
 pub unsafe fn _mm_subs_pi8(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_subs_pi8(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_subs_pi8(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Subtract packed 8-bit integers in `b` from packed 8-bit integers in `a`
@@ -187,7 +187,7 @@ pub unsafe fn _mm_subs_pi8(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(psubsb))]
 pub unsafe fn _m_psubsb(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_m_psubsb(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_m_psubsb(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Subtract packed 16-bit integers in `b` from packed 16-bit integers in `a`
@@ -196,7 +196,7 @@ pub unsafe fn _m_psubsb(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(psubsw))]
 pub unsafe fn _mm_subs_pi16(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_subs_pi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_subs_pi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Subtract packed 16-bit integers in `b` from packed 16-bit integers in `a`
@@ -205,7 +205,7 @@ pub unsafe fn _mm_subs_pi16(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(psubsw))]
 pub unsafe fn _m_psubsw(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_m_psubsw(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_m_psubsw(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Subtract packed unsigned 8-bit integers in `b` from packed unsigned 8-bit
@@ -214,7 +214,7 @@ pub unsafe fn _m_psubsw(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(psubusb))]
 pub unsafe fn _mm_subs_pu8(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_subs_pu8(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_subs_pu8(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Subtract packed unsigned 8-bit integers in `b` from packed unsigned 8-bit
@@ -223,7 +223,7 @@ pub unsafe fn _mm_subs_pu8(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(psubusb))]
 pub unsafe fn _m_psubusb(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_m_psubusb(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_m_psubusb(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Subtract packed unsigned 16-bit integers in `b` from packed unsigned
@@ -232,7 +232,7 @@ pub unsafe fn _m_psubusb(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(psubusw))]
 pub unsafe fn _mm_subs_pu16(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_subs_pu16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_subs_pu16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Subtract packed unsigned 16-bit integers in `b` from packed unsigned
@@ -241,7 +241,7 @@ pub unsafe fn _mm_subs_pu16(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(psubusw))]
 pub unsafe fn _m_psubusw(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_m_psubusw(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_m_psubusw(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Convert packed 16-bit integers from `a` and `b` to packed 8-bit integers
@@ -253,7 +253,7 @@ pub unsafe fn _m_psubusw(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(packsswb))]
 pub unsafe fn _mm_packs_pi16(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_packs_pi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_packs_pi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Convert packed 32-bit integers from `a` and `b` to packed 16-bit integers
@@ -265,7 +265,7 @@ pub unsafe fn _mm_packs_pi16(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(packssdw))]
 pub unsafe fn _mm_packs_pi32(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_packs_pi32(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_packs_pi32(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compares whether each element of `a` is greater than the corresponding
@@ -274,7 +274,7 @@ pub unsafe fn _mm_packs_pi32(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(pcmpgtb))]
 pub unsafe fn _mm_cmpgt_pi8(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_cmpgt_pi8(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpgt_pi8(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compares whether each element of `a` is greater than the corresponding
@@ -283,7 +283,7 @@ pub unsafe fn _mm_cmpgt_pi8(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(pcmpgtw))]
 pub unsafe fn _mm_cmpgt_pi16(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_cmpgt_pi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpgt_pi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Compares whether each element of `a` is greater than the corresponding
@@ -292,12 +292,12 @@ pub unsafe fn _mm_cmpgt_pi16(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(pcmpgtd))]
 pub unsafe fn _mm_cmpgt_pi32(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_cmpgt_pi32(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpgt_pi32(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
  // FIXME punpcklbw expected
 pub unsafe fn _mm_unpackhi_pi16(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_unpackhi_pi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_unpackhi_pi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Unpacks the upper four elements from two `i8x8` vectors and interleaves
@@ -306,7 +306,7 @@ pub unsafe fn _mm_unpackhi_pi16(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(punpckhbw))]
 pub unsafe fn _mm_unpackhi_pi8(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_unpackhi_pi8(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_unpackhi_pi8(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Unpacks the lower four elements from two `i8x8` vectors and interleaves
@@ -315,7 +315,7 @@ pub unsafe fn _mm_unpackhi_pi8(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(punpcklbw))]
 pub unsafe fn _mm_unpacklo_pi8(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_unpacklo_pi8(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_unpacklo_pi8(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Unpacks the lower two elements from two `i16x4` vectors and interleaves
@@ -324,7 +324,7 @@ pub unsafe fn _mm_unpacklo_pi8(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(punpcklwd))]
 pub unsafe fn _mm_unpacklo_pi16(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_unpacklo_pi16(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_unpacklo_pi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Unpacks the upper element from two `i32x2` vectors and interleaves them
@@ -333,7 +333,7 @@ pub unsafe fn _mm_unpacklo_pi16(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(punpckhdq))]
 pub unsafe fn _mm_unpackhi_pi32(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_unpackhi_pi32(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_unpackhi_pi32(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Unpacks the lower element from two `i32x2` vectors and interleaves them
@@ -342,49 +342,49 @@ pub unsafe fn _mm_unpackhi_pi32(a: __m64, b: __m64) -> __m64 {
 #[target_feature(enable = "mmx")]
 #[cfg_attr(test, assert_instr(punpckldq))]
 pub unsafe fn _mm_unpacklo_pi32(a: __m64, b: __m64) -> __m64 {
-    ::mem::transmute(::myarch::_mm_unpacklo_pi32(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_unpacklo_pi32(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Set packed 16-bit integers in dst with the supplied values.
 #[inline]
 #[target_feature(enable = "mmx")]
 pub unsafe fn _mm_set_pi16(e3: i16, e2: i16, e1: i16, e0: i16) -> __m64 {
-    ::mem::transmute(::myarch::_mm_set_pi16(::mem::transmute(e3), ::mem::transmute(e2), ::mem::transmute(e1), ::mem::transmute(e0)))
+    crate::mem::transmute(crate::myarch::_mm_set_pi16(crate::mem::transmute(e3), crate::mem::transmute(e2), crate::mem::transmute(e1), crate::mem::transmute(e0)))
 }
 
 /// Set packed 32-bit integers in dst with the supplied values.
 #[inline]
 #[target_feature(enable = "mmx")]
 pub unsafe fn _mm_set_pi32(e1: i32, e0: i32) -> __m64 {
-    ::mem::transmute(::myarch::_mm_set_pi32(::mem::transmute(e1), ::mem::transmute(e0)))
+    crate::mem::transmute(crate::myarch::_mm_set_pi32(crate::mem::transmute(e1), crate::mem::transmute(e0)))
 }
 
 /// Set packed 8-bit integers in dst with the supplied values.
 #[inline]
 #[target_feature(enable = "mmx")]
 pub unsafe fn _mm_set_pi8(e7: i8, e6: i8, e5: i8, e4: i8, e3: i8, e2: i8, e1: i8, e0: i8) -> __m64 {
-    ::mem::transmute(::myarch::_mm_set_pi8(::mem::transmute(e7), ::mem::transmute(e6), ::mem::transmute(e5), ::mem::transmute(e4), ::mem::transmute(e3), ::mem::transmute(e2), ::mem::transmute(e1), ::mem::transmute(e0)))
+    crate::mem::transmute(crate::myarch::_mm_set_pi8(crate::mem::transmute(e7), crate::mem::transmute(e6), crate::mem::transmute(e5), crate::mem::transmute(e4), crate::mem::transmute(e3), crate::mem::transmute(e2), crate::mem::transmute(e1), crate::mem::transmute(e0)))
 }
 
 /// Broadcast 16-bit integer a to all all elements of dst.
 #[inline]
 #[target_feature(enable = "mmx")]
 pub unsafe fn _mm_set1_pi16(a: i16) -> __m64 {
-    ::mem::transmute(::myarch::_mm_set1_pi16(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_set1_pi16(crate::mem::transmute(a)))
 }
 
 /// Broadcast 32-bit integer a to all all elements of dst.
 #[inline]
 #[target_feature(enable = "mmx")]
 pub unsafe fn _mm_set1_pi32(a: i32) -> __m64 {
-    ::mem::transmute(::myarch::_mm_set1_pi32(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_set1_pi32(crate::mem::transmute(a)))
 }
 
 /// Broadcast 8-bit integer a to all all elements of dst.
 #[inline]
 #[target_feature(enable = "mmx")]
 pub unsafe fn _mm_set1_pi8(a: i8) -> __m64 {
-    ::mem::transmute(::myarch::_mm_set1_pi8(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_set1_pi8(crate::mem::transmute(a)))
 }
 
 /// Set packed 16-bit integers in dst with the supplied values in reverse
@@ -392,7 +392,7 @@ pub unsafe fn _mm_set1_pi8(a: i8) -> __m64 {
 #[inline]
 #[target_feature(enable = "mmx")]
 pub unsafe fn _mm_setr_pi16(e0: i16, e1: i16, e2: i16, e3: i16) -> __m64 {
-    ::mem::transmute(::myarch::_mm_setr_pi16(::mem::transmute(e0), ::mem::transmute(e1), ::mem::transmute(e2), ::mem::transmute(e3)))
+    crate::mem::transmute(crate::myarch::_mm_setr_pi16(crate::mem::transmute(e0), crate::mem::transmute(e1), crate::mem::transmute(e2), crate::mem::transmute(e3)))
 }
 
 /// Set packed 32-bit integers in dst with the supplied values in reverse
@@ -400,13 +400,13 @@ pub unsafe fn _mm_setr_pi16(e0: i16, e1: i16, e2: i16, e3: i16) -> __m64 {
 #[inline]
 #[target_feature(enable = "mmx")]
 pub unsafe fn _mm_setr_pi32(e0: i32, e1: i32) -> __m64 {
-    ::mem::transmute(::myarch::_mm_setr_pi32(::mem::transmute(e0), ::mem::transmute(e1)))
+    crate::mem::transmute(crate::myarch::_mm_setr_pi32(crate::mem::transmute(e0), crate::mem::transmute(e1)))
 }
 
 /// Set packed 8-bit integers in dst with the supplied values in reverse order.
 #[inline]
 #[target_feature(enable = "mmx")]
 pub unsafe fn _mm_setr_pi8(e0: i8, e1: i8, e2: i8, e3: i8, e4: i8, e5: i8, e6: i8, e7: i8) -> __m64 {
-    ::mem::transmute(::myarch::_mm_setr_pi8(::mem::transmute(e0), ::mem::transmute(e1), ::mem::transmute(e2), ::mem::transmute(e3), ::mem::transmute(e4), ::mem::transmute(e5), ::mem::transmute(e6), ::mem::transmute(e7)))
+    crate::mem::transmute(crate::myarch::_mm_setr_pi8(crate::mem::transmute(e0), crate::mem::transmute(e1), crate::mem::transmute(e2), crate::mem::transmute(e3), crate::mem::transmute(e4), crate::mem::transmute(e5), crate::mem::transmute(e6), crate::mem::transmute(e7)))
 }
 

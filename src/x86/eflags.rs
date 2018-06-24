@@ -6,13 +6,13 @@ use crate::simd::*;
 #[cfg(target_arch = "x86")]
 #[inline(always)]
 pub unsafe fn __readeflags() -> u32 {
-    ::mem::transmute(::myarch::__readeflags())
+    crate::mem::transmute(crate::myarch::__readeflags())
 }
 
 /// Reads EFLAGS.
 #[cfg(target_arch = "x86_64")]
 #[inline(always)]
 pub unsafe fn __readeflags() -> u64 {
-    ::mem::transmute(::myarch::__readeflags())
+    crate::mem::transmute(crate::myarch::__readeflags())
 }
 

@@ -12,10 +12,10 @@ pub unsafe fn _mm256_insert_epi64(a: i64x4, i: i64, index: i32) -> i64x4 {
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_mm256_insert_epi64(::mem::transmute(a), ::mem::transmute(i), $imm8)
+            crate::myarch::_mm256_insert_epi64(crate::mem::transmute(a), crate::mem::transmute(i), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(index, call))
+    crate::mem::transmute(constify_imm8!(index, call))
 }
 

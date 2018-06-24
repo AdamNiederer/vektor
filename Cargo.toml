@@ -1,3 +1,5 @@
+cargo-features = ["edition"]
+
 [package]
 name = "vektor"
 description = "Strongly typed explici SIMD"
@@ -8,3 +10,4 @@ keywords = ["simd"]
 categories = ["no-std", "hardware-support", "api-bindings"]
 repository = "https://github.com/AdamNiederer/vektor"
 readme = "README.org"
+edition = "2018"

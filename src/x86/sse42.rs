@@ -12,11 +12,11 @@ pub unsafe fn _mm_cmpistrm(a: __m128i, b: __m128i, imm8: i32) -> __m128i {
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_mm_cmpistrm(::mem::transmute(a), ::mem::transmute(b), $imm8)
+            crate::myarch::_mm_cmpistrm(crate::mem::transmute(a), crate::mem::transmute(b), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(imm8, call))
+    crate::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Compare packed strings with implicit lengths in `a` and `b` using the
@@ -259,11 +259,11 @@ pub unsafe fn _mm_cmpistri(a: __m128i, b: __m128i, imm8: i32) -> i32 {
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_mm_cmpistri(::mem::transmute(a), ::mem::transmute(b), $imm8)
+            crate::myarch::_mm_cmpistri(crate::mem::transmute(a), crate::mem::transmute(b), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(imm8, call))
+    crate::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Compare packed strings with implicit lengths in `a` and `b` using the
@@ -277,11 +277,11 @@ pub unsafe fn _mm_cmpistrz(a: __m128i, b: __m128i, imm8: i32) -> i32 {
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_mm_cmpistrz(::mem::transmute(a), ::mem::transmute(b), $imm8)
+            crate::myarch::_mm_cmpistrz(crate::mem::transmute(a), crate::mem::transmute(b), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(imm8, call))
+    crate::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Compare packed strings with implicit lengths in `a` and `b` using the
@@ -295,11 +295,11 @@ pub unsafe fn _mm_cmpistrc(a: __m128i, b: __m128i, imm8: i32) -> i32 {
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_mm_cmpistrc(::mem::transmute(a), ::mem::transmute(b), $imm8)
+            crate::myarch::_mm_cmpistrc(crate::mem::transmute(a), crate::mem::transmute(b), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(imm8, call))
+    crate::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Compare packed strings with implicit lengths in `a` and `b` using the
@@ -313,11 +313,11 @@ pub unsafe fn _mm_cmpistrs(a: __m128i, b: __m128i, imm8: i32) -> i32 {
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_mm_cmpistrs(::mem::transmute(a), ::mem::transmute(b), $imm8)
+            crate::myarch::_mm_cmpistrs(crate::mem::transmute(a), crate::mem::transmute(b), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(imm8, call))
+    crate::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Compare packed strings with implicit lengths in `a` and `b` using the
@@ -330,11 +330,11 @@ pub unsafe fn _mm_cmpistro(a: __m128i, b: __m128i, imm8: i32) -> i32 {
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_mm_cmpistro(::mem::transmute(a), ::mem::transmute(b), $imm8)
+            crate::myarch::_mm_cmpistro(crate::mem::transmute(a), crate::mem::transmute(b), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(imm8, call))
+    crate::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Compare packed strings with implicit lengths in `a` and `b` using the
@@ -348,11 +348,11 @@ pub unsafe fn _mm_cmpistra(a: __m128i, b: __m128i, imm8: i32) -> i32 {
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_mm_cmpistra(::mem::transmute(a), ::mem::transmute(b), $imm8)
+            crate::myarch::_mm_cmpistra(crate::mem::transmute(a), crate::mem::transmute(b), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(imm8, call))
+    crate::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Compare packed strings in `a` and `b` with lengths `la` and `lb`
@@ -365,11 +365,11 @@ pub unsafe fn _mm_cmpestrm(a: __m128i, la: i32, b: __m128i, lb: i32, imm8: i32) 
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_mm_cmpestrm(::mem::transmute(a), ::mem::transmute(la), ::mem::transmute(b), ::mem::transmute(lb), $imm8)
+            crate::myarch::_mm_cmpestrm(crate::mem::transmute(a), crate::mem::transmute(la), crate::mem::transmute(b), crate::mem::transmute(lb), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(imm8, call))
+    crate::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Compare packed strings `a` and `b` with lengths `la` and `lb` using the
@@ -467,11 +467,11 @@ pub unsafe fn _mm_cmpestri(a: __m128i, la: i32, b: __m128i, lb: i32, imm8: i32) 
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_mm_cmpestri(::mem::transmute(a), ::mem::transmute(la), ::mem::transmute(b), ::mem::transmute(lb), $imm8)
+            crate::myarch::_mm_cmpestri(crate::mem::transmute(a), crate::mem::transmute(la), crate::mem::transmute(b), crate::mem::transmute(lb), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(imm8, call))
+    crate::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Compare packed strings in `a` and `b` with lengths `la` and `lb`
@@ -485,11 +485,11 @@ pub unsafe fn _mm_cmpestrz(a: __m128i, la: i32, b: __m128i, lb: i32, imm8: i32) 
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_mm_cmpestrz(::mem::transmute(a), ::mem::transmute(la), ::mem::transmute(b), ::mem::transmute(lb), $imm8)
+            crate::myarch::_mm_cmpestrz(crate::mem::transmute(a), crate::mem::transmute(la), crate::mem::transmute(b), crate::mem::transmute(lb), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(imm8, call))
+    crate::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Compare packed strings in `a` and `b` with lengths `la` and `lb`
@@ -503,11 +503,11 @@ pub unsafe fn _mm_cmpestrc(a: __m128i, la: i32, b: __m128i, lb: i32, imm8: i32) 
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_mm_cmpestrc(::mem::transmute(a), ::mem::transmute(la), ::mem::transmute(b), ::mem::transmute(lb), $imm8)
+            crate::myarch::_mm_cmpestrc(crate::mem::transmute(a), crate::mem::transmute(la), crate::mem::transmute(b), crate::mem::transmute(lb), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(imm8, call))
+    crate::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Compare packed strings in `a` and `b` with lengths `la` and `lb`
@@ -521,11 +521,11 @@ pub unsafe fn _mm_cmpestrs(a: __m128i, la: i32, b: __m128i, lb: i32, imm8: i32) 
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_mm_cmpestrs(::mem::transmute(a), ::mem::transmute(la), ::mem::transmute(b), ::mem::transmute(lb), $imm8)
+            crate::myarch::_mm_cmpestrs(crate::mem::transmute(a), crate::mem::transmute(la), crate::mem::transmute(b), crate::mem::transmute(lb), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(imm8, call))
+    crate::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Compare packed strings in `a` and `b` with lengths `la` and `lb`
@@ -539,11 +539,11 @@ pub unsafe fn _mm_cmpestro(a: __m128i, la: i32, b: __m128i, lb: i32, imm8: i32) 
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_mm_cmpestro(::mem::transmute(a), ::mem::transmute(la), ::mem::transmute(b), ::mem::transmute(lb), $imm8)
+            crate::myarch::_mm_cmpestro(crate::mem::transmute(a), crate::mem::transmute(la), crate::mem::transmute(b), crate::mem::transmute(lb), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(imm8, call))
+    crate::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Compare packed strings in `a` and `b` with lengths `la` and `lb`
@@ -558,11 +558,11 @@ pub unsafe fn _mm_cmpestra(a: __m128i, la: i32, b: __m128i, lb: i32, imm8: i32) 
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_mm_cmpestra(::mem::transmute(a), ::mem::transmute(la), ::mem::transmute(b), ::mem::transmute(lb), $imm8)
+            crate::myarch::_mm_cmpestra(crate::mem::transmute(a), crate::mem::transmute(la), crate::mem::transmute(b), crate::mem::transmute(lb), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(imm8, call))
+    crate::mem::transmute(constify_imm8!(imm8, call))
 }
 
 /// Starting with the initial value in `crc`, return the accumulated
@@ -571,7 +571,7 @@ pub unsafe fn _mm_cmpestra(a: __m128i, la: i32, b: __m128i, lb: i32, imm8: i32) 
 #[target_feature(enable = "sse4.2")]
 #[cfg_attr(test, assert_instr(crc32))]
 pub unsafe fn _mm_crc32_u8(crc: u32, v: u8) -> u32 {
-    ::mem::transmute(::myarch::_mm_crc32_u8(::mem::transmute(crc), ::mem::transmute(v)))
+    crate::mem::transmute(crate::myarch::_mm_crc32_u8(crate::mem::transmute(crc), crate::mem::transmute(v)))
 }
 
 /// Starting with the initial value in `crc`, return the accumulated
@@ -580,7 +580,7 @@ pub unsafe fn _mm_crc32_u8(crc: u32, v: u8) -> u32 {
 #[target_feature(enable = "sse4.2")]
 #[cfg_attr(test, assert_instr(crc32))]
 pub unsafe fn _mm_crc32_u16(crc: u32, v: u16) -> u32 {
-    ::mem::transmute(::myarch::_mm_crc32_u16(::mem::transmute(crc), ::mem::transmute(v)))
+    crate::mem::transmute(crate::myarch::_mm_crc32_u16(crate::mem::transmute(crc), crate::mem::transmute(v)))
 }
 
 /// Starting with the initial value in `crc`, return the accumulated
@@ -589,7 +589,7 @@ pub unsafe fn _mm_crc32_u16(crc: u32, v: u16) -> u32 {
 #[target_feature(enable = "sse4.2")]
 #[cfg_attr(test, assert_instr(crc32))]
 pub unsafe fn _mm_crc32_u32(crc: u32, v: u32) -> u32 {
-    ::mem::transmute(::myarch::_mm_crc32_u32(::mem::transmute(crc), ::mem::transmute(v)))
+    crate::mem::transmute(crate::myarch::_mm_crc32_u32(crate::mem::transmute(crc), crate::mem::transmute(v)))
 }
 
 /// Compare packed 64-bit integers in `a` and `b` for greater-than,
@@ -598,6 +598,6 @@ pub unsafe fn _mm_crc32_u32(crc: u32, v: u32) -> u32 {
 #[target_feature(enable = "sse4.2")]
 #[cfg_attr(test, assert_instr(pcmpgtq))]
 pub unsafe fn _mm_cmpgt_epi64(a: i64x2, b: i64x2) -> i64x2 {
-    ::mem::transmute(::myarch::_mm_cmpgt_epi64(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cmpgt_epi64(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 

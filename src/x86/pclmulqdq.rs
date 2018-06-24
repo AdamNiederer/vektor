@@ -24,10 +24,10 @@ pub unsafe fn _mm_clmulepi64_si128(a: i64x2, b: i64x2, imm8: i32) -> i64x2 {
 
     macro_rules! call {
         ($imm8:expr) => {
-            ::myarch::_mm_clmulepi64_si128(::mem::transmute(a), ::mem::transmute(b), $imm8)
+            crate::myarch::_mm_clmulepi64_si128(crate::mem::transmute(a), crate::mem::transmute(b), $imm8)
         };
     }
 
-    ::mem::transmute(constify_imm8!(imm8, call))
+    crate::mem::transmute(constify_imm8!(imm8, call))
 }
 

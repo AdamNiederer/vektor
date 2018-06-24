@@ -8,7 +8,7 @@ use crate::simd::*;
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cvtsd2si))]
 pub unsafe fn _mm_cvtsd_si64(a: f64x2) -> i64 {
-    ::mem::transmute(::myarch::_mm_cvtsd_si64(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvtsd_si64(crate::mem::transmute(a)))
 }
 
 /// Alias for `_mm_cvtsd_si64`
@@ -16,7 +16,7 @@ pub unsafe fn _mm_cvtsd_si64(a: f64x2) -> i64 {
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cvtsd2si))]
 pub unsafe fn _mm_cvtsd_si64x(a: f64x2) -> i64 {
-    ::mem::transmute(::myarch::_mm_cvtsd_si64x(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvtsd_si64x(crate::mem::transmute(a)))
 }
 
 /// Convert the lower double-precision (64-bit) floating-point element in `a`
@@ -25,7 +25,7 @@ pub unsafe fn _mm_cvtsd_si64x(a: f64x2) -> i64 {
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cvttsd2si))]
 pub unsafe fn _mm_cvttsd_si64(a: f64x2) -> i64 {
-    ::mem::transmute(::myarch::_mm_cvttsd_si64(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvttsd_si64(crate::mem::transmute(a)))
 }
 
 /// Alias for `_mm_cvttsd_si64`
@@ -33,7 +33,7 @@ pub unsafe fn _mm_cvttsd_si64(a: f64x2) -> i64 {
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cvttsd2si))]
 pub unsafe fn _mm_cvttsd_si64x(a: f64x2) -> i64 {
-    ::mem::transmute(::myarch::_mm_cvttsd_si64x(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvttsd_si64x(crate::mem::transmute(a)))
 }
 
 /// Return a vector whose lowest element is `a` and all higher elements are
@@ -42,7 +42,7 @@ pub unsafe fn _mm_cvttsd_si64x(a: f64x2) -> i64 {
 #[target_feature(enable = "sse2")]
 #[cfg_attr(all(test, not(windows)), assert_instr(movq))]
 pub unsafe fn _mm_cvtsi64_si128(a: i64) -> __m128i {
-    ::mem::transmute(::myarch::_mm_cvtsi64_si128(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvtsi64_si128(crate::mem::transmute(a)))
 }
 
 /// Return a vector whose lowest element is `a` and all higher elements are
@@ -51,7 +51,7 @@ pub unsafe fn _mm_cvtsi64_si128(a: i64) -> __m128i {
 #[target_feature(enable = "sse2")]
 #[cfg_attr(all(test, not(windows)), assert_instr(movq))]
 pub unsafe fn _mm_cvtsi64x_si128(a: i64) -> __m128i {
-    ::mem::transmute(::myarch::_mm_cvtsi64x_si128(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvtsi64x_si128(crate::mem::transmute(a)))
 }
 
 /// Return the lowest element of `a`.
@@ -59,7 +59,7 @@ pub unsafe fn _mm_cvtsi64x_si128(a: i64) -> __m128i {
 #[target_feature(enable = "sse2")]
 #[cfg_attr(all(test, not(windows)), assert_instr(movq))]
 pub unsafe fn _mm_cvtsi128_si64(a: __m128i) -> i64 {
-    ::mem::transmute(::myarch::_mm_cvtsi128_si64(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvtsi128_si64(crate::mem::transmute(a)))
 }
 
 /// Return the lowest element of `a`.
@@ -67,7 +67,7 @@ pub unsafe fn _mm_cvtsi128_si64(a: __m128i) -> i64 {
 #[target_feature(enable = "sse2")]
 #[cfg_attr(all(test, not(windows)), assert_instr(movq))]
 pub unsafe fn _mm_cvtsi128_si64x(a: __m128i) -> i64 {
-    ::mem::transmute(::myarch::_mm_cvtsi128_si64x(::mem::transmute(a)))
+    crate::mem::transmute(crate::myarch::_mm_cvtsi128_si64x(crate::mem::transmute(a)))
 }
 
 /// Return `a` with its lower element replaced by `b` after converting it to
@@ -76,7 +76,7 @@ pub unsafe fn _mm_cvtsi128_si64x(a: __m128i) -> i64 {
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cvtsi2sd))]
 pub unsafe fn _mm_cvtsi64_sd(a: f64x2, b: i64) -> f64x2 {
-    ::mem::transmute(::myarch::_mm_cvtsi64_sd(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cvtsi64_sd(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
 /// Return `a` with its lower element replaced by `b` after converting it to
@@ -85,6 +85,6 @@ pub unsafe fn _mm_cvtsi64_sd(a: f64x2, b: i64) -> f64x2 {
 #[target_feature(enable = "sse2")]
 #[cfg_attr(test, assert_instr(cvtsi2sd))]
 pub unsafe fn _mm_cvtsi64x_sd(a: f64x2, b: i64) -> f64x2 {
-    ::mem::transmute(::myarch::_mm_cvtsi64x_sd(::mem::transmute(a), ::mem::transmute(b)))
+    crate::mem::transmute(crate::myarch::_mm_cvtsi64x_sd(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 

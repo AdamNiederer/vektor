@@ -4,7 +4,7 @@ use crate::simd::*;
 
  // calls an intrinsic
 pub unsafe fn _mulx_u64(a: u64, b: u64, hi: &mut u64) -> u64 {
-    ::mem::transmute(::myarch::_mulx_u64(::mem::transmute(a), ::mem::transmute(b), ::mem::transmute(hi)))
+    crate::mem::transmute(crate::myarch::_mulx_u64(crate::mem::transmute(a), crate::mem::transmute(b), crate::mem::transmute(hi)))
 }
 
 /// Zero higher bits of `a` >= `index`.
@@ -13,7 +13,7 @@ pub unsafe fn _mulx_u64(a: u64, b: u64, hi: &mut u64) -> u64 {
 #[cfg_attr(test, assert_instr(bzhi))]
 #[cfg(not(target_arch = "x86"))]
 pub unsafe fn _bzhi_u64(a: u64, index: u32) -> u64 {
-    ::mem::transmute(::myarch::_bzhi_u64(::mem::transmute(a), ::mem::transmute(index)))
+    crate::mem::transmute(crate::myarch::_bzhi_u64(crate::mem::transmute(a), crate::mem::transmute(index)))
 }
 
 /// Scatter contiguous low order bits of `a` to the result at the positions
@@ -23,7 +23,7 @@ pub unsafe fn _bzhi_u64(a: u64, index: u32) -> u64 {
 #[cfg_attr(test, assert_instr(pdep))]
 #[cfg(not(target_arch = "x86"))]
 pub unsafe fn _pdep_u64(a: u64, mask: u64) -> u64 {
-    ::mem::transmute(::myarch::_pdep_u64(::mem::transmute(a), ::mem::transmute(mask)))
+    crate::mem::transmute(crate::myarch::_pdep_u64(crate::mem::transmute(a), crate::mem::transmute(mask)))
 }
 
 /// Gathers the bits of `x` specified by the `mask` into the contiguous low
@@ -33,6 +33,6 @@ pub unsafe fn _pdep_u64(a: u64, mask: u64) -> u64 {
 #[cfg_attr(test, assert_instr(pext))]
 #[cfg(not(target_arch = "x86"))]
 pub unsafe fn _pext_u64(a: u64, mask: u64) -> u64 {
-    ::mem::transmute(::myarch::_pext_u64(::mem::transmute(a), ::mem::transmute(mask)))
+    crate::mem::transmute(crate::myarch::_pext_u64(crate::mem::transmute(a), crate::mem::transmute(mask)))
 }
 

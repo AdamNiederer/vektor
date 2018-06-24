@@ -9,7 +9,7 @@ use crate::simd::*;
 #[cfg_attr(test, assert_instr(rdrand))]
 #[cfg_attr(feature = "cargo-clippy", allow(stutter))]
 pub unsafe fn _rdrand64_step(val: &mut u64) -> i32 {
-    ::mem::transmute(::myarch::_rdrand64_step(::mem::transmute(val)))
+    crate::mem::transmute(crate::myarch::_rdrand64_step(crate::mem::transmute(val)))
 }
 
 /// Read a 64-bit NIST SP800-90B and SP800-90C compliant random value and store
@@ -18,6 +18,6 @@ pub unsafe fn _rdrand64_step(val: &mut u64) -> i32 {
 #[target_feature(enable = "rdseed")]
 #[cfg_attr(test, assert_instr(rdseed))]
 pub unsafe fn _rdseed64_step(val: &mut u64) -> i32 {
-    ::mem::transmute(::myarch::_rdseed64_step(::mem::transmute(val)))
+    crate::mem::transmute(crate::myarch::_rdseed64_step(crate::mem::transmute(val)))
 }
 
