@@ -83,3 +83,4 @@ pub unsafe fn _mm_sha256msg2_epu32(a: u32x4, b: u32x4) -> u32x4 {
 pub unsafe fn _mm_sha256rnds2_epu32(a: u32x4, b: u32x4, k: u32x4) -> u32x4 {
     crate::mem::transmute(crate::myarch::_mm_sha256rnds2_epu32(crate::mem::transmute(a), crate::mem::transmute(b), crate::mem::transmute(k)))
 }
+

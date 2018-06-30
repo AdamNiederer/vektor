@@ -1607,7 +1607,11 @@ pub unsafe fn _mm_setr_pd(a: f64, b: f64) -> f64x2 {
     crate::mem::transmute(crate::myarch::_mm_setr_pd(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
- // FIXME xorpd expected
+/// Returns packed double-precision (64-bit) floating-point elements with all
+/// zeros.
+#[inline]
+#[target_feature(enable = "sse2")]
+#[cfg_attr(test, assert_instr(xorps))] // FIXME xorpd expected
 pub unsafe fn _mm_setzero_pd() -> f64x2 {
     crate::mem::transmute(crate::myarch::_mm_setzero_pd())
 }

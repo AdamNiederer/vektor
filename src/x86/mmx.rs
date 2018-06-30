@@ -295,7 +295,11 @@ pub unsafe fn _mm_cmpgt_pi32(a: __m64, b: __m64) -> __m64 {
     crate::mem::transmute(crate::myarch::_mm_cmpgt_pi32(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
- // FIXME punpcklbw expected
+/// Unpacks the upper two elements from two `i16x4` vectors and interleaves
+/// them into the result: `[a.2, b.2, a.3, b.3]`.
+#[inline]
+#[target_feature(enable = "mmx")]
+#[cfg_attr(test, assert_instr(punpckhwd))] // FIXME punpcklbw expected
 pub unsafe fn _mm_unpackhi_pi16(a: __m64, b: __m64) -> __m64 {
     crate::mem::transmute(crate::myarch::_mm_unpackhi_pi16(crate::mem::transmute(a), crate::mem::transmute(b)))
 }

@@ -33,17 +33,31 @@ pub unsafe fn _andn_u64(a: u64, b: u64) -> u64 {
     crate::mem::transmute(crate::myarch::_andn_u64(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
- // generates lots of instructions
+/// Extract lowest set isolated bit.
+#[inline]
+#[target_feature(enable = "bmi1")]
+#[cfg_attr(test, assert_instr(blsi))]
+#[cfg(not(target_arch = "x86"))] // generates lots of instructions
 pub unsafe fn _blsi_u64(x: u64) -> u64 {
     crate::mem::transmute(crate::myarch::_blsi_u64(crate::mem::transmute(x)))
 }
 
- // generates lots of instructions
+/// Get mask up to lowest set bit.
+#[inline]
+#[target_feature(enable = "bmi1")]
+#[cfg_attr(test, assert_instr(blsmsk))]
+#[cfg(not(target_arch = "x86"))] // generates lots of instructions
 pub unsafe fn _blsmsk_u64(x: u64) -> u64 {
     crate::mem::transmute(crate::myarch::_blsmsk_u64(crate::mem::transmute(x)))
 }
 
- // generates lots of instructions
+/// Resets the lowest set bit of `x`.
+///
+/// If `x` is sets CF.
+#[inline]
+#[target_feature(enable = "bmi1")]
+#[cfg_attr(test, assert_instr(blsr))]
+#[cfg(not(target_arch = "x86"))] // generates lots of instructions
 pub unsafe fn _blsr_u64(x: u64) -> u64 {
     crate::mem::transmute(crate::myarch::_blsr_u64(crate::mem::transmute(x)))
 }

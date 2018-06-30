@@ -466,7 +466,12 @@ pub unsafe fn _mm256_xor_ps(a: f32x8, b: f32x8) -> f32x8 {
     crate::mem::transmute(crate::myarch::_mm256_xor_ps(crate::mem::transmute(a), crate::mem::transmute(b)))
 }
 
- // TODO Validate vcmppd
+/// Compare packed double-precision (64-bit) floating-point
+/// elements in `a` and `b` based on the comparison operand
+/// specified by `imm8`.
+#[inline]
+#[target_feature(enable = "avx,sse2")]
+#[cfg_attr(test, assert_instr(vcmpeqpd, imm8 = 0))] // TODO Validate vcmppd
 #[rustc_args_required_const(2)]
 pub unsafe fn _mm_cmp_pd(a: f64x2, b: f64x2, imm8: i32) -> f64x2 {
 
@@ -479,7 +484,12 @@ pub unsafe fn _mm_cmp_pd(a: f64x2, b: f64x2, imm8: i32) -> f64x2 {
     crate::mem::transmute(constify_imm8!(imm8, call))
 }
 
- // TODO Validate vcmppd
+/// Compare packed double-precision (64-bit) floating-point
+/// elements in `a` and `b` based on the comparison operand
+/// specified by `imm8`.
+#[inline]
+#[target_feature(enable = "avx")]
+#[cfg_attr(test, assert_instr(vcmpeqpd, imm8 = 0))] // TODO Validate vcmppd
 #[rustc_args_required_const(2)]
 pub unsafe fn _mm256_cmp_pd(a: f64x4, b: f64x4, imm8: i32) -> f64x4 {
 
@@ -492,7 +502,12 @@ pub unsafe fn _mm256_cmp_pd(a: f64x4, b: f64x4, imm8: i32) -> f64x4 {
     crate::mem::transmute(constify_imm8!(imm8, call))
 }
 
- // TODO Validate vcmpps
+/// Compare packed single-precision (32-bit) floating-point
+/// elements in `a` and `b` based on the comparison operand
+/// specified by `imm8`.
+#[inline]
+#[target_feature(enable = "avx,sse")]
+#[cfg_attr(test, assert_instr(vcmpeqps, imm8 = 0))] // TODO Validate vcmpps
 #[rustc_args_required_const(2)]
 pub unsafe fn _mm_cmp_ps(a: f32x4, b: f32x4, imm8: i32) -> f32x4 {
 
@@ -505,7 +520,12 @@ pub unsafe fn _mm_cmp_ps(a: f32x4, b: f32x4, imm8: i32) -> f32x4 {
     crate::mem::transmute(constify_imm8!(imm8, call))
 }
 
- // TODO Validate vcmpps
+/// Compare packed single-precision (32-bit) floating-point
+/// elements in `a` and `b` based on the comparison operand
+/// specified by `imm8`.
+#[inline]
+#[target_feature(enable = "avx")]
+#[cfg_attr(test, assert_instr(vcmpeqps, imm8 = 0))] // TODO Validate vcmpps
 #[rustc_args_required_const(2)]
 pub unsafe fn _mm256_cmp_ps(a: f32x8, b: f32x8, imm8: i32) -> f32x8 {
 
@@ -518,7 +538,14 @@ pub unsafe fn _mm256_cmp_ps(a: f32x8, b: f32x8, imm8: i32) -> f32x8 {
     crate::mem::transmute(constify_imm8!(imm8, call))
 }
 
- // TODO Validate vcmpsd
+/// Compare the lower double-precision (64-bit) floating-point element in
+/// `a` and `b` based on the comparison operand specified by `imm8`,
+/// store the result in the lower element of returned vector,
+/// and copy the upper element from `a` to the upper element of returned
+/// vector.
+#[inline]
+#[target_feature(enable = "avx,sse2")]
+#[cfg_attr(test, assert_instr(vcmpeqsd, imm8 = 0))] // TODO Validate vcmpsd
 #[rustc_args_required_const(2)]
 pub unsafe fn _mm_cmp_sd(a: f64x2, b: f64x2, imm8: i32) -> f64x2 {
 
@@ -531,7 +558,14 @@ pub unsafe fn _mm_cmp_sd(a: f64x2, b: f64x2, imm8: i32) -> f64x2 {
     crate::mem::transmute(constify_imm8!(imm8, call))
 }
 
- // TODO Validate vcmpss
+/// Compare the lower single-precision (32-bit) floating-point element in
+/// `a` and `b` based on the comparison operand specified by `imm8`,
+/// store the result in the lower element of returned vector,
+/// and copy the upper 3 packed elements from `a` to the upper elements of
+/// returned vector.
+#[inline]
+#[target_feature(enable = "avx,sse")]
+#[cfg_attr(test, assert_instr(vcmpeqss, imm8 = 0))] // TODO Validate vcmpss
 #[rustc_args_required_const(2)]
 pub unsafe fn _mm_cmp_ss(a: f32x4, b: f32x4, imm8: i32) -> f32x4 {
 
@@ -970,7 +1004,13 @@ pub unsafe fn _mm256_insert_epi32(a: i32x8, i: i32, index: i32) -> i32x8 {
     crate::mem::transmute(constify_imm8!(index, call))
 }
 
- // FIXME vmovapd expected
+/// Load 256-bits (composed of 4 packed double-precision (64-bit)
+/// floating-point elements) from memory into result.
+/// `mem_addr` must be aligned on a 32-byte boundary or a
+/// general-protection exception may be generated.
+#[inline]
+#[target_feature(enable = "avx")]
+#[cfg_attr(test, assert_instr(vmovaps))] // FIXME vmovapd expected
 pub unsafe fn _mm256_load_pd(mem_addr: *const f64) -> f64x4 {
     crate::mem::transmute(crate::myarch::_mm256_load_pd(crate::mem::transmute(mem_addr)))
 }
@@ -986,7 +1026,12 @@ pub unsafe fn _mm256_load_ps(mem_addr: *const f32) -> f32x8 {
     crate::mem::transmute(crate::myarch::_mm256_load_ps(crate::mem::transmute(mem_addr)))
 }
 
- // FIXME vmovupd expected
+/// Load 256-bits (composed of 4 packed double-precision (64-bit)
+/// floating-point elements) from memory into result.
+/// `mem_addr` does not need to be aligned on any particular boundary.
+#[inline]
+#[target_feature(enable = "avx")]
+#[cfg_attr(test, assert_instr(vmovups))] // FIXME vmovupd expected
 pub unsafe fn _mm256_loadu_pd(mem_addr: *const f64) -> f64x4 {
     crate::mem::transmute(crate::myarch::_mm256_loadu_pd(crate::mem::transmute(mem_addr)))
 }
@@ -1001,12 +1046,21 @@ pub unsafe fn _mm256_loadu_ps(mem_addr: *const f32) -> f32x8 {
     crate::mem::transmute(crate::myarch::_mm256_loadu_ps(crate::mem::transmute(mem_addr)))
 }
 
- // FIXME vmovdqa expected
+/// Load 256-bits of integer data from memory into result.
+/// `mem_addr` must be aligned on a 32-byte boundary or a
+/// general-protection exception may be generated.
+#[inline]
+#[target_feature(enable = "avx")]
+#[cfg_attr(test, assert_instr(vmovaps))] // FIXME vmovdqa expected
 pub unsafe fn _mm256_load_si256(mem_addr: *const __m256i) -> __m256i {
     crate::mem::transmute(crate::myarch::_mm256_load_si256(crate::mem::transmute(mem_addr)))
 }
 
- // FIXME vmovdqu expected
+/// Load 256-bits of integer data from memory into result.
+/// `mem_addr` does not need to be aligned on any particular boundary.
+#[inline]
+#[target_feature(enable = "avx")]
+#[cfg_attr(test, assert_instr(vmovups))] // FIXME vmovdqu expected
 pub unsafe fn _mm256_loadu_si256(mem_addr: *const __m256i) -> __m256i {
     crate::mem::transmute(crate::myarch::_mm256_loadu_si256(crate::mem::transmute(mem_addr)))
 }
@@ -1370,7 +1424,10 @@ pub unsafe fn _mm256_movemask_ps(a: f32x8) -> i32 {
     crate::mem::transmute(crate::myarch::_mm256_movemask_ps(crate::mem::transmute(a)))
 }
 
- // FIXME vxorpd expected
+/// Return vector of type __m256d with all elements set to zero.
+#[inline]
+#[target_feature(enable = "avx")]
+#[cfg_attr(test, assert_instr(vxorps))] // FIXME vxorpd expected
 pub unsafe fn _mm256_setzero_pd() -> f64x4 {
     crate::mem::transmute(crate::myarch::_mm256_setzero_pd())
 }

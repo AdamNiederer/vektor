@@ -2,7 +2,14 @@
 use crate::myarch::*;
 use crate::simd::*;
 
- // calls an intrinsic
+/// Unsigned multiply without affecting flags.
+///
+/// Unsigned multiplication of `a` with `b` returning a pair `(lo, hi)` with
+/// the low half and the high half of the result.
+#[inline]
+#[cfg_attr(test, assert_instr(mulx))]
+#[target_feature(enable = "bmi2")]
+#[cfg(not(target_arch = "x86"))] // calls an intrinsic
 pub unsafe fn _mulx_u64(a: u64, b: u64, hi: &mut u64) -> u64 {
     crate::mem::transmute(crate::myarch::_mulx_u64(crate::mem::transmute(a), crate::mem::transmute(b), crate::mem::transmute(hi)))
 }
