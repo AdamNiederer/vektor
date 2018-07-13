@@ -5,8 +5,6 @@
 use crate::myarch::*;
 use crate::simd::*;
 
-use x86::test::get_m256;
-
 #[target_feature(enable = "sse2")]
 pub unsafe fn get_m128d(a: f64x2, idx: usize) -> f64 {
     crate::mem::transmute(crate::myarch::get_m128d(crate::mem::transmute(a), crate::mem::transmute(idx)))
@@ -31,6 +29,6 @@ pub unsafe fn get_m256d(a: f64x4, idx: usize) -> f64 {
 
 #[target_feature(enable = "avx")]
 pub unsafe fn get_m256(a: f32x8, idx: usize) -> f32 {
-    crate::mem::transmute(crate::myarch::ge t_m256(crate::mem::transmute(a), crate::mem::transmute(idx)))
+    crate::mem::transmute(crate::myarch::get_m256(crate::mem::transmute(a), crate::mem::transmute(idx)))
 }
 
