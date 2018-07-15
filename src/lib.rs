@@ -1,6 +1,7 @@
 #![no_std]
-#![feature(stdsimd, attr_literals, rustc_attrs, crate_in_paths, tbm_target_feature, mmx_target_feature, sse4a_target_feature)]
+#![feature(stdsimd, attr_literals, rustc_attrs, crate_in_paths, tbm_target_feature, mmx_target_feature, sse4a_target_feature, aarch64_target_feature)]
 
+//#![feature(aarch64_target_feature)]
 use core::mem;
 use core::simd;
 
@@ -273,6 +274,9 @@ macro_rules! constify_imm8 {
 use core::arch::x86_64 as myarch;
 #[cfg(target_arch = "x86")]
 use core::arch::x86 as myarch;
+#[cfg(target_arch = "aarch64")]
+use core::arch::aarch64 as myarch;
+
 
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 pub mod x86;
@@ -283,3 +287,10 @@ pub use crate::x86::*;
 pub mod x86_64;
 #[cfg(target_arch = "x86_64")]
 pub use crate::x86_64::*;
+
+#[cfg(target_arch = "aarch64")]
+pub mod aarch64;
+#[cfg(target_arch = "aarch64")]
+pub use crate::aarch64::*;
+
+
