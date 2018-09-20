@@ -1,9 +1,10 @@
 #![no_std]
 #![feature(stdsimd, attr_literals, rustc_attrs, crate_in_paths, tbm_target_feature, mmx_target_feature, sse4a_target_feature, aarch64_target_feature)]
 
+extern crate packed_simd as simd;
+
 //#![feature(aarch64_target_feature)]
 use core::mem;
-use core::simd;
 
 // Taken from stdsimd https://github.com/rust-lang-nursery/stdsimd/blob/3491956867a0873ecf7403d52cad6de3d9137b16/coresimd/x86/macros.rs
 macro_rules! constify_imm8 {
