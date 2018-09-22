@@ -11,3 +11,6 @@ categories = ["no-std", "hardware-support", "api-bindings"]
 repository = "https://github.com/AdamNiederer/vektor"
 readme = "README.org"
 edition = "2018"
+
+[dependencies]
+packed_simd = "0.3"
