@@ -5,7 +5,7 @@ name = "vektor"
 description = "Strongly typed explici SIMD"
 authors = ["Adam Niederer <adam.niederer@gmail.com>"]
 license = "MPL-2.0"
-version = "0.2.1"
+version = "0.2.2"
 keywords = ["simd"]
 categories = ["no-std", "hardware-support", "api-bindings"]
 repository = "https://github.com/AdamNiederer/vektor"
@@ -13,4 +13,4 @@ readme = "README.org"
 edition = "2018"
 
 [dependencies]
-packed_simd = "0.3"
+packed_simd = {version = "0.3.4", package = "packed_simd_2"}
